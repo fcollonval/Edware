@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 # * **************************************************************** **
 #
 # File: downloader.py
@@ -86,7 +87,7 @@ except:
 
 
 if (not (PORTAUDIO_PRESENT or PYGAME_PRESENT)) and (paths.get_platform() != "win"):
-    print "ERROR - No Audio package (pygame or pyaudio) installed!"
+    print _(u"ERROR - No Audio package (pygame or pyaudio) installed!")
     sys.exit(1)
             
 AUDIO_CHUNK = 1024
@@ -95,52 +96,52 @@ def set_audio_output(choice):
     global USE_PORTAUDIO
     global USE_PYGAME
     choice = choice.lower()
-    installed = "unknown"
-    using = "unknown"
+    installed = _(u"unknown")
+    using = _(u"unknown")
 
     if (PORTAUDIO_PRESENT and PYGAME_PRESENT):
-        installed = "portaudio, pygame"
+        installed = (u"portaudio, pygame")
     elif (PORTAUDIO_PRESENT):
-        installed = "portaudio"
+        installed = (u"portaudio")
     elif (PYGAME_PRESENT):
-        installed = "pygame"
+        installed = (u"pygame")
     else:
-        installed = "no extra audio backends"
+        installed = _(u"no extra audio backends")
         
-    print "(Audio installed: %s" % (installed),
+    print _(u"(Audio installed: %s") % (installed),
     
-    if (choice == "any"):
+    if (choice == (u"any")):
         if (PORTAUDIO_PRESENT):
             USE_PORTAUDIO = True
-            using = "portaudio"
+            using = (u"portaudio")
         elif (PYGAME_PRESENT):
             USE_PYGAME = True
-            using = "pygame"
+            using = (u"pygame")
         else:
             # must be windows built-in
-            using = "windows-built-in"
+            using = (u"windows-built-in")
 
-    elif (choice == "portaudio"):
+    elif (choice == u"portaudio"):
         if (not PORTAUDIO_PRESENT):
-            print "\nERROR - selected audio 'portaudio' is not installed!"
+            print _(u"\nERROR - selected audio 'portaudio' is not installed!")
             sys.exit(1)
         else:
             USE_PORTAUDIO = True
             using = choice
 
-    elif (choice == "pygame"):
+    elif (choice == u"pygame"):
         if (not PYGAME_PRESENT):
-            print "\nERROR - selected audio 'pygame' is not installed!"
+            print _(u"\nERROR - selected audio 'pygame' is not installed!")
             sys.exit(1)
         else:
             USE_PYGAME = True
             using = choice
 
     else:
-        print "\nERROR - selected audio '%s' is unknown!" % (choice)
+        print _(u"\nERROR - selected audio '%s' is unknown!") % (choice)
         sys.exit(2)
 
-    print "-  Audio to be used: %s)\n" % (using)
+    print _(u"-  Audio to be used: %s)\n") % (using)
             
     
 import token_assembler
@@ -227,17 +228,17 @@ def check_size():
     vars = win_data.vars_stats()
     program_bytes = len(download_bytes)-2
 
-    message = "Program size (bytes): %d\n" % (program_bytes,)
-    message += '\n'
-    message += "Variables (%s) used: %d, max: %d\n" % (vars[0][0], vars[1][0], vars[2][0])
-    message += "Variables (%s) used: %d, max: %d\n" % (vars[0][1], vars[1][1], vars[2][1])
+    message = _(u"Program size (bytes): %d\n") % (program_bytes,)
+    message += u'\n'
+    message += _(u"Variables (%s) used: %d, max: %d\n") % (vars[0][0], vars[1][0], vars[2][0])
+    message += _(u"Variables (%s) used: %d, max: %d\n") % (vars[0][1], vars[1][1], vars[2][1])
 
-    wx.MessageBox(message, caption="Program Size", style = wx.ICON_INFORMATION|wx.OK)
+    wx.MessageBox(message, caption=_(u"Program Size"), style = wx.ICON_INFORMATION|wx.OK)
 
 # --------------- USB dialog ----------------------------------
 
 class usb_downloader(wx.Dialog):
-    def __init__(self, usb_device, file_name, title="Set Title!", size=(200, 200)):
+    def __init__(self, usb_device, file_name, title=_(u"Set Title!"), size=(200, 200)):
         wx.Dialog.__init__(self, None, -1, title, size=(500, 300))
         if (paths.get_platform() != "mac"):
             self.SetBackgroundColour("lightgray")
@@ -254,12 +255,12 @@ class usb_downloader(wx.Dialog):
 
         
         self.grid = wx.GridBagSizer(5,5)
-        self.usb_prompt = wx.StaticText(self, -1, "USB Device:")
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.usb_prompt = wx.StaticText(self, -1, _(u"USB Device:"))
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
         self.gauge = wx.Gauge(self, -1, range=100)
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.help_text = wx.StaticText(self, -1, "")
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.help_text = wx.StaticText(self, -1, _(u""))
         
         self.grid.Add(self.usb_prompt, (1,1),
                  flag=wx.ALIGN_RIGHT|wx.ALIGN_CENTRE_VERTICAL)
@@ -289,7 +290,7 @@ class usb_downloader(wx.Dialog):
         self.gauge.SetRange(self.byte_count)
         self.gauge.SetValue(0)
 
-        self.help_text.SetLabel("Download size is %d bytes." % (len(self.download_bytes),))
+        self.help_text.SetLabel(_(u"Download size is %d bytes.") % (len(self.download_bytes),))
 
     def get_port(self):
         return self.usb_ctrl.GetValue()
@@ -307,7 +308,7 @@ class usb_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Starting download of %d bytes.") % (self.byte_count,))
         self.Update()
 
         result = token_downloader.gui_serial(self.dtype, self.version, self.download_bytes,
@@ -318,7 +319,7 @@ class usb_downloader(wx.Dialog):
             self.start.Enable()
         else:
             self.gauge.SetValue(self.byte_count)
-            self.help_text.SetLabel("Downloading was successful!")
+            self.help_text.SetLabel(_(u"Downloading was successful!"))
             self.start.Enable()
 
         self.Refresh()
@@ -327,17 +328,17 @@ class usb_downloader(wx.Dialog):
         # --------------- AUDIO dialog ----------------------------------
 
 class audio_downloader(wx.Dialog):
-    def __init__(self, file_name, title="Set Title!"):
+    def __init__(self, file_name, title=_(u"Set Title!")):
         wx.Dialog.__init__(self, None, -1, title)
         if (paths.get_platform() != "mac"):
             self.SetBackgroundColour("lightgray")
 
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
         self.gauge = wx.Gauge(self, -1, range=100)
         self.gauge.SetMinSize((500, -1))
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.help_text = wx.StaticText(self, -1, "")
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.help_text = wx.StaticText(self, -1, _(u""))
         
         grid = wx.FlexGridSizer(3 ,1, 5, 5)
         grid.Add(self.progress_prompt)
@@ -367,7 +368,7 @@ class audio_downloader(wx.Dialog):
         self.gauge.SetRange(self.byte_count)
         self.gauge.SetValue(0)
         
-        self.help_text.SetLabel("Download size is %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Download size is %d bytes.") % (self.byte_count,))
 
         # convert to wav file
         WAV_FILE = os.path.join(paths.get_store_dir(), "program.wav")
@@ -388,7 +389,7 @@ class audio_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Starting download of %d bytes.") % (self.byte_count,))
         self.gauge.SetValue(0)
         self.gauge.Update()
         self.Update()
@@ -462,7 +463,7 @@ class audio_downloader(wx.Dialog):
 
             
         #self.gauge.SetValue(self.byte_count)
-        self.help_text.SetLabel("Finished downloading")
+        self.help_text.SetLabel(_(u"Finished downloading"))
         self.start.Enable()
 
         self.Refresh()
@@ -470,19 +471,19 @@ class audio_downloader(wx.Dialog):
         # --------------- AUDIO FIRMWARE dialog ----------------------------------
         
 class audio_firmware_downloader(wx.Dialog):
-    def __init__(self, file_name, title="Set Title!"):
+    def __init__(self, file_name, title=_(u"Set Title!")):
         wx.Dialog.__init__(self, None, -1, title)
         if (paths.get_platform() != "mac"):
             self.SetBackgroundColour("lightgray")
 
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
         self.gauge = wx.Gauge(self, -1, range=100)
         self.gauge.SetMinSize((500, -1))
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.help_text = wx.StaticText(self, -1, "")
-        self.file_browse = fbb.FileBrowseButton(self, -1, labelText="Firmware File:",
-                                                dialogTitle="Find a Firmware File",
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.help_text = wx.StaticText(self, -1, _(u""))
+        self.file_browse = fbb.FileBrowseButton(self, -1, labelText=_(u"Firmware File:"),
+                                                dialogTitle=_(u"Find a Firmware File"),
                                                 fileMode=wx.OPEN)
         if (paths.get_platform() != "mac"):
             self.file_browse.SetBackgroundColour("lightgray")
@@ -516,7 +517,7 @@ class audio_firmware_downloader(wx.Dialog):
     def on_start(self, event):
         filename = self.file_browse.GetValue()
         if (not os.path.exists(filename)):
-            self.help_text.SetLabel("Error - couldn't read file: %s" % (filename,))
+            self.help_text.SetLabel(_(u"Error - couldn't read file: %s") % (filename,))
             return
 
         # Assuming that the file is the binary firmware file with all header bytes
@@ -530,7 +531,7 @@ class audio_firmware_downloader(wx.Dialog):
         self.byte_count = len(self.download_bytes)
         self.gauge.SetRange(self.byte_count)
         self.gauge.SetValue(0)
-        self.help_text.SetLabel("Creating audio file.")
+        self.help_text.SetLabel(_(u"Creating audio file."))
         self.Update()
         
         # convert to wav file
@@ -539,7 +540,7 @@ class audio_firmware_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Starting download of %d bytes.") % (self.byte_count,))
         self.gauge.SetValue(0)
         self.gauge.Update()
         self.Update()
@@ -611,7 +612,7 @@ class audio_firmware_downloader(wx.Dialog):
             s1 = wx.Sound("firmware.wav")
             s1.Play(wx.SOUND_SYNC)
 
-        self.help_text.SetLabel("Finished downloading")
+        self.help_text.SetLabel(_(u"Finished downloading"))
         self.start.Enable()
 
         self.Refresh()
@@ -620,24 +621,24 @@ class audio_firmware_downloader(wx.Dialog):
 # --------------- Screen dialog ----------------------------------
 
 class screen_downloader(wx.Dialog):
-    def __init__(self, file_name, title="Set Title!", size=(500, 600)):
+    def __init__(self, file_name, title=_(u"Set Title!"), size=(500, 600)):
         wx.Dialog.__init__(self, None, -1, title, size=size)
 
         self.SetBackgroundColour("lightgray")
         
         self.grid = wx.GridBagSizer(5,5)
 
-        self.scr_prompt = wx.StaticText(self, -1, "Flash Box:")
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.scr_prompt = wx.StaticText(self, -1, _(u"Flash Box:"))
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
 
         self.canvas = wx.Window(self, -1, size=(300, 300), style=wx.SIMPLE_BORDER)
         self.canvas.SetBackgroundColour("white")
         
         self.gauge = wx.Gauge(self, -1, range=100)
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.screen_text = wx.StaticText(self, -1, "Place the Line\ntracker in the\nmiddle of the \nFlash Box.")
-        self.help_text = wx.StaticText(self, -1, "")
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.screen_text = wx.StaticText(self, -1, _(u"Place the Line\ntracker in the\nmiddle of the \nFlash Box."))
+        self.help_text = wx.StaticText(self, -1, _(u""))
 
         self.grid.Add(self.scr_prompt, (1,2))
         self.grid.Add(self.canvas, (2,2), span=(2,2))
@@ -672,7 +673,7 @@ class screen_downloader(wx.Dialog):
         self.gauge.SetRange(self.byte_count)
         self.gauge.SetValue(0)
 
-        self.help_text.SetLabel("Download size is %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Download size is %d bytes.") % (self.byte_count,))
 
         self.start.SetDefault()
 
@@ -724,7 +725,7 @@ class screen_downloader(wx.Dialog):
         if (self.byte_index >= self.byte_count):
             # done!
             self.gauge.SetValue(self.byte_index)
-            self.help_text.SetLabel("Finished Downloading!")
+            self.help_text.SetLabel(_(u"Finished Downloading!"))
             self.start.Enable()
             
         elif (self.bit_index == 8):
@@ -749,7 +750,7 @@ class screen_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Downloading %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Downloading %d bytes.") % (self.byte_count,))
         
 
 
@@ -757,7 +758,7 @@ class screen_downloader(wx.Dialog):
 
 
 class firmware_downloader(wx.Dialog):
-    def __init__(self, usb_device, file_name, title="Set Title!", size=(200, 200)):
+    def __init__(self, usb_device, file_name, title=_(u"Set Title!"), size=(200, 200)):
         wx.Dialog.__init__(self, None, -1, title, size=(500, 300))
         self.SetBackgroundColour("lightgray")
 
@@ -773,15 +774,15 @@ class firmware_downloader(wx.Dialog):
 
         self.grid = wx.GridBagSizer(5,5)
 
-        self.usb_prompt = wx.StaticText(self, -1, "USB Device:")
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.usb_prompt = wx.StaticText(self, -1, _(u"USB Device:"))
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
         #self.usb_ctrl = wx.TextCtrl(self, -1, value=usb_device, size=(200,-1))
         self.gauge = wx.Gauge(self, -1, range=100)
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.help_text = wx.StaticText(self, -1, "")
-        self.file_browse = fbb.FileBrowseButton(self, -1, labelText="Firmware File:",
-                                                dialogTitle="Find a Firmware File",
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.help_text = wx.StaticText(self, -1, _(u""))
+        self.file_browse = fbb.FileBrowseButton(self, -1, labelText=_(u"Firmware File:"),
+                                                dialogTitle=_(u"Find a Firmware File"),
                                                 fileMode=wx.OPEN)
         self.file_browse.SetBackgroundColour("lightgray")
 
@@ -823,7 +824,7 @@ class firmware_downloader(wx.Dialog):
 
         filename = self.file_browse.GetValue()
         if (not os.path.exists(filename)):
-            self.help_text.SetLabel("Error - couldn't read file: %s" % (filename,))
+            self.help_text.SetLabel(_(u"Error - couldn't read file: %s") % (filename,))
             return
         
         file_handle = file(filename, 'rb')
@@ -838,7 +839,7 @@ class firmware_downloader(wx.Dialog):
                
         if ((len(firmware_string) < prefix_len) or
             (not firmware_string.startswith(prefix))):
-            self.help_text.SetLabel("Error - file doesn't seem to be firmware.")
+            self.help_text.SetLabel(_(u"Error - file doesn't seem to be firmware."))
             return
         
         version = ((ord(firmware_string[prefix_len])&0xf0)>>4,
@@ -852,7 +853,7 @@ class firmware_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Starting download of %d bytes.") % (self.byte_count,))
         self.Update()
 
         result = token_downloader.gui_serial("firmware", version, firmware_bytes,
@@ -865,7 +866,7 @@ class firmware_downloader(wx.Dialog):
             self.gauge.SetValue(self.byte_count)
             self.gauge.Update()
 
-            self.help_text.SetLabel("Downloading was successful!")
+            self.help_text.SetLabel(_(u"Downloading was successful!"))
             self.start.Enable()
 
         self.Refresh()
@@ -896,7 +897,7 @@ def hex_to_bin(file_handle):
         if ((len(line) < 11) or (line[0] != ':') or
             (line[7:9] not in ('00', '01', '02')) or
             (not just_hex_digits(line[1:11]))):
-            error = "Doesn't look like an intel hex file"
+            error = _(u"Doesn't look like an intel hex file")
         else:
             data_len = int(line[1:3], 16)
             address = int(line[3:7], 16)
@@ -909,12 +910,12 @@ def hex_to_bin(file_handle):
                 addresses.append((address, len(data), data_len))
 
             if (len(line) < (11+2*data_len)):
-                error = "Line too short"
+                error = _(u"Line too short")
             else:
                 index = 9
                 for i in range(data_len+1):
                     if (not just_hex_digits(line[index:index+2])):
-                        error = "Invalid digits"
+                        error = _(u"Invalid digits")
                         break
                     else:
                         datum = int(line[index:index+2], 16)
@@ -929,7 +930,7 @@ def hex_to_bin(file_handle):
                     index += 2
 
         if (error):
-            print "Error in reading intel hex file:", error
+            print _(u"Error in reading intel hex file:"), error
             return (error, bytes)
 
     #print "Addresses:", addresses
@@ -954,7 +955,7 @@ def hex_to_bin(file_handle):
     return (error, bytes) 
 
 class hex_downloader(wx.Dialog):
-    def __init__(self, usb_device, file_name, title="Set Title!", size=(200, 200)):
+    def __init__(self, usb_device, file_name, title=_(u"Set Title!"), size=(200, 200)):
         wx.Dialog.__init__(self, None, -1, title, size=(500, 300))
         self.SetBackgroundColour("lightgray")
 
@@ -970,17 +971,17 @@ class hex_downloader(wx.Dialog):
 
         self.grid = wx.GridBagSizer(5,5)
 
-        self.usb_prompt = wx.StaticText(self, -1, "USB Device:")
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.usb_prompt = wx.StaticText(self, -1, _(u"USB Device:"))
+        self.progress_prompt = wx.StaticText(self, -1, _(u"Download progress:"))
         #self.usb_ctrl = wx.TextCtrl(self, -1, value=usb_device, size=(200,-1))
         self.gauge = wx.Gauge(self, -1, range=100)
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
-        self.help_text = wx.StaticText(self, -1, "")
-        self.file_browse = fbb.FileBrowseButton(self, -1, labelText="Intel Hex File:",
-                                                dialogTitle="Find an Intel Hex File",
+        self.start = wx.Button(self, -1, _(u"Start Download"))
+        self.cancel = wx.Button(self, -1, _(u"Cancel Download"))
+        self.help_text = wx.StaticText(self, -1, _(u""))
+        self.file_browse = fbb.FileBrowseButton(self, -1, labelText=_(u"Intel Hex File:"),
+                                                dialogTitle=_(u"Find an Intel Hex File"),
                                                 fileMode=wx.OPEN,
-                                                fileMask="Hex files (*.hex)|*.hex|All files (*.*)|*.*")
+                                                fileMask=_(u"Hex files (*.hex)|*.hex|All files (*.*)|*.*"))
         self.file_browse.SetBackgroundColour("lightgray")
 
         self.grid.Add(self.file_browse, (1,1), span=(1,3), flag=wx.EXPAND)
@@ -1021,7 +1022,7 @@ class hex_downloader(wx.Dialog):
 
         filename = self.file_browse.GetValue()
         if (not os.path.exists(filename)):
-            self.help_text.SetLabel("Error - couldn't read file: %s" % (filename,))
+            self.help_text.SetLabel(_(u"Error - couldn't read file: %s") % (filename,))
             return
         
         file_handle = file(filename, 'rb')
@@ -1029,7 +1030,7 @@ class hex_downloader(wx.Dialog):
         file_handle.close()
 
         if (read_error):
-            self.help_text.SetLabel("Error on reading intel hex file: " + read_error)
+            self.help_text.SetLabel(_(u"Error on reading intel hex file: ") + read_error)
             return
             
         version = (0, 0)
@@ -1043,7 +1044,7 @@ class hex_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel(_(u"Starting download of %d bytes.") % (self.byte_count,))
         self.Update()
 
         result = token_downloader.gui_serial("firmware", version, download_bytes,
@@ -1055,14 +1056,14 @@ class hex_downloader(wx.Dialog):
         else:
             self.gauge.SetValue(self.byte_count)
             self.gauge.Update()
-            self.help_text.SetLabel("Downloading was successful!")
+            self.help_text.SetLabel(_(u"Downloading was successful!"))
             self.start.Enable()
 
         self.Refresh()
 
 
 def convert(binString, outFilePath):
-    print "Debug: in convert() with binString of length", len(binString)
+    print _(u"Debug: in convert() with binString of length"), len(binString)
     waveWriter = wave.open(outFilePath, 'wb')
     waveWriter.setnchannels(2)
     waveWriter.setsampwidth(1)
@@ -1079,7 +1080,7 @@ def convert(binString, outFilePath):
         
     while (index < len(binString)):
         data = binString[index]
-        print "..debug: coding value", data
+        print _(u"..debug: coding value"), data
         # add start
         waveWriter.writeframes(createAudio(6))
         

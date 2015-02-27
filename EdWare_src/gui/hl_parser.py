@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 
@@ -103,26 +104,26 @@ def reset_devices_and_locations():
 
 def dump_reg_help():
     """Dump locations, type names and register names as a help to programmers"""
-    print "\nLocations:"
-    print "  0-b : connectable module (use hex digit or name from DEVICE statement)"
+    print _(u"\nLocations:")
+    print _(u"  0-b : connectable module (use hex digit or name from DEVICE statement)")
     for i in 'cdef':
         name = locations[i][0]
-        print "  %s   : special module %s (use hex digit or '%s')" % (i, name, name)
+        print _(u"  %s   : special module %s (use hex digit or '%s')") % (i, name, name)
 
-    print "\nDevice types (prefixed with device code):"
+    print _(u"\nDevice types (prefixed with device code):")
     olist = device_types.items()
     olist.sort(key=lambda p:p[1])
     count = 0
     print "  ",
     for name,num in olist:
-        print "%d:%-10s " % (num, name),
+        print _(u"%d:%-10s ") % (num, name),
         count += 1
         if (count >= 5):
-            print "\n  ",
+            print _(u"\n  "),
             count = 0
     if (count != 0): print
 
-    print "\nRegister names (offset/bytes):"
+    print _(u"\nRegister names (offset/bytes):")
     rorder = [name for (name, num) in olist]
     rorder.extend(special_dtypes)
     #print rorder
@@ -132,7 +133,7 @@ def dump_reg_help():
         rlist = reg_dict.items()
         rlist.sort(key=lambda p:p[1][0])
         #print rlist
-        print "  %s" % (r),
+        print _(u"  %s") % (r),
         count = 10
         for (name, (offset, size)) in rlist:
             count += 1
@@ -140,7 +141,7 @@ def dump_reg_help():
                 print "\n    ",
                 count = 0
             desc = "%s:(%s/%d)" % (name, string.hexdigits[offset], size),
-            print "%-16s" % (desc),
+            print _(u"%-16s") % (desc),
             
         print
         print
@@ -157,16 +158,16 @@ def add_device(loc, dtype, name=None):
     global locations
     
     if (dtype not in device_types):
-        err.report_error("Unknown device type: "+dtype)
+        err.report_error(_(u"Unknown device type: ")+dtype)
         return False
     if (loc < 0 or loc > 11):
-        err.report_error("Location (%d) outside of 0 to 11" % (loc))
+        err.report_error(_(u"Location (%d) outside of 0 to 11") % (loc))
         return False
 
     # location already used?
     loc_hex = string.hexdigits[loc]
     if (loc_hex in locations):
-        err.report_error("Location (%d) is already used with a unit of type: " % (loc) +\
+        err.report_error(_(u"Location (%d) is already used with a unit of type: ") % (loc) +\
                          locations[loc_hex][0])
         return False
 
@@ -174,15 +175,15 @@ def add_device(loc, dtype, name=None):
         name = name.lower()
         
     if (name in special_names):
-        err.report_error("DEVICE name can not be one of the built-in names "+str(special_names))
+        err.report_error(_(u"DEVICE name can not be one of the built-in names ")+str(special_names))
         return False
     elif (name in devices):
-        err.report_error("DEVICE name already used: "+name)
+        err.report_error(_(u"DEVICE name already used: ")+name)
         return False
     
     # check the special ones - tracker and motors
     if (dtype == 'tracker' and loc != 0):
-        err.report_error("A tracker device can only be located at 0, not location %d" % (loc))
+        err.report_error(_(u"A tracker device can only be located at 0, not location %d") % (loc))
         return False
 
     # motors need two spots
@@ -193,7 +194,7 @@ def add_device(loc, dtype, name=None):
             motor_second_loc = loc+1
         motor_second_hex = string.hexdigits[motor_second_loc]
         if (motor_second_hex in locations):
-            err.report_error("Motors require two locations yet the second location is already used with a "+\
+            err.report_error(_(u"Motors require two locations yet the second location is already used with a ")+\
                              locations[motor_second_hex][0])
             return False
         locations[motor_second_hex] = ('motor_second', motor_second_loc)
@@ -215,14 +216,14 @@ def get_location_type_and_size(location):
         return (0, 0)                   # Not used
 
 def dump_devices():
-    print "\nDevice mappings:"
+    print _(u"\nDevice mappings:")
     for i in range(12):
         loc_hex = string.hexdigits[i]
         if (loc_hex in locations):
-            print "  %s - type:%s" % (loc_hex, locations[loc_hex][0]),
+            print _(u"  %s - type:%s") % (loc_hex, locations[loc_hex][0]),
             for d in devices:
                 if (devices[d][1] == i):
-                    print ", name:%s" % (d),
+                    print _(u", name:%s") % (d),
                     break
             print
     
@@ -243,7 +244,7 @@ class word(object):
 
     def anum(self):
         if (self.type_ not in ["arg", "const"]):
-            err.report_error("Expected an argument or constant!")
+            err.report_error(_(u"Expected an argument or constant!"))
             return 0
         
         if (self.type_ == "const"):
@@ -253,18 +254,18 @@ class word(object):
 
     def astr(self):
         if (self.type_ not in ["arg", "string"]):
-            err.report_error("Expected an argument or string!")
+            err.report_error(_(u"Expected an argument or string!"))
             return ""
         elif (len(self.value_) > 0):
             if (self.value_[0] not in string.ascii_letters+'_'):
-                err.report_error("Word should have been a valid name!")
+                err.report_error(_(u"Word should have been a valid name!"))
                 return ""
             else:
                 return self.value_
 
     def amodreg(self):
         if (self.type_ not in ["arg", "modreg"]):
-            err.report_error("Expected an argument or string!")
+            err.report_error(_(u"Expected an argument or string!"))
             return ""
 
         elif (self.type_ == "modreg"):
@@ -273,7 +274,7 @@ class word(object):
             return parse_mod_reg(self.value_)
                   
     def __str__(self):
-        return "{Word: %s,%s}" % (self.type_, self.value_)
+        return _(u"{Word: %s,%s}") % (self.type_, self.value_)
 
 
 def format_word_list(wlist):
@@ -295,7 +296,7 @@ def parse_bases(snum, string=False):
         # must be one ascii character
         num = ord(snum[1:-1])
     elif (string and snum.startswith('"') and snum.endswith('"')):
-        err.report_error("Error - use single quotes for an ascii constant")
+        err.report_error(_(u"Error - use single quotes for an ascii constant"))
         return
     elif ((snum.endswith("/2"))):
         num = int(snum[:-2], 2)
@@ -320,7 +321,7 @@ def parse_mod_reg(smodreg):
         if (':' in smodreg):
             part = smodreg.lower().split(':', 2)
             if (len(part) != 2):
-                err.report_error("Invalid mod/reg syntax: "+smodreg)
+                err.report_error(_(u"Invalid mod/reg syntax: ")+smodreg)
                 return ""
             if (part[0] in devices):
                 dtype = devices[part[0]][0]
@@ -329,7 +330,7 @@ def parse_mod_reg(smodreg):
                 dtype = locations[part[0]][0]
                 loc = locations[part[0]][1]
             else:
-                err.report_error("Didn't understand the module name/number: " + part[0])
+                err.report_error(_(u"Didn't understand the module name/number: ") + part[0])
                 return ""
 
             # now the register name/number
@@ -339,11 +340,11 @@ def parse_mod_reg(smodreg):
             elif (part[1] in '0123456789abcdef'):
                 num = int(part[1], 16) + (loc << 4)
             else:
-                err.report_error("Didn't understand the register name/number: " + part[1])
+                err.report_error(_(u"Didn't understand the register name/number: ") + part[1])
                 return ""
                 
         else:
-            err.report_error("Error - can't parse %s as a modreg" % (smodreg))
+            err.report_error(_(u"Error - can't parse %s as a modreg") % (smodreg))
             return
 
     #print "modreg: %s -> %02x" % (smodreg, num)

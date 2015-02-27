@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -494,9 +495,9 @@ class Config_work(work_win.Work_win):
                 if (win_data.get_ok_to_delete("Module")):
                     if (not win_data.config_move_to_trash()):
                         # can't drop it - put it back
-                        error_message="Can not delete the device as it is used in the program.\n" +\
-                                       "Delete it from the program before deleting it here."
-                        wx.MessageBox(error_message, caption="Can't delete device.", style=wx.OK | wx.ICON_ERROR)
+                        error_message=_(u"Can not delete the device as it is used in the program.\n" 
+                                       "Delete it from the program before deleting it here.")
+                        wx.MessageBox(error_message, caption=_(u"Can't delete device."), style=wx.OK | wx.ICON_ERROR)
                                    
                         win_data.config_move_abort()
                 else:

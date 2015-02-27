@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -38,7 +39,7 @@ class Var_list(wx.ListCtrl):
         wx.ListCtrl.__init__(self, parent, style=style)
 
         #self.column_headers = ["Name", "Range", "Length", "Intial Value"]
-        self.column_headers = ["Name", "Range", "Intial Value"]
+        self.column_headers = [_(u"Name"), _(u"Range"), _(u"Initial Value")]
         self.columns = len(self.column_headers)
         self.headers()
         self.calculate_mins()
@@ -84,7 +85,7 @@ class Var_win(wx.Panel):
         self.list = Var_list(self)
         self.update_list()
         
-        box = wx.StaticBox(self, -1, 'Variables')
+        box = wx.StaticBox(self, -1, _('Variables'))
         sboxsizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sboxsizer.Add(self.list, 1, wx.EXPAND)
 
@@ -110,7 +111,7 @@ class Var_win(wx.Panel):
                 #self.list.SetStringItem(index, 3, data[2])
             
         # add a marker to allow for new variables
-        index = self.list.InsertStringItem(sys.maxint, "<NEW>")
+        index = self.list.InsertStringItem(sys.maxint, _("<NEW>"))
         self.list.SetStringItem(index, 1, "")
         self.list.SetStringItem(index, 2, "")
         item = self.list.GetItem(index)
@@ -135,13 +136,13 @@ class Var_win(wx.Panel):
         old_len = 0
         
         if (index != None):
-            title = "Edit variable"
+            title = _(u"Edit variable")
             key = self.list.GetItemText(index)
             var_data = win_data.vars_get(key)
             data = (key, var_data[0], var_data[1], var_data[2])
             old_len = int(var_data[1])
         else:
-            title = "Add variable"
+            title = _(u"Add variable")
             data = NEW_DATA
 
         dialog = Var_dialog(self, title, data)
@@ -157,8 +158,8 @@ class Var_win(wx.Panel):
            if (new_data[0] == ""):
                # verify that data[0] was not being used in the program
                if (win_data.vars_used_in_program(data[0])):
-                   error_message = "Variable name '"+data[0]+"' is used in the program. "+\
-                                   "Change the program before removing this variable."
+                   error_message = _(u"Variable name '%s' is used in the program. ") % data[0] +\
+                                   _(u"Change the program before removing this variable.")
 
            else:
                if (new_data[0] != data[0]):
@@ -176,28 +177,28 @@ class Var_win(wx.Panel):
                                
                        # verify that the new name is not already used
                        if (win_data.vars_exists(new_data[0])):
-                           error_message = "Variable name '"+new_data[0]+"' is already used."
+                           error_message = _(u"Variable name '%s' is already used.") % new_data[0]
 
                    else:
-                       error_message = "Variable names must start with a character and are at most 16 characters long"
+                       error_message = _(u"Variable names must start with a character and are at most 16 characters long")
                    
                if (new_data[1] not in VALID_RANGES):
                    # verify that range is valid
-                   error_message = "Variable range must be one of: %s, %s" % \
+                   error_message = _(u"Variable range must be one of: %s, %s") % \
                                    (VALID_RANGES[0], VALID_RANGES[1])
 
                # verify that initial value is reasonable (if used)
                if (not self.check_length_and_initial(new_data[1], new_data[2], new_data[3])):
-                   error_message = "Variable length (%s) or initial value (%s) is not in the valid range." %\
+                   error_message = _(u"Variable length (%s) or initial value (%s) is not in the valid range.") %\
                                    (new_data[2], new_data[3])
                    
                # and verify that there is size left
                if (win_data.vars_no_room_left(new_data[1], int(new_data[2]) - old_len)):
-                   error_message = "Not enough room for %s more variable(s) of type %s." %\
+                   error_message = _(u"Not enough room for %s more variable(s) of type %s.") %\
                                    (new_data[2], new_data[1])
 
            if (error_message):
-               wx.MessageBox(error_message, caption="Error editing variable.", style=wx.OK | wx.ICON_ERROR)
+               wx.MessageBox(error_message, caption=_(u"Error editing variable."), style=wx.OK | wx.ICON_ERROR)
            else:
                if (key):
                    if (len(new_data[0]) > 0):
@@ -206,9 +207,9 @@ class Var_win(wx.Panel):
                        if (win_data.vars_used_in_program(key) and
                            (new_data[1] != data[1])):
                            
-                           error_message="Error - Can not change the range of a variable that is " +\
-                                         "being used in the program."
-                           wx.MessageBox(error_message, caption="Can't change the range.", style=wx.OK | wx.ICON_ERROR)
+                           error_message=_(u"Error - Can not change the range of a variable that is ") +\
+                                         _(u"being used in the program.")
+                           wx.MessageBox(error_message, caption=_(u"Can't change the range."), style=wx.OK | wx.ICON_ERROR)
 
                        else:
                            win_data.vars_change(key, new_data[0], new_data[1], new_data[2], new_data[3])
@@ -217,9 +218,9 @@ class Var_win(wx.Panel):
     
                    else:
                        if (not win_data.vars_remove(key)):
-                           error_message="Can not delete the variable as it is used in the program.\n" +\
-                                          "Delete it from the program before deleting it here."
-                           wx.MessageBox(error_message, caption="Can't delete variable.", style=wx.OK | wx.ICON_ERROR)
+                           error_message=_(u"Can not delete the variable as it is used in the program.\n") +\
+                                          _(u"Delete it from the program before deleting it here.")
+                           wx.MessageBox(error_message, caption=_(u"Can't delete variable."), style=wx.OK | wx.ICON_ERROR)
                        else:
                            self.update_list()
                                    
@@ -286,10 +287,10 @@ class Var_dialog(wx.Dialog):
         self.data = data
 
         labels = []
-        labels.append(wx.StaticText(self, -1, "Variable name:", ))
-        labels.append(wx.StaticText(self, -1, "Variable range:"))
+        labels.append(wx.StaticText(self, -1, _(u"Variable name:"), ))
+        labels.append(wx.StaticText(self, -1, _(u"Variable range:")))
         #labels.append(wx.StaticText(self, -1, "Variable length:"))
-        labels.append(wx.StaticText(self, -1, "Initial value (optional):"))
+        labels.append(wx.StaticText(self, -1, _(u"Initial value (optional):")))
 
         self.fields = []
         self.fields.append(wx.TextCtrl(self, -1, data[0], size=(150, -1)))

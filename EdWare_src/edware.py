@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -38,6 +39,19 @@ import argparse
 import sys
 import cPickle
 
+# Install a custom displayhook to keep Python from setting the global
+# _ (underscore) to the value of the last evaluated expression.  If
+# we don't do this, our mapping of _ to gettext can get overwritten.
+# This is useful/needed in interactive debugging with PyShell.
+
+def _displayHook(obj):
+    if obj is not None:
+        print repr(obj)
+
+# add translation macro to builtin similar to what gettext does
+import __builtin__
+__builtin__.__dict__['_'] = wx.GetTranslation
+
 import gui.config_win
 import gui.var_win
 import gui.detail_win
@@ -65,6 +79,7 @@ class Session_data(object):
         self.toolbar = True
         self.main_window = 'program'
         self.strict_versions = True
+        self.language = 'en'
 
     def __cmp__(self, rhs):
         return cmp(self.__dict__, rhs.__dict__)
@@ -86,7 +101,7 @@ sdata_changed = True
 
 
 class Bricworks_frame(wx.Frame):
-    def __init__(self, parent, title="Edison EdWare"):
+    def __init__(self, parent, title=_(u"Edison EdWare")):
         wx.Frame.__init__(self, parent, title=title, size=(800, 500))
 
         self.save_path = gui.paths.get_store_dir()
@@ -95,30 +110,30 @@ class Bricworks_frame(wx.Frame):
         self.splitter_done = False
         self.splitter_attempts = 0
 
-        self.menu_data = (("&File",
-                           ("New", "Start a new program", self.menu_new_edison),
-                           ("&Open", "Open an existing program", self.menu_open),
+        self.menu_data = ((_("&File"),
+                           (_(u"New"), _(u"Start a new program"), self.menu_new_edison),
+                           (_("&Open"), _(u"Open an existing program"), self.menu_open),
                            ("", "", ""),
-                           ("&Save", "Save the current program", self.menu_save),
-                           ("Save &As", "Save the current program under a new name", self.menu_saveas),
+                           (_("&Save"), _(u"Save the current program"), self.menu_save),
+                           (_(u"Save &As"), _(u"Save the current program under a new name"), self.menu_saveas),
                            ("", "", ""),
-                           ("&Exit", "Exit EdWare", self.menu_exit)),
+                           (_("&Exit"), _(u"Exit EdWare"), self.menu_exit)),
 
 
-                          ("&Program Edison",
-                           ("Program &Edison", "Program Edison",
+                          (_("&Program Edison"),
+                           (_(u"Program &Edison"), _(u"Program Edison"),
                             self.menu_edison_program),
                            ("", "", ""),
-                           ("&Check program size", "Report on the bytes and variables used in the program",
+                           (_("&Check program size"), _(u"Report on the bytes and variables used in the program"),
                             self.menu_check_program),
 
                            ("", "", ""),
-                           ("&Download new firmware", "Download new firmware to Edison",
+                           (_("&Download new firmware"), _(u"Download new firmware to Edison"),
                             self.menu_edison_firmware),
                            ),
-                          ("&Help",
-                           ("&Help", "Display help for Edison EdWare", self.menu_help),
-                           ("&About", "Display information about Edison EdWare", self.menu_about)))
+                          (_("&Help"),
+                           (_("&Help"), _(u"Display help for Edison EdWare"), self.menu_help),
+                           (_("&About"), _(u"Display information about Edison EdWare"), self.menu_about)))
 
 
         self.init_status_bar()
@@ -190,7 +205,7 @@ class Bricworks_frame(wx.Frame):
         # Initialise status fields
         gui.win_data.status_file("")
         gui.win_data.status_space(0, 20)
-        gui.win_data.status_info("Edison EdWare")
+        gui.win_data.status_info(_(u"Edison EdWare"))
 
 
         self.Bind(wx.EVT_SIZE, self.on_size)
@@ -240,7 +255,7 @@ class Bricworks_frame(wx.Frame):
 
     def set_adv_mode(self):
         # advanced mode
-        id = self.menu_bar.FindMenuItem("&File", "&New - Advanced")
+        id = self.menu_bar.FindMenuItem(_("&File"), _("&New - Advanced"))
         self.menu_bar.FindItemById(id).Enable(True)
 ##        id = self.menu_bar.FindMenuItem("&Settings", "&USB Device")
 ##        self.menu_bar.FindItemById(id).Enable(True)
@@ -249,7 +264,7 @@ class Bricworks_frame(wx.Frame):
 ##        id = self.menu_bar.FindMenuItem("&Program Robot", "&Download new firmware")
 ##        self.menu_bar.FindItemById(id).Enable(True)
 
-        id = self.menu_bar.FindMenuItem("&Settings", "&Advanced mode")
+        id = self.menu_bar.FindMenuItem(_("&Settings"), _("&Advanced mode"))
         self.menu_bar.FindItemById(id).Check(True)
 
         gui.win_data.set_adv_mode(True)
@@ -468,7 +483,7 @@ class Bricworks_frame(wx.Frame):
 
     def change_dirty(self, dirty):
         "Modify the menu items that change with dirty/not dirty"
-        save_id = self.menu_bar.FindMenuItem("&File", "&Save")
+        save_id = self.menu_bar.FindMenuItem(_("&File"), _("&Save"))
         self.menu_bar.FindItemById(save_id).Enable(dirty)
         if (not dirty):
             gui.win_data.update_dirty(False)
@@ -485,9 +500,9 @@ class Bricworks_frame(wx.Frame):
                 elif (label.startswith('+')):
                     menu_item = menu.AppendCheckItem(-1, label[1:], status)
                 else:
-                    if (label == "&About"):
+                    if (label == _("&About")):
                         id = wx.ID_ABOUT
-                    elif (label == "&Exit"):
+                    elif (label == _("&Exit")):
                         id = wx.ID_EXIT
                     else:
                         id = -1
@@ -513,19 +528,19 @@ class Bricworks_frame(wx.Frame):
         self.zoom_combo_box = wx.ComboBox(self.tool_bar, self.zoom_id, "100%",
                                           choices = ["50%", "60%", "70%", "80%", "90%",
                                                      "100%", "120%", "150%"], size=(100, -1))
-        self.tool_bar.AddControl(wx.StaticText(self.tool_bar, -1, " Zoom "))
+        self.tool_bar.AddControl(wx.StaticText(self.tool_bar, -1, _(u" Zoom ")))
         self.tool_bar.AddControl(self.zoom_combo_box)
         self.Bind(wx.EVT_COMBOBOX, self.on_change_zoom, id=self.zoom_id)
 
         self.tool_bar.AddSeparator()
         self.add_var_id = wx.NewId()
-        self.add_var_button = wx.Button(self.tool_bar, self.add_var_id, "Add Variable", size=(120,-1))
+        self.add_var_button = wx.Button(self.tool_bar, self.add_var_id, _(u"Add Variable"), size=(120,-1))
         self.tool_bar.AddControl(self.add_var_button)
         self.Bind(wx.EVT_BUTTON, self.on_add_variable, id=self.add_var_id)
 
         self.tool_bar.AddSeparator()
         self.add_prog_id = wx.NewId()
-        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, "Program Edison", size=(140,-1))
+        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, _(u"Program Edison"), size=(140,-1))
         self.tool_bar.AddControl(self.add_prog_button)
         self.Bind(wx.EVT_BUTTON, self.on_program_button, id=self.add_prog_id)
 
@@ -539,11 +554,11 @@ class Bricworks_frame(wx.Frame):
     def on_change_mode(self, event):
         new_mode = event.GetString().lower()
         if (new_mode == "program"):
-            id = self.menu_bar.FindMenuItem("&View", "&Program view")
+            id = self.menu_bar.FindMenuItem(_("&View"), _("&Program view"))
             self.menu_bar.FindItemById(id).Check(True)
             self.menu_program(event)
         elif (new_mode == "configuration"):
-            id = self.menu_bar.FindMenuItem("&View", "&Configuration view")
+            id = self.menu_bar.FindMenuItem(_("&View"), _("&Configuration view"))
             self.menu_bar.FindItemById(id).Check(True)
             self.menu_config(event)
 
@@ -557,25 +572,25 @@ class Bricworks_frame(wx.Frame):
 
     def on_program_button(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_downloader("", "Download over audio")
+        dialog = gui.downloader.audio_downloader("", _(u"Download over audio"))
         result = dialog.ShowModal()
         dialog.Destroy()
 
     def menu_edison_program(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_downloader("", "Download over audio")
+        dialog = gui.downloader.audio_downloader("", _(u"Download over audio"))
         result = dialog.ShowModal()
         dialog.Destroy()
 
     def menu_edison_firmware(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_firmware_downloader("", "Download new FIRMWARE over audio")
+        dialog = gui.downloader.audio_firmware_downloader("", _(u"Download new FIRMWARE over audio"))
         result = dialog.ShowModal()
         dialog.Destroy()
 
     def menu_new_edison(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Unsaved program.")):
+        if (self.handle_unsaved_changes(_(u"Unsaved program."))):
             gui.win_data.clear_pdata()
             self.set_basic_mode()
             self.set_edison_modules()
@@ -587,11 +602,11 @@ class Bricworks_frame(wx.Frame):
 
     def menu_open(self, event):
         gui.win_data.selection_drop_all()
-        if (not self.handle_unsaved_changes("Unsaved program.")):
+        if (not self.handle_unsaved_changes(_(u"Unsaved program."))):
             return
         gui.win_data.clear_pdata()
-        load_path = wx.FileSelector("Open program", default_path=self.save_path,
-                                    wildcard="EdWare files (*.edw)|*.edw|All files (*.*)|*.*",
+        load_path = wx.FileSelector(_(u"Open program"), default_path=self.save_path,
+                                    wildcard=_(u"EdWare files (*.edw)|*.edw|All files (*.*)|*.*"),
                                     flags=wx.OPEN)
 
         if (load_path):
@@ -603,8 +618,8 @@ class Bricworks_frame(wx.Frame):
         #print "Load_path", load_path
         if (not os.path.isfile(load_path)):
 
-            wx.MessageBox("Can't open the file: %s" % (load_path,),
-                          "Error while opening program.", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(_(u"Can't open the file: %s") % (load_path,),
+                          _(u"Error while opening program."), wx.OK | wx.ICON_ERROR)
         else:
             gui.win_data.clear_pdata()
             (path, ext) = os.path.splitext(load_path)
@@ -633,8 +648,8 @@ class Bricworks_frame(wx.Frame):
             except Exception, e:
                 #print "Exception:", e
                 raise e
-                wx.MessageBox("Error opening the program. Maybe the disk vanished?",
-                              "Error while opening program.", wx.OK | wx.ICON_ERROR)
+                wx.MessageBox(_(u"Error opening the program. Maybe the disk vanished?"),
+                              _(u"Error while opening program."), wx.OK | wx.ICON_ERROR)
 
             gui.win_data.make_var_and_config_update()
             self.Refresh()
@@ -660,21 +675,21 @@ class Bricworks_frame(wx.Frame):
 
     def menu_exit(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Exiting with a modified program.")):
+        if (self.handle_unsaved_changes(_(u"Exiting with a modified program."))):
             self.change_dirty(False)
             self.Close()
 
     def on_close(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Exiting with a modified program.")):
+        if (self.handle_unsaved_changes(_(u"Exiting with a modified program."))):
             self.session_save()
             self.Destroy()
 
     def handle_unsaved_changes(self, title):
         if (gui.win_data.is_data_dirty()):
 
-            result = wx.MessageBox("Your program has changes that have not been saved.\n\n" +\
-                                   "Would you like to save the changes first?",
+            result = wx.MessageBox(_(u"Your program has changes that have not been saved.\n\n") +\
+                                   _(u"Would you like to save the changes first?"),
                                    title,
                                    wx.YES_NO | wx.CANCEL | wx.YES_DEFAULT | wx.ICON_QUESTION)
             if (result == wx.YES):
@@ -698,7 +713,7 @@ class Bricworks_frame(wx.Frame):
 
 
     def offer_save(self, path, filename):
-        save_path = wx.FileSelector("Save program", default_path=path, default_filename=filename,
+        save_path = wx.FileSelector(_(u"Save program"), default_path=path, default_filename=filename,
                                     flags=wx.SAVE|wx.OVERWRITE_PROMPT)
         if (save_path and not os.path.isfile(save_path) and os.path.splitext(save_path)[1] == ""):
             save_path += ".edw"
@@ -717,15 +732,15 @@ class Bricworks_frame(wx.Frame):
                 fh.close()
 
         except Exception,e:
-            extraInfo = "Exception:%s, python ver:%s" % (e, sys.version)
-            wx.MessageBox("Error saving the program. Maybe the disk is full?\n(%s)" % (extraInfo),
-                          "Error while saving.", wx.OK | wx.ICON_ERROR)
+            extraInfo = _(u"Exception:%s, python ver:%s") % (e, sys.version)
+            wx.MessageBox(_(u"Error saving the program. Maybe the disk is full?\n(%s)") % (extraInfo),
+                          _(u"Error while saving."), wx.OK | wx.ICON_ERROR)
 
     def menu_usb_device(self, event):
         global sdata_changed
         device_name = sdata.usb_device
-        device_name = wx.GetTextFromUser("Please enter the USB device for programming the robot",
-                                         "USB Device", default_value = device_name,
+        device_name = wx.GetTextFromUser(_(u"Please enter the USB device for programming the robot"),
+                                         _(u"USB Device"), default_value = device_name,
                                         parent=self)
         if (len(device_name) > 0 and (not device_name == sdata.usb_device)):
             sdata.usb_device = device_name
@@ -737,7 +752,7 @@ class Bricworks_frame(wx.Frame):
 
     def menu_screen_program(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.screen_downloader("", "Download via Screen")
+        dialog = gui.downloader.screen_downloader("", _(u"Download via Screen"))
         result = dialog.ShowModal()
         #print result
         dialog.Destroy()
@@ -745,7 +760,7 @@ class Bricworks_frame(wx.Frame):
     def menu_cable_program(self, event):
         global sdata_changed
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.usb_downloader(sdata.usb_device, "", "Download via USB")
+        dialog = gui.downloader.usb_downloader(sdata.usb_device, "", _(u"Download via USB"))
         result = dialog.ShowModal()
         used_device = dialog.get_port()
         dialog.Destroy()
@@ -757,7 +772,7 @@ class Bricworks_frame(wx.Frame):
     def menu_firmware(self, event):
         global sdata_changed
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.firmware_downloader(sdata.usb_device, "", "Download new FIRMWARE via USB")
+        dialog = gui.downloader.firmware_downloader(sdata.usb_device, "", _(u"Download new FIRMWARE via USB"))
         result = dialog.ShowModal()
         used_device = dialog.get_port()
         dialog.Destroy()
@@ -769,7 +784,7 @@ class Bricworks_frame(wx.Frame):
     def menu_hex_download(self, event):
         global sdata_changed
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.hex_downloader(sdata.usb_device, "", "Download Intel hex file via USB")
+        dialog = gui.downloader.hex_downloader(sdata.usb_device, "", _(u"Download Intel hex file via USB"))
         result = dialog.ShowModal()
         used_device = dialog.get_port()
         dialog.Destroy()
@@ -830,7 +845,7 @@ class Bricworks_frame(wx.Frame):
         dlg.Destroy()
 
     def menu_enable_toolbar(self, event):
-        id = self.menu_bar.FindMenuItem("&Settings", "&Display toolbar")
+        id = self.menu_bar.FindMenuItem(_("&Settings"), _("&Display toolbar"))
         if (self.menu_bar.FindItemById(id).IsChecked()):
             self.tool_bar.Show()
         else:
@@ -841,7 +856,7 @@ class Bricworks_frame(wx.Frame):
 
     def menu_strict_versions(self, event):
         global sdata_changed
-        id = self.menu_bar.FindMenuItem("&Settings", "&Strict version check")
+        id = self.menu_bar.FindMenuItem(_("&Settings"), _("&Strict version check"))
         if (self.menu_bar.FindItemById(id).IsChecked()):
             sdata.strict_versions = True
         else:
@@ -907,6 +922,15 @@ def main(file_path=None):
 
 class BricworksApp(wx.App):
     def OnInit(self):
+        # work around for Python stealing "_"
+        sys.displayhook = _displayHook
+        
+        # self.appName = "EdWare"
+        
+        self.locale = None
+        wx.Locale.AddCatalogLookupPathPrefix('locale')
+        self.updateLanguage(u"fr")
+        
         self.frame = Bricworks_frame(None)
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
@@ -923,6 +947,43 @@ class BricworksApp(wx.App):
     def MacReopenApp(self):
         self.GetTopWindow().Raise()
         
+    def updateLanguage(self, lang):
+        """
+        Update the language to the requested one.
+        
+        Make *sure* any existing locale is deleted before the new
+        one is created.  The old C++ object needs to be deleted
+        before the new one is created, and if we just assign a new
+        instance to the old Python variable, the old C++ locale will
+        not be destroyed soon enough, likely causing a crash.
+        
+        :param string `lang`: one of the supported language codes
+        
+        """
+        # if an unsupported language is requested default to English
+        supported_lang = {
+                u"en" : wx.LANGUAGE_ENGLISH,
+                u"fr" : wx.LANGUAGE_FRENCH,
+                u"de" : wx.LANGUAGE_GERMAN
+            }
+        
+        if lang in supported_lang:
+            selLang = supported_lang[lang]
+        else:
+            selLang = wx.LANGUAGE_ENGLISH
+            
+        if self.locale:
+            assert sys.getrefcount(self.locale) <= 2
+            del self.locale
+        
+        # create a locale object for this language
+        self.locale = wx.Locale(selLang)
+        if self.locale.IsOk():
+            self.locale.AddCatalog("EdWarewxapp")
+        else:
+            self.locale = None
+
+        
 def main2(file_path=None, selected_audio="any"):
     gui.downloader.set_audio_output(selected_audio)
     app = BricworksApp(False)
@@ -933,12 +994,12 @@ def main2(file_path=None, selected_audio="any"):
 
 if __name__ == '__main__':
     
-    parser = argparse.ArgumentParser(description='EdWare Edison progamming environment')
+    parser = argparse.ArgumentParser(description=_('EdWare Edison progamming environment'))
     parser.add_argument('filename', metavar='FILE', nargs='?', default="",
-                        help='An optional edware file to load')
+                        help=_('An optional edware file to load'))
     parser.add_argument('-a', '--audio', dest='selected_audio',
                         default='any',
-                        help="Select a specific audio output if it's installed")
+                        help=_(u"Select a specific audio output if it's installed"))
     parser.add_argument('-v', '--version', action='version', version='1.0.0')
 
     args = parser.parse_args()

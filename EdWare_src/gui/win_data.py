@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 # * **************************************************************** **
 #
 # File: win_data.py
@@ -95,21 +96,21 @@ unused_events_set = False
 unused_events = {}
 
 def dump():
-    print "Data:"
-    print "Pdata Version:", pdata.version
-    print "Advanced:", pdata.advanced_mode
-    print "Edison:", pdata.edison_mode
-    print "Configuration:", pdata.configuration
-    print "Conf_ids:", pdata.config_ids
-    print "Conf_use:", pdata.config_use
-    print "Conf_orient:", pdata.config_orient
-    print "Conf_move:", tdata.config_move_old_loc, tdata.config_move_data
+    print _(u"Data:")
+    print _(u"Pdata Version:"), pdata.version
+    print _(u"Advanced:"), pdata.advanced_mode
+    print _(u"Edison:"), pdata.edison_mode
+    print _(u"Configuration:"), pdata.configuration
+    print _(u"Conf_ids:"), pdata.config_ids
+    print _(u"Conf_use:"), pdata.config_use
+    print _(u"Conf_orient:"), pdata.config_orient
+    print _(u"Conf_move:"), tdata.config_move_old_loc, tdata.config_move_data
     print
-    print "Variables:", pdata.variables
-    print "Var_ids:", pdata.var_ids
-    print "Var_use:", pdata.var_use
+    print _(u"Variables:"), pdata.variables
+    print _(u"Var_ids:"), pdata.var_ids
+    print _(u"Var_use:"), pdata.var_use
     print
-    print "Windows:", tdata.windows
+    print _(u"Windows:"), tdata.windows
 
 
 def save(file_obj):
@@ -174,15 +175,15 @@ def loadEdisonAsJson(file_obj, strict):
     #print "Decoded:", test
 
     if (strict and (test.version != pdata.version)):
-        wx.MessageBox("Version of data in file '%s' doesn't match this version of Bricworks." % (file_obj.name,),
-                      "Version Mismatch - can't load program",
+        wx.MessageBox(_(u"Version of data in file '%s' doesn't match this version of Bricworks.") % (file_obj.name,),
+                      _(u"Version Mismatch - can't load program"),
                       wx.OK | wx.ICON_ERROR)
     else:
         if (test.version != pdata.version):
-            result = wx.MessageBox("Version of data in file '%s' " % (file_obj.name,) +\
-                                   "doesn't match this version of Bricworks. "  +\
-                                   "You may try anyway, or CANCEL to abort the file open.",
-                                   "Version Mismatch Warning",
+            result = wx.MessageBox(_(u"Version of data in file '%s' ") % (file_obj.name,) +\
+                                   _(u"doesn't match this version of Bricworks. ")  +\
+                                   _(u"You may try anyway, or CANCEL to abort the file open."),
+                                   _(u"Version Mismatch Warning"),
                                    wx.OK | wx.CANCEL | wx.ICON_WARNING)
             if (result != wx.OK):
                 return
@@ -240,15 +241,15 @@ def load(file_obj, strict):
     test = pickle.load(file_obj)
 
     if (strict and (test.version != pdata.version)):
-        wx.MessageBox("Version of data in file '%s' doesn't match this version of Bricworks." % (file_obj.name,),
-                      "Version Mismatch - can't load program",
+        wx.MessageBox(_(u"Version of data in file '%s' doesn't match this version of Bricworks.") % (file_obj.name,),
+                      _(u"Version Mismatch - can't load program"),
                       wx.OK | wx.ICON_ERROR)
     else:
         if (test.version != pdata.version):
-            result = wx.MessageBox("Version of data in file '%s' " % (file_obj.name,) +\
-                                   "doesn't match this version of Bricworks. "  +\
-                                   "You may try anyway, or CANCEL to abort the file open.",
-                                   "Version Mismatch Warning",
+            result = wx.MessageBox(_(u"Version of data in file '%s' ") % (file_obj.name,) +\
+                                   _(u"doesn't match this version of Bricworks. ")  +\
+                                   _(u"You may try anyway, or CANCEL to abort the file open."),
+                                   _(u"Version Mismatch Warning"),
                                    wx.OK | wx.CANCEL | wx.ICON_WARNING)
             if (result != wx.OK):
                 return
@@ -292,7 +293,7 @@ def get_edison_mode():
 
 def register_window(name, window):
     if (name not in win_names):
-        print "Error - unknown name:", name
+        print _(u"Error - unknown name:"), name
     else:
         tdata.windows[name] = window
 
@@ -300,7 +301,7 @@ def verify_registry():
     result = True
     for wn in win_names:
         if (wn not in tdata.windows):
-            print "Error - window %s has not been registered"
+            print _(u"Error - window %s has not been registered")
             result = False
     return result
 
@@ -927,21 +928,21 @@ def make_mod_reg(mod_name, reg_name):
     return "%%%s:%s" % (mod_name.replace(' ', '_'), reg_name)
 
 def constant_error(err_string):
-    err_string = "Restoring properties to previous values because:\n\n" + err_string
-    wx.MessageBox(err_string, caption="Error in constant", style=wx.ICON_ERROR | wx.OK)
+    err_string = _(u"Restoring properties to previous values because:\n\n") + err_string
+    wx.MessageBox(err_string, caption=_(u"Error in constant"), style=wx.ICON_ERROR | wx.OK)
 
 def conv_to_time(string_in):
     string_in = string_in.strip()
     try:
         time = int(float(string_in)*100)
     except:
-        constant_error("Time value '%s' isn't valid." % (string_in,))
+        constant_error(_(u"Time value '%s' isn't valid.") % (string_in,))
         return None
 
     if (time < 0):
-        constant_error("Time can't be negative")
+        constant_error(_(u"Time can't be negative"))
     elif (time > 32767):
-        constant_error("Time value is greater then 327.67 seconds")
+        constant_error(_(u"Time value is greater then 327.67 seconds"))
     else:
         return time
 
@@ -964,7 +965,7 @@ def conv_to_tx_char(string_in):
         value = int(string_in[2:], 16)
 
     else:
-        constant_error("Invalid transmit character: %s. Must be a character or 0xhh where h is a hex digit." % (string_in,))
+        constant_error(_(u"Invalid transmit character: %s. Must be a character or 0xhh where h is a hex digit.") % (string_in,))
         value = None
 
     return value
@@ -980,11 +981,11 @@ def conv_to_lcd_char(string_in):
         value = ord(string_in[0].upper())
 
         if (value < ord(' ') or value > ord('Z')):
-            constant_error("LCD character '%s' is out of range " % (string_in,) +\
-                           "(upper-case, digits and some punctuation are valid)")
+            constant_error(_(u"LCD character '%s' is out of range ") % (string_in,) +\
+                           _(u"(upper-case, digits and some punctuation are valid)"))
             value = None
     else:
-        constant_error("There must be exactly one character")
+        constant_error(_(u"There must be exactly one character"))
         value = None
 
     return value
@@ -998,14 +999,14 @@ def conv_to_lcd_string(start, string_in):
 
     string_in = string_in.upper()
     if (len(string_in) + start > 84):
-        constant_error("LCD string would overflow the LCD screen")
+        constant_error(_(u"LCD string would overflow the LCD screen"))
         return None
 
     data = ""
     for i in range(len(string_in)):
         if (string_in[i] < ' ' or string_in[i]>'Z'):
-            constant_error("LCD character '%s' is out of range " % (string_in[i],) +\
-                           "(upper-case, digits and some punctuation are valid)")
+            constant_error(_(u"LCD character '%s' is out of range ") % (string_in[i],) +\
+                           _(u"(upper-case, digits and some punctuation are valid)"))
             return None
         else:
             data += "%d " % (ord(string_in[i]),)
@@ -1017,7 +1018,7 @@ def conv_to_lcd_string(start, string_in):
 def conv_to_number(string_in, n_type, n_min=None, n_max=None):
     number = None
     if (len(string_in)<1):
-        constant_error("Empty number")
+        constant_error(_(u"Empty number"))
         return None
 
     if (n_type == "b"):
@@ -1025,7 +1026,7 @@ def conv_to_number(string_in, n_type, n_min=None, n_max=None):
             number = int(string_in)
 
         if (number != None and (number < 0 or number >255)):
-            constant_error("Number %d is outside of the range: 0 -> 255" % (number,))
+            constant_error(_(u"Number %d is outside of the range: 0 -> 255") % (number,))
             return None
 
     elif (n_type == "w"):
@@ -1040,22 +1041,22 @@ def conv_to_number(string_in, n_type, n_min=None, n_max=None):
                 number = int(string_in)
 
         if (number != None and (number < -32767 or number > 32767)):
-            constant_error("Number %d is outside of the range: -32767 -> +32767" % (number,))
+            constant_error(_(u"Number %d is outside of the range: -32767 -> +32767") % (number,))
             return None
     else:
         number = None
 
     if (number == None):
-        constant_error("Invalid number: "+string_in)
+        constant_error(_(u"Invalid number: ")+string_in)
 
     if (number != None and n_min != None):
         if (number < n_min):
-            constant_error("Number %s is less than minimum %s" % (number, n_min))
+            constant_error(_(u"Number %s is less than minimum %s") % (number, n_min))
             number = None
 
     if (number != None and n_max != None):
         if (number > n_max):
-            constant_error("Number %s is greater than maximum %s" % (number, n_max))
+            constant_error(_(u"Number %s is greater than maximum %s") % (number, n_max))
             number = None
 
     return number
@@ -1358,11 +1359,11 @@ def enabled_on_pallete(win_name, name_data):
 # -------------------------- Orientation dialog ---------------------------------
 
 def get_orientation(location):
-    message = ""
-    message += "You are placing a motor at the (%d, %d) corner.\n" % (location, location+1)
-    message += "Do you want the corner piece around the corner (at location %d)?\n" % (location+1,)
+    message = _(u"")
+    message += _(u"You are placing a motor at the (%d, %d) corner.\n") % (location, location+1)
+    message += _(u"Do you want the corner piece around the corner (at location %d)?\n") % (location+1,)
 
-    result = wx.MessageBox(message, caption="Corner motor orientation.", style=wx.YES_NO | wx.ICON_QUESTION)
+    result = wx.MessageBox(message, caption=_(u"Corner motor orientation."), style=wx.YES_NO | wx.ICON_QUESTION)
     if (result == wx.YES):
         return 1
     else:
@@ -1370,10 +1371,10 @@ def get_orientation(location):
 
 
 def get_ok_to_delete(drop_type):
-    message = "Do you want to delete the "+drop_type+" icon?\n"
+    message = _(u"Do you want to delete the ")+drop_type+_(u" icon?\n")
     #message += "If you press YES the "+drop_type+" will be deleted, NO cancels the delete"
 
-    result = wx.MessageBox(message, caption="Delete check", style=wx.YES_NO | wx.ICON_QUESTION)
+    result = wx.MessageBox(message, caption=_(u"Delete check"), style=wx.YES_NO | wx.ICON_QUESTION)
     if (result == wx.YES):
         return True
     else:

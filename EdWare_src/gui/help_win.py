@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -29,13 +30,13 @@ class Help_win(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent, style=wx.RAISED_BORDER)
 
-        self.help_text = wx.TextCtrl(self, -1, "", style=wx.TE_MULTILINE | wx.TE_READONLY)
+        self.help_text = wx.TextCtrl(self, -1, _(u""), style=wx.TE_MULTILINE | wx.TE_READONLY)
         self.help_text.SetBackgroundColour("white")
 
         #self.SetVirtualSize((120, 100))
         #self.SetScrollRate(20, 20)
         
-        box = wx.StaticBox(self, -1, 'Help')
+        box = wx.StaticBox(self, -1, _(u'Help'))
         sboxsizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sboxsizer.Add(self.help_text, 1, wx.EXPAND)
 

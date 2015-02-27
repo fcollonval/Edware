@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -35,42 +36,42 @@ MOTOR_DISTANCE_ENABLED = False
 # normally the module combo boxes are 150. But events are long strings
 EVENT_COMBO_PIXELS = 200
 
-CONSTANT = "<-Constant"
-NO_VAR = "-No Variable-"
+CONSTANT = _(u"<-Constant")
+NO_VAR = _(u"-No Variable-")
 MOTHERBOARD = '*Motherboard*'
 
-LCD_CLEAR_SCREEN = "Clear screen"
-LCD_SCROLL_LINE = "Scroll line"
+LCD_CLEAR_SCREEN = _(u"Clear screen")
+LCD_SCROLL_LINE = _(u"Scroll line")
 
 MAX_TUNE_STORE = 17
 
-MATH_PLUS = "plus"
-MATH_SUB = "minus"
-MATH_MULT = "multiply"
-MATH_NOT = "not (bitwise)"
-MATH_DIV = "divide"
-MATH_MOD = "modulus"
-MATH_LSHIFT = "left shift"
-MATH_RSHIFT = "right shift"
-MATH_AND = "and (bitwise)"
-MATH_OR = "or (bitwise)"
-MATH_XOR = "xor (bitwise)"
+MATH_PLUS = _(u"plus")
+MATH_SUB = _(u"minus")
+MATH_MULT = _(u"multiply")
+MATH_NOT = _(u"not (bitwise)")
+MATH_DIV = _(u"divide")
+MATH_MOD = _(u"modulus")
+MATH_LSHIFT = _(u"left shift")
+MATH_RSHIFT = _(u"right shift")
+MATH_AND = _(u"and (bitwise)")
+MATH_OR = _(u"or (bitwise)")
+MATH_XOR = _(u"xor (bitwise)")
 
-MODULE_PROMPT = "Control:"
+MODULE_PROMPT = _(u"Control:")
 
 CONST_SIZE = (130,-1)
-SAVE_LABEL = "Save changes"
-CANCEL_LABEL = "Undo changes"
-U_NAME = "0-255"
-S_NAME = "+/- 32767"
+SAVE_LABEL = _(u"Save changes")
+CANCEL_LABEL = _(u"Undo changes")
+U_NAME = _(u"0-255")
+S_NAME = _(u"+/- 32767")
 
 #tone_notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-tone_notes = ["A (6th)", "A# (6th)", "B (6th)", "C", "C#", "D", "D#", "E", "F", "F#",
-              "G", "G#", "A", "A#", "B", "C (8th)", "Rest"]
-tone_durations = ["sixteenth", "eighth", "quarter", "half", "whole"]
+tone_notes = [_(u"A (6th)"), _(u"A# (6th)"), _(u"B (6th)"), _(u"C"), _(u"C#"), _(u"D"), _(u"D#"), _(u"E"), _(u"F"), _(u"F#"),
+              _(u"G"), _(u"G#"), _(u"A"), _(u"A#"), _(u"B"), _(u"C (8th)"), _(u"Rest")]
+tone_durations = [_(u"sixteenth"), _(u"eighth"), _(u"quarter"), _(u"half"), _(u"whole")]
 
-TRACKER_0_STATUS = "On reflective surface"
-TRACKER_1_STATUS = "On non-reflective surface"
+TRACKER_0_STATUS = _(u"On reflective surface")
+TRACKER_1_STATUS = _(u"On non-reflective surface")
 
 #                           title,      (mod,bit),       if_variant
 EVENT_DICT = {'Keypad': (
@@ -321,7 +322,7 @@ class Detail_win(wx.ScrolledWindow):
             self.bric_id = bric_id
             #self.buttons = (wx.Button(self, -1, CANCEL_LABEL), wx.Button(self, -1, SAVE_LABEL))
 
-            self.title = wx.StaticText(self, -1, "")
+            self.title = wx.StaticText(self, -1, u"")
             self.old_data = win_data.program().get_bric_data(bric_id)
 
 ##            hbox = wx.BoxSizer(wx.HORIZONTAL)
@@ -402,13 +403,13 @@ class Detail_win(wx.ScrolledWindow):
             loc = (loc[0], loc[1]+1)
 
         if (extra_info):
-            grid.Add(wx.StaticText(self, -1, '(%s)' % (extra_info,)), extra_loc, span=(1,3), flag=flag)
+            grid.Add(wx.StaticText(self, -1, u'(%s)' % (extra_info,)), extra_loc, span=(1,3), flag=flag)
 
 
     def make_headings(self, grid, loc):
-        grid.Add(wx.StaticText(self, -1, "Constant"), loc, flag=wx.ALIGN_CENTRE)
+        grid.Add(wx.StaticText(self, -1, _(u"Constant")), loc, flag=wx.ALIGN_CENTRE)
         loc = (loc[0], loc[1]+1)
-        grid.Add(wx.StaticText(self, -1, "Variable"), loc, flag=wx.ALIGN_CENTRE)
+        grid.Add(wx.StaticText(self, -1, _(u"Variable")), loc, flag=wx.ALIGN_CENTRE)
 
 
     def save_initial(self):
@@ -536,21 +537,21 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
-        rbs = self.make_radio_buttons(["Musical note", "Tune string"])
+        rbs = self.make_radio_buttons([_(u"Musical note"), _(u"Tune string")])
         modules = win_data.config_device_names('Sounder')
         mod_choice = self.make_combo(modules)
 
 
         note_and_dur = (self.make_combo(tone_notes, sort=False),
                         self.make_combo(tone_durations, sort=False))
-        note_and_dur[0].SetValue("C")
+        note_and_dur[0].SetValue(_(u"C"))
 
-        tune = (self.make_text_ctrl(""),)
+        tune = (self.make_text_ctrl(u""),)
 
         self.data_order = (None,mod_choice)+note_and_dur+tune
         self.groups = ((rbs[0], note_and_dur), (rbs[1], tune))
@@ -566,10 +567,10 @@ class Detail_win(wx.ScrolledWindow):
             grid_line += 1
 
         grid.Add(rbs[0], (grid_line,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (grid_line,1), "", note_and_dur)
+        self.add_with_prompt(grid, (grid_line,1), u"", note_and_dur)
 
         grid.Add(rbs[1], (grid_line+1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (grid_line+1,1), "", tune, ctrl_span=(1,2))
+        self.add_with_prompt(grid, (grid_line+1,1), u"", tune, ctrl_span=(1,2))
 
         self.bind_event_handlers()
 
@@ -589,7 +590,7 @@ class Detail_win(wx.ScrolledWindow):
 
     def tones_convert(self, input, command, name, bric_id):
         """Data: radio_button, module, note_cb, dur_cb, tune_const"""
-        notes = "mMncCdDefFgGaAborR"
+        notes = _(u"mMncCdDefFgGaAborR")
 
         if (command == 'from_ids'):
             output = [input[0], None, input[2], input[3], input[4]]
@@ -659,7 +660,7 @@ class Detail_win(wx.ScrolledWindow):
                 code = "datb @_tune_store * "
                 pairs = len(input[4])/2
                 if (pairs > MAX_TUNE_STORE-1):
-                    win_data.constant_error("Too many tune notes/durations (max 16 pairs).")
+                    win_data.constant_error(_(u"Too many tune notes/durations (max 16 pairs)."))
                     return []
 
                 for i in range(pairs):
@@ -672,7 +673,7 @@ class Detail_win(wx.ScrolledWindow):
 
                     note_code = notes.find(note)
                     if (note_code < 0 or note_code > 17 or dur_code < 0):
-                        win_data.constant_error("Tune string is not valid. Check help for the format.")
+                        win_data.constant_error(_(u"Tune string is not valid. Check help for the format."))
                         return []
                     elif (dur_code == 0 or note_code > 15):
                         # Make it a rest
@@ -789,7 +790,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
@@ -797,16 +798,16 @@ class Detail_win(wx.ScrolledWindow):
         if (self.name == 'LED'):
             mod_type = 'LED'
             levels = ['On', 'Off']
-            prompt = "LED Setting:"
+            prompt = _(u"LED Setting:")
 
         elif (self.name == "Obstacle Detection"):
             mod_type = 'IR Transmitter'
             levels = ['On', 'Off']
-            prompt = "IR Transmitter obstacle detection:"
+            prompt = _(u"IR Transmitter obstacle detection:")
         else:
             mod_type = 'Line Tracker'
             levels = ['On', 'Off']
-            prompt = "Line Tracker LED:"
+            prompt = _(u"Line Tracker LED:")
 
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
@@ -938,7 +939,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -955,7 +956,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = sleep
         self.rbs = None
 
-        self.add_with_prompt(grid, (1,0), "Sleep:", sleep)
+        self.add_with_prompt(grid, (1,0), _(u"Sleep:"), sleep)
         #self.add_with_prompt(grid, (2,0), "Stop on:", stop)
 
         self.bind_event_handlers()
@@ -1021,13 +1022,13 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
         mod_type = 'IR Transmitter'
-        prompt = "Character to send:"
+        prompt = _(u"Character to send:")
 
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
@@ -1130,12 +1131,12 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Serial Data Out'):
-            prompt = "Character to send:"
+            prompt = _(u"Character to send:")
         else:
             pass
 
@@ -1226,7 +1227,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
@@ -1280,7 +1281,7 @@ class Detail_win(wx.ScrolledWindow):
             self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
-        self.add_with_prompt(grid, (grid_line,0), "Variable to read into:", (ctrl,))
+        self.add_with_prompt(grid, (grid_line,0), _(u"Variable to read into:"), (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1418,14 +1419,14 @@ class Detail_win(wx.ScrolledWindow):
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
         self.prop_title = bric_data.get_bric_prop_title(self.name)
-        self.module_aliases = [("Left_LED", "Left light level"), ("Right_LED", "Right light level"),
-                               ("LINE_TRACKER1", "Line light level")]
+        self.module_aliases = [("Left_LED", _(u"Left light level")), ("Right_LED", _(u"Right light level")),
+                               ("LINE_TRACKER1", _(u"Line light level"))]
 
         values = None
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1447,8 +1448,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (mod_choice,ctrl)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Sense:", (mod_choice,))
-        self.add_with_prompt(grid, (1,0), "Variable to read into:", (ctrl,))
+        self.add_with_prompt(grid, (0,0), _(u"Sense:"), (mod_choice,))
+        self.add_with_prompt(grid, (1,0), _(u"Variable to read into:"), (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1511,13 +1512,13 @@ class Detail_win(wx.ScrolledWindow):
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
         self.prop_title = bric_data.get_bric_prop_title(self.name)
-        self.module_aliases = [("Left_Motor", "Left drive"), ("Right_Motor", "Right drive")]
+        self.module_aliases = [("Left_Motor", _(u"Left drive")), ("Right_Motor", _(u"Right drive"))]
                                   
         values = None
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1540,8 +1541,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (mod_choice,ctrl)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Read distance from:", (mod_choice,))
-        self.add_with_prompt(grid, (1,0), "Variable to read into:", (ctrl,))
+        self.add_with_prompt(grid, (0,0), _(u"Read distance from:"), (mod_choice,))
+        self.add_with_prompt(grid, (1,0), _(u"Variable to read into:"), (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1606,7 +1607,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1630,7 +1631,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (ctrl,)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Variable to read into:", (ctrl,), extra_info=extra)
+        self.add_with_prompt(grid, (0,0), _(u"Variable to read into:"), (ctrl,), extra_info=extra)
 
         self.bind_event_handlers()
 
@@ -1700,13 +1701,13 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Set Timer'):
-            prompt = "Seconds:"
-            extra_info = "Range is 0.00 to 327.67 seconds."
+            prompt = _(u"Seconds:")
+            extra_info = _(u"Range is 0.00 to 327.67 seconds.")
         else:
             pass
 
@@ -1797,7 +1798,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1823,9 +1824,9 @@ class Detail_win(wx.ScrolledWindow):
 
         self.add_with_prompt(grid, (0,0), MODULE_PROMPT, (mod_choice,))
         self.make_headings(grid, (1,1))
-        self.add_with_prompt(grid, (2,0), "Max time to wait:", wait)
-        self.add_with_prompt(grid, (3,0), "Variable for pulse time:", ctrl,
-                             extra_info="Range for times is 0.00 to 327.67")
+        self.add_with_prompt(grid, (2,0), _(u"Max time to wait:"), wait)
+        self.add_with_prompt(grid, (3,0), _(u"Variable for pulse time:"), ctrl,
+                             extra_info=_(u"Range for times is 0.00 to 327.67"))
 
         self.bind_event_handlers()
 
@@ -1927,7 +1928,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1957,10 +1958,10 @@ class Detail_win(wx.ScrolledWindow):
         self.make_headings(grid, (1,2))
 
         grid.Add(rbs[0], (2,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (2,1), "Output Level:", ctrl)
+        self.add_with_prompt(grid, (2,1), _(u"Output Level:"), ctrl)
 
         grid.Add(rbs[1], (4,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (4,1), "Duration:", pulse)
+        self.add_with_prompt(grid, (4,1), _(u"Duration:"), pulse)
 
         self.bind_event_handlers()
 
@@ -2067,14 +2068,14 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Increment'):
-            prompt = "Plus 1 to variable"
+            prompt = _(u"Plus 1 to variable")
         else:
-            prompt = "Minus 1 from variable"
+            prompt = _(u"Minus 1 from variable")
 
         choices = win_data.vars_names()
         ctrl = self.make_combo(choices, add_const=False)
@@ -2152,7 +2153,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2167,8 +2168,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (var,)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Value:", (value,))
-        self.add_with_prompt(grid, (1,0), "Variable to set:", (var,))
+        self.add_with_prompt(grid, (0,0), _(u"Value:"), (value,))
+        self.add_with_prompt(grid, (1,0), _(u"Variable to set:"), (var,))
 
         self.bind_event_handlers()
 
@@ -2232,7 +2233,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2247,8 +2248,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (copy_from, copy_to)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Copy data from variable:", (copy_from,))
-        self.add_with_prompt(grid, (1,0), "Copy data to variable:", (copy_to,))
+        self.add_with_prompt(grid, (0,0), _(u"Copy data from variable:"), (copy_from,))
+        self.add_with_prompt(grid, (1,0), _(u"Copy data to variable:"), (copy_to,))
 
         self.bind_event_handlers()
 
@@ -2486,7 +2487,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(7, 5)
         grid_line = 0
@@ -2512,14 +2513,14 @@ class Detail_win(wx.ScrolledWindow):
         s_choices = win_data.vars_names(U_NAME)
         dist_choices = win_data.vars_names(S_NAME)
 
-        speeds = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        speeds = [_(u"0"), _(u"1"), _(u"2"), _(u"3"), _(u"4"), _(u"5"), _(u"6"), _(u"7"), _(u"8"), _(u"9"), _(u"10")]
 
         #distance_units = ["unlimited", "mm", "inch", "degree", "raw"]
-        distance_units = ["Unlimited - Forever",
-                          "Millimetres - in 2.5mm steps",
-                          "Inches - in inch steps",
-                          "Degrees - in 7.5 degree steps",
-                          "Raw - in 1/48th of rotation"]
+        distance_units = [_(u"Unlimited - Forever"),
+                          _(u"Millimetres - in 2.5mm steps"),
+                          _(u"Inches - in inch steps"),
+                          _(u"Degrees - in 7.5 degree steps"),
+                          _(u"Raw - in 1/48th of rotation")]
 
         dirs = (self.make_combo(directions, sort=False),
                  self.make_combo(d_choices, add_const=True))
@@ -2549,12 +2550,12 @@ class Detail_win(wx.ScrolledWindow):
             grid_line += 1
 
         self.make_headings(grid, (grid_line,1))
-        self.add_with_prompt(grid, (grid_line+1,0), "Direction:", dirs)
-        self.add_with_prompt(grid, (grid_line+2,0), "Speed:", speed)
+        self.add_with_prompt(grid, (grid_line+1,0), _(u"Direction:"), dirs)
+        self.add_with_prompt(grid, (grid_line+2,0), _(u"Speed:"), speed)
         
         if (MOTOR_DISTANCE_ENABLED):
-            self.add_with_prompt(grid, (grid_line+3,0), "Distance:", dist_units, ctrl_span=(1,2))
-            self.add_with_prompt(grid, (grid_line+4,0), "Distance:", dist_value)
+            self.add_with_prompt(grid, (grid_line+3,0), _(u"Distance:"), dist_units, ctrl_span=(1,2))
+            self.add_with_prompt(grid, (grid_line+4,0), _(u"Distance:"), dist_value)
         else:
             dist_units[0].Hide()
             dist_value[0].Hide()
@@ -2699,7 +2700,7 @@ class Detail_win(wx.ScrolledWindow):
                 for i in (0, 1):
                     if (s_dirs[i] == 0):
                         # This should not happen!
-                        print "ERROR -- motor pair didn't give a command for every command!"
+                        print _(u"ERROR -- motor pair didn't give a command for every command!")
                         continue
 
                     if ((s_dirs[i] & 0x20) == 0x20):
@@ -2769,7 +2770,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2826,20 +2827,20 @@ class Detail_win(wx.ScrolledWindow):
 ##        print self.cons_tc
 ##        print self.rbs
 
-        self.add_with_prompt(grid, (0,1), "Variable:", main_var, ctrl_span=(1,2), expand=False)
+        self.add_with_prompt(grid, (0,1), _(u"Variable:"), main_var, ctrl_span=(1,2), expand=False)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (1,1), "Operation:", basic_op)
-        self.add_with_prompt(grid, (2,1), "Argument:", basic_arg)
+        self.add_with_prompt(grid, (1,1), _(u"Operation:"), basic_op)
+        self.add_with_prompt(grid, (2,1), _(u"Argument:"), basic_arg)
 
         grid.Add(rbs[1], (3,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (3,1), "Operation:", shift_op)
-        self.add_with_prompt(grid, (4,1), "Argument:", shift_arg)
+        self.add_with_prompt(grid, (3,1), _(u"Operation:"), shift_op)
+        self.add_with_prompt(grid, (4,1), _(u"Argument:"), shift_arg)
 
         if (self.name == 'Maths Basic'):
             grid.Add(rbs[2], (5,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-            self.add_with_prompt(grid, (5,1), "Operation:", logical_op)
-            self.add_with_prompt(grid, (6,1), "Argument:", logical_arg)
+            self.add_with_prompt(grid, (5,1), _(u"Operation:"), logical_op)
+            self.add_with_prompt(grid, (6,1), _(u"Argument:"), logical_arg)
 
         self.bind_event_handlers()
 
@@ -2987,7 +2988,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -3000,7 +3001,7 @@ class Detail_win(wx.ScrolledWindow):
                  self.make_combo(ascii_vars, add_const=True))
 
 
-        string = (self.make_text_ctrl("HELLO WORLD"),)
+        string = (self.make_text_ctrl(_(u"HELLO WORLD")),)
         string_cursor = (self.make_text_ctrl("0"), self.make_text_ctrl("0"))
 
         number = (wx.StaticText(self, -1, ""), self.make_combo(other_vars, add_no_var=True),)
@@ -3022,20 +3023,20 @@ class Detail_win(wx.ScrolledWindow):
         # BED - swapped order without changing _convert!
 
         grid.Add(rbs[1], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (1,1), "String:", string)
-        self.add_with_prompt(grid, (2,1), "Row / Column:", string_cursor)
+        self.add_with_prompt(grid, (1,1), _(u"String:"), string)
+        self.add_with_prompt(grid, (2,1), _(u"Row / Column:"), string_cursor)
 
         grid.Add(rbs[0], (3,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (3,1), "Character:", ascii)
+        self.add_with_prompt(grid, (3,1), _(u"Character:"), ascii)
 
         grid.Add(rbs[2], (4,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (4,1), "Number:", number)
+        self.add_with_prompt(grid, (4,1), _(u"Number:"), number)
 
         grid.Add(rbs[3], (5,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (5,1), "Row / Column:", cursor)
+        self.add_with_prompt(grid, (5,1), _(u"Row / Column:"), cursor)
 
         grid.Add(rbs[4], (6,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (6,1), "Command:", control)
+        self.add_with_prompt(grid, (6,1), _(u"Command:"), control)
 
         self.bind_event_handlers()
 
@@ -3197,13 +3198,13 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
 
 
-        settings = ["Light", "Dark"]
+        settings = [_(u"Light"), _(u"Dark")]
         state = (self.make_combo(settings),)
         cursor = (self.make_text_ctrl("0"), self.make_text_ctrl("0"))
 
@@ -3214,8 +3215,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (state[0],)
         self.rbs = None
 
-        self.add_with_prompt(grid, (1,1), "Set pixel to:", state)
-        self.add_with_prompt(grid, (2,1), "At row / column:", cursor)
+        self.add_with_prompt(grid, (1,1), _(u"Set pixel to:"), state)
+        self.add_with_prompt(grid, (2,1), _(u"At row / column:"), cursor)
 
         self.bind_event_handlers()
 
@@ -3522,14 +3523,14 @@ class Detail_win(wx.ScrolledWindow):
         self.bad_events = INVALID_NEW_EVENTS
 
         self.good_choices = self.get_unused_events(bric_id)
-        print "good_choices:", self.good_choices
+        print _(u"good_choices:"), self.good_choices
         
         self.prop_title = bric_data.get_bric_prop_title(self.name)
         values = None
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -3546,7 +3547,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice,)
         self.rbs = None
 
-        grid.Add(wx.StaticText(self, -1, "Event happens:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, _(u"Event happens:")), (0,1), flag=wx.ALIGN_LEFT)
 
         self.add_with_prompt(grid, (1,1), "", (mod_choice,))
         self.add_with_prompt(grid, (1,2), "", (self.event_choice,))
@@ -3639,11 +3640,11 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Seconds pass", "Event happens"])
+        rbs = self.make_radio_buttons([_(u"Seconds pass"), _(u"Event happens")])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
@@ -3663,7 +3664,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice,)
         self.rbs = rbs
 
-        grid.Add(wx.StaticText(self, -1, "Wait Until:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, _(u"Wait Until:")), (0,1), flag=wx.ALIGN_LEFT)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
         self.add_with_prompt(grid, (1,1), "", time)
@@ -3810,11 +3811,11 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Test passes", "Event happens", "Loop forever"])
+        rbs = self.make_radio_buttons([_(u"Test passes"), _(u"Event happens"), _(u"Loop forever")])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
@@ -3836,7 +3837,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice, test[0], test[1])
         self.rbs = rbs
 
-        grid.Add(wx.StaticText(self, -1, "Loop UNTIL:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, _(u"Loop UNTIL:")), (0,1), flag=wx.ALIGN_LEFT)
 
         # BED - moved the order without changing the tables so that I didn't have
         # to change the _convert function
@@ -4003,11 +4004,11 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Test passes", "Event happens"])
+        rbs = self.make_radio_buttons([_(u"Test passes"), _(u"Event happens")])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS,-1))
@@ -4031,7 +4032,7 @@ class Detail_win(wx.ScrolledWindow):
 
         self.cb_special = self.if_special_cb_change
 
-        grid.Add(wx.StaticText(self, -1, "Take the top (True) branch if:"), (0,1),
+        grid.Add(wx.StaticText(self, -1, _(u"Take the top (True) branch if:")), (0,1),
                  span=(1,2), flag=wx.ALIGN_LEFT)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
@@ -4041,7 +4042,7 @@ class Detail_win(wx.ScrolledWindow):
         self.add_with_prompt(grid, (2,1), "", (mod_choice,))
         self.add_with_prompt(grid, (2,2), "", (self.event_choice,), ctrl_span=(1,2))
 
-        grid.Add(wx.StaticText(self, -1, "Else take the bottom (False) branch."), (3,1),
+        grid.Add(wx.StaticText(self, -1, _(u"Else take the bottom (False) branch.")), (3,1),
                  span=(1,2), flag=wx.ALIGN_LEFT)
 
         self.bind_event_handlers()

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -42,7 +43,7 @@ class Bric(object):
 
     def dump(self):
         print self
-        print "Bric %d - p:%d, n:%d, p2:%d, n2:%d name:%s, if_var: %s, data:%s" % (self.id,
+        print _(u"Bric %d - p:%d, n:%d, p2:%d, n2:%d name:%s, if_var: %s, data:%s") % (self.id,
                                                                                    self.prev_id[0], self.next_id[0],
                                                                                    self.prev_id[1], self.next_id[1],
                                                                                    self.bric_name, self.if_variant,
@@ -63,9 +64,9 @@ class Program(object):
         self.add_new_bric(0, 0, "Main")
 
     def dump(self):
-        print "Streams:", self.streams
-        print "Move_id:", self.move_id
-        print "Bric count:", self.bric_count
+        print _(u"Streams:"), self.streams
+        print _(u"Move_id:"), self.move_id
+        print _(u"Bric count:"), self.bric_count
         for k in self.brics:
             self.brics[k].dump()
 
@@ -116,7 +117,7 @@ class Program(object):
         if (id in self.brics):
             self.brics[id].if_variant = variant
         else:
-            print "WARNING - old bric id:",id
+            print _(u"WARNING - old bric id:"),id
             print self.brics
         
     def add_new_bric(self, prev_id, which_id, bric_name):

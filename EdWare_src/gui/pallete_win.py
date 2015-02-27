@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -83,7 +84,7 @@ class Pallete_win(wx.ScrolledWindow):
     def add_item_bmap(self, group_name, name, bmap, sel_bmap=None, dis_bmap=None, id=-1, placement=0):
         """Add the bitmap to the pallete"""
         if (group_name not in self.groups):
-            print "Error - group name (%s) not found" % (group_name)
+            print _(u"Error - group name (%s) not found") % (group_name)
             return
         
         if (group_name not in self.items):

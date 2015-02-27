@@ -1,0 +1,346 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-02-18 22:16+Paris, Madrid\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: .\edware.py:104 .\edware.py:208
+msgid "Edison EdWare"
+msgstr ""
+
+#: .\edware.py:113 .\edware.py:258 .\edware.py:486
+msgid "&File"
+msgstr ""
+
+#: .\edware.py:114
+msgid "New"
+msgstr ""
+
+#: .\edware.py:114
+msgid "Start a new program"
+msgstr ""
+
+#: .\edware.py:115
+msgid "&Open"
+msgstr ""
+
+#: .\edware.py:115
+msgid "Open an existing program"
+msgstr ""
+
+#: .\edware.py:117
+msgid "Save the current program"
+msgstr ""
+
+#: .\edware.py:117 .\edware.py:486
+msgid "&Save"
+msgstr ""
+
+#: .\edware.py:118
+msgid "Save &As"
+msgstr ""
+
+#: .\edware.py:118
+msgid "Save the current program under a new name"
+msgstr ""
+
+#: .\edware.py:120
+msgid "Exit EdWare"
+msgstr ""
+
+#: .\edware.py:120 .\edware.py:505
+msgid "&Exit"
+msgstr ""
+
+#: .\edware.py:123
+msgid "&Program Edison"
+msgstr ""
+
+#: .\edware.py:124
+msgid "Program &Edison"
+msgstr ""
+
+#: .\edware.py:124 .\edware.py:543
+msgid "Program Edison"
+msgstr ""
+
+#: .\edware.py:127
+msgid "&Check program size"
+msgstr ""
+
+#: .\edware.py:127
+msgid "Report on the bytes and variables used in the program"
+msgstr ""
+
+#: .\edware.py:131
+msgid "&Download new firmware"
+msgstr ""
+
+#: .\edware.py:131
+msgid "Download new firmware to Edison"
+msgstr ""
+
+#: .\edware.py:134 .\edware.py:135
+msgid "&Help"
+msgstr ""
+
+#: .\edware.py:135
+msgid "Display help for Edison EdWare"
+msgstr ""
+
+#: .\edware.py:136
+msgid "Display information about Edison EdWare"
+msgstr ""
+
+#: .\edware.py:136 .\edware.py:503
+msgid "&About"
+msgstr ""
+
+#: .\edware.py:258
+msgid "&New - Advanced"
+msgstr ""
+
+#: .\edware.py:267
+msgid "&Advanced mode"
+msgstr ""
+
+#: .\edware.py:267 .\edware.py:848 .\edware.py:859
+msgid "&Settings"
+msgstr ""
+
+#: .\edware.py:531
+msgid " Zoom "
+msgstr ""
+
+#: .\edware.py:537
+msgid "Add Variable"
+msgstr ""
+
+#: .\edware.py:557
+msgid "&Program view"
+msgstr ""
+
+#: .\edware.py:557 .\edware.py:561
+msgid "&View"
+msgstr ""
+
+#: .\edware.py:561
+msgid "&Configuration view"
+msgstr ""
+
+#: .\edware.py:575 .\edware.py:581
+msgid "Download over audio"
+msgstr ""
+
+#: .\edware.py:587
+msgid "Download new FIRMWARE over audio"
+msgstr ""
+
+#: .\edware.py:593 .\edware.py:605
+msgid "Unsaved program."
+msgstr ""
+
+#: .\edware.py:608
+msgid "Open program"
+msgstr ""
+
+#: .\edware.py:609
+msgid "EdWare files (*.edw)|*.edw|All files (*.*)|*.*"
+msgstr ""
+
+#: .\edware.py:621
+msgid "Can't open the file: %s"
+msgstr ""
+
+#: .\edware.py:622 .\edware.py:652
+msgid "Error while opening program."
+msgstr ""
+
+#: .\edware.py:651
+msgid "Error opening the program. Maybe the disk vanished?"
+msgstr ""
+
+#: .\edware.py:678 .\edware.py:684
+msgid "Exiting with a modified program."
+msgstr ""
+
+#: .\edware.py:691
+msgid ""
+"Your program has changes that have not been saved.\n"
+"\n"
+msgstr ""
+
+#: .\edware.py:692
+msgid "Would you like to save the changes first?"
+msgstr ""
+
+#: .\edware.py:716
+msgid "Save program"
+msgstr ""
+
+#: .\edware.py:735
+msgid "Exception:%s, python ver:%s"
+msgstr ""
+
+#: .\edware.py:736
+msgid ""
+"Error saving the program. Maybe the disk is full?\n"
+"(%s)"
+msgstr ""
+
+#: .\edware.py:737
+msgid "Error while saving."
+msgstr ""
+
+#: .\edware.py:742
+msgid "Please enter the USB device for programming the robot"
+msgstr ""
+
+#: .\edware.py:743
+msgid "USB Device"
+msgstr ""
+
+#: .\edware.py:755
+msgid "Download via Screen"
+msgstr ""
+
+#: .\edware.py:763
+msgid "Download via USB"
+msgstr ""
+
+#: .\edware.py:775
+msgid "Download new FIRMWARE via USB"
+msgstr ""
+
+#: .\edware.py:787
+msgid "Download Intel hex file via USB"
+msgstr ""
+
+#: .\edware.py:848
+msgid "&Display toolbar"
+msgstr ""
+
+#: .\edware.py:859
+msgid "&Strict version check"
+msgstr ""
+
+#: .\edware.py:997
+msgid "EdWare Edison progamming environment"
+msgstr ""
+
+#: .\edware.py:999
+msgid "An optional edware file to load"
+msgstr ""
+
+#: .\edware.py:1002
+msgid "Select a specific audio output if it's installed"
+msgstr ""
+
+#: .\gui\var_win.py:41
+msgid "Intial Value"
+msgstr ""
+
+#: .\gui\var_win.py:41
+msgid "Name"
+msgstr ""
+
+#: .\gui\var_win.py:41
+msgid "Range"
+msgstr ""
+
+#: .\gui\var_win.py:87
+msgid "Variables"
+msgstr ""
+
+#: .\gui\var_win.py:113
+msgid "<NEW>"
+msgstr ""
+
+#: .\gui\var_win.py:138
+msgid "Edit variable"
+msgstr ""
+
+#: .\gui\var_win.py:144
+msgid "Add variable"
+msgstr ""
+
+#: .\gui\var_win.py:160
+msgid "Variable name '%s' is used in the program. "
+msgstr ""
+
+#: .\gui\var_win.py:161
+msgid "Change the program before removing this variable."
+msgstr ""
+
+#: .\gui\var_win.py:179
+msgid "Variable name '%s' is already used."
+msgstr ""
+
+#: .\gui\var_win.py:182
+msgid "Variable names must start with a character and are at most 16 characters long"
+msgstr ""
+
+#: .\gui\var_win.py:186
+msgid "Variable range must be one of: %s, %s"
+msgstr ""
+
+#: .\gui\var_win.py:191
+msgid "Variable length (%s) or initial value (%s) is not in the valid range."
+msgstr ""
+
+#: .\gui\var_win.py:196
+msgid "Not enough room for %s more variable(s) of type %s."
+msgstr ""
+
+#: .\gui\var_win.py:200
+msgid "Error editing variable."
+msgstr ""
+
+#: .\gui\var_win.py:209
+msgid "Error - Can not change the range of a variable that is "
+msgstr ""
+
+#: .\gui\var_win.py:210
+msgid "being used in the program."
+msgstr ""
+
+#: .\gui\var_win.py:211
+msgid "Can't change the range."
+msgstr ""
+
+#: .\gui\var_win.py:220
+msgid ""
+"Can not delete the variable as it is used in the program.\n"
+msgstr ""
+
+#: .\gui\var_win.py:221
+msgid "Delete it from the program before deleting it here."
+msgstr ""
+
+#: .\gui\var_win.py:222
+msgid "Can't delete variable."
+msgstr ""
+
+#: .\gui\var_win.py:289
+msgid "Variable name:"
+msgstr ""
+
+#: .\gui\var_win.py:290
+msgid "Variable range:"
+msgstr ""
+
+#: .\gui\var_win.py:292
+msgid "Initial value (optional):"
+msgstr ""
+

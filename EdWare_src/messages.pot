@@ -1,0 +1,1504 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-02-25 20:12+Paris, Madrid\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: .\edware.py:104 .\edware.py:208
+msgid "Edison EdWare"
+msgstr ""
+
+#: .\edware.py:113 .\edware.py:258 .\edware.py:486
+msgid "&File"
+msgstr ""
+
+#: .\edware.py:114
+msgid "New"
+msgstr ""
+
+#: .\edware.py:114
+msgid "Start a new program"
+msgstr ""
+
+#: .\edware.py:115
+msgid "&Open"
+msgstr ""
+
+#: .\edware.py:115
+msgid "Open an existing program"
+msgstr ""
+
+#: .\edware.py:117
+msgid "Save the current program"
+msgstr ""
+
+#: .\edware.py:117 .\edware.py:486
+msgid "&Save"
+msgstr ""
+
+#: .\edware.py:118
+msgid "Save &As"
+msgstr ""
+
+#: .\edware.py:118
+msgid "Save the current program under a new name"
+msgstr ""
+
+#: .\edware.py:120
+msgid "Exit EdWare"
+msgstr ""
+
+#: .\edware.py:120 .\edware.py:505
+msgid "&Exit"
+msgstr ""
+
+#: .\edware.py:123
+msgid "&Program Edison"
+msgstr ""
+
+#: .\edware.py:124
+msgid "Program &Edison"
+msgstr ""
+
+#: .\edware.py:124 .\edware.py:543
+msgid "Program Edison"
+msgstr ""
+
+#: .\edware.py:127
+msgid "&Check program size"
+msgstr ""
+
+#: .\edware.py:127
+msgid "Report on the bytes and variables used in the program"
+msgstr ""
+
+#: .\edware.py:131
+msgid "&Download new firmware"
+msgstr ""
+
+#: .\edware.py:131
+msgid "Download new firmware to Edison"
+msgstr ""
+
+#: .\edware.py:134 .\edware.py:135
+msgid "&Help"
+msgstr ""
+
+#: .\edware.py:135
+msgid "Display help for Edison EdWare"
+msgstr ""
+
+#: .\edware.py:136
+msgid "Display information about Edison EdWare"
+msgstr ""
+
+#: .\edware.py:136 .\edware.py:503
+msgid "&About"
+msgstr ""
+
+#: .\edware.py:258
+msgid "&New - Advanced"
+msgstr ""
+
+#: .\edware.py:267
+msgid "&Advanced mode"
+msgstr ""
+
+#: .\edware.py:267 .\edware.py:848 .\edware.py:859
+msgid "&Settings"
+msgstr ""
+
+#: .\edware.py:531
+msgid " Zoom "
+msgstr ""
+
+#: .\edware.py:537
+msgid "Add Variable"
+msgstr ""
+
+#: .\edware.py:557
+msgid "&Program view"
+msgstr ""
+
+#: .\edware.py:557 .\edware.py:561
+msgid "&View"
+msgstr ""
+
+#: .\edware.py:561
+msgid "&Configuration view"
+msgstr ""
+
+#: .\edware.py:575 .\edware.py:581
+msgid "Download over audio"
+msgstr ""
+
+#: .\edware.py:587
+msgid "Download new FIRMWARE over audio"
+msgstr ""
+
+#: .\edware.py:593 .\edware.py:605
+msgid "Unsaved program."
+msgstr ""
+
+#: .\edware.py:608
+msgid "Open program"
+msgstr ""
+
+#: .\edware.py:609
+msgid "EdWare files (*.edw)|*.edw|All files (*.*)|*.*"
+msgstr ""
+
+#: .\edware.py:621
+msgid "Can't open the file: %s"
+msgstr ""
+
+#: .\edware.py:622 .\edware.py:652
+msgid "Error while opening program."
+msgstr ""
+
+#: .\edware.py:651
+msgid "Error opening the program. Maybe the disk vanished?"
+msgstr ""
+
+#: .\edware.py:678 .\edware.py:684
+msgid "Exiting with a modified program."
+msgstr ""
+
+#: .\edware.py:691
+msgid ""
+"Your program has changes that have not been saved.\n"
+"\n"
+msgstr ""
+
+#: .\edware.py:692
+msgid "Would you like to save the changes first?"
+msgstr ""
+
+#: .\edware.py:716
+msgid "Save program"
+msgstr ""
+
+#: .\edware.py:735
+msgid "Exception:%s, python ver:%s"
+msgstr ""
+
+#: .\edware.py:736
+msgid ""
+"Error saving the program. Maybe the disk is full?\n"
+"(%s)"
+msgstr ""
+
+#: .\edware.py:737
+msgid "Error while saving."
+msgstr ""
+
+#: .\edware.py:742
+msgid "Please enter the USB device for programming the robot"
+msgstr ""
+
+#: .\edware.py:743
+msgid "USB Device"
+msgstr ""
+
+#: .\edware.py:755
+msgid "Download via Screen"
+msgstr ""
+
+#: .\edware.py:763
+msgid "Download via USB"
+msgstr ""
+
+#: .\edware.py:775
+msgid "Download new FIRMWARE via USB"
+msgstr ""
+
+#: .\edware.py:787
+msgid "Download Intel hex file via USB"
+msgstr ""
+
+#: .\edware.py:848
+msgid "&Display toolbar"
+msgstr ""
+
+#: .\edware.py:859
+msgid "&Strict version check"
+msgstr ""
+
+#: .\edware.py:997
+msgid "EdWare Edison progamming environment"
+msgstr ""
+
+#: .\edware.py:999
+msgid "An optional edware file to load"
+msgstr ""
+
+#: .\edware.py:1002
+msgid "Select a specific audio output if it's installed"
+msgstr ""
+
+#: .\gui\about.py:33
+msgid "About Edison EdWare"
+msgstr ""
+
+#: .\gui\about.py:34
+msgid ""
+"\n"
+"        <html>\n"
+"        <body>\n"
+"        <center>\n"
+"        <h1>Edison EdWare</h1>\n"
+"        <h2>Version 1.0.0</h2>\n"
+"        Programming your Edison Robot<br>\n"
+"        http://www.microbric.com/\n"
+"        </center>\n"
+"        <p>\n"
+"        <font size=\"-2\">\n"
+"        Copyright 2006,2014,2015 Microbric Pty Ltd<br>\n"
+"        This program is distributed under the terms of the Gnu General Public License, version 2\n"
+"        (for the full text, see gpl.txt in the docs directory)\n"
+"        </font>\n"
+"        <p>\n"
+"        \n"
+"        <font size=\"1\">\n"
+"        Author: Brian Danilko, <b>Likeable Software</b> (http://www.likeablesoftware.com)\n"
+"        </font>\n"
+"        </p>\n"
+"        \n"
+"        <p>\n"
+"        <font size=\"1\">\n"
+"        Made possible by awesome Edison firmware by: Bill Hammond, <b>Circuitworks</b>\n"
+"        </font>\n"
+"        </p>\n"
+"        \n"
+"        <p>\n"
+"        <font size=\"-2\">\n"
+"        This program, and previous versions, were developed using the following open-source components:\n"
+"        <ul>\n"
+"        <li><b>Python</b> (http://www.python.org)\n"
+"        <li><b>wxPython</b> (http://www.wxpython.org)\n"
+"        <li><b>pyWin32</b> (http://pywin32.sourceforge.net)\n"
+"        <li><b>pyInstaller</b> (http://www.pyinstaller.org)\n"
+"        <li><b>Inno Setup</b> (http://www.jrsoftware.org)\n"
+"        <li><b>JsonPickle</b> (http://jsonpickle.github.io)\n"
+"        <li><b>PyAudio</b> (http://people.csail.mit.edu/hubert/pyaudio)\n"
+"        <li>----------- previous version components ----------------\n"
+"        <li><b>pySerial</b> (http://pyserial.sourceforge.net)\n"
+"        <li><b>comscan.py</b> from bitpim (http://www.bitpim.org)\n"
+"        </font>\n"
+"        </ul>\n"
+"        \n"
+"        </body>\n"
+"        </html>\n"
+"        "
+msgstr ""
+
+#: .\gui\about.py:83 .\gui\downloader.py:263 .\gui\downloader.py:341
+#: .\gui\downloader.py:484 .\gui\downloader.py:641 .\gui\downloader.py:783
+#: .\gui\downloader.py:980 .\gui\help_win.py:33 .\gui\win_data.py:1362
+msgid ""
+msgstr ""
+
+#: .\gui\about.py:88
+msgid "Okay"
+msgstr ""
+
+#: .\gui\about.py:103
+msgid "Edison EdWare Help"
+msgstr ""
+
+#: .\gui\about.py:104
+msgid ""
+"\n"
+"        <html>\n"
+"        <body>\n"
+"        <center>\n"
+"        <h1>Edison EdWare Help</h1>\n"
+"\n"
+"        </body>\n"
+"        </html>\n"
+"        "
+msgstr ""
+
+#: .\gui\about.py:128
+msgid "Cancel"
+msgstr ""
+
+#: .\gui\bric_data.py:114
+msgid "Error loading"
+msgstr ""
+
+#: .\gui\config_win.py:37
+msgid "Loc."
+msgstr ""
+
+#: .\gui\config_win.py:37
+msgid "Module"
+msgstr ""
+
+#: .\gui\config_win.py:37
+msgid "Module Label"
+msgstr ""
+
+#: .\gui\config_win.py:80
+msgid "Module Configuration"
+msgstr ""
+
+#: .\gui\config_win.py:111
+msgid "Edit module name"
+msgstr ""
+
+#: .\gui\config_win.py:139
+msgid "The module name '%s' is already used"
+msgstr ""
+
+#: .\gui\config_win.py:142
+msgid "Module names must start with a character and are at most 16 characters long"
+msgstr ""
+
+#: .\gui\config_win.py:147
+msgid "Error editing module name."
+msgstr ""
+
+#: .\gui\config_win.py:166
+msgid "Location:"
+msgstr ""
+
+#: .\gui\config_win.py:167
+msgid "Module:"
+msgstr ""
+
+#: .\gui\config_win.py:168
+msgid "Module Label:"
+msgstr ""
+
+#: .\gui\config_work.py:498
+msgid ""
+"Can not delete the device as it is used in the program.\n"
+"Delete it from the program before deleting it here."
+msgstr ""
+
+#: .\gui\config_work.py:500
+msgid "Can't delete device."
+msgstr ""
+
+#: .\gui\detail_win.py:39
+msgid "<-Constant"
+msgstr ""
+
+#: .\gui\detail_win.py:40
+msgid "-No Variable-"
+msgstr ""
+
+#: .\gui\detail_win.py:43
+msgid "Clear screen"
+msgstr ""
+
+#: .\gui\detail_win.py:44
+msgid "Scroll line"
+msgstr ""
+
+#: .\gui\detail_win.py:48
+msgid "plus"
+msgstr ""
+
+#: .\gui\detail_win.py:49
+msgid "minus"
+msgstr ""
+
+#: .\gui\detail_win.py:50
+msgid "multiply"
+msgstr ""
+
+#: .\gui\detail_win.py:51
+msgid "not (bitwise)"
+msgstr ""
+
+#: .\gui\detail_win.py:52
+msgid "divide"
+msgstr ""
+
+#: .\gui\detail_win.py:53
+msgid "modulus"
+msgstr ""
+
+#: .\gui\detail_win.py:54
+msgid "left shift"
+msgstr ""
+
+#: .\gui\detail_win.py:55
+msgid "right shift"
+msgstr ""
+
+#: .\gui\detail_win.py:56
+msgid "and (bitwise)"
+msgstr ""
+
+#: .\gui\detail_win.py:57
+msgid "or (bitwise)"
+msgstr ""
+
+#: .\gui\detail_win.py:58
+msgid "xor (bitwise)"
+msgstr ""
+
+#: .\gui\detail_win.py:60
+msgid "Control:"
+msgstr ""
+
+#: .\gui\detail_win.py:63
+msgid "Save changes"
+msgstr ""
+
+#: .\gui\detail_win.py:64
+msgid "Undo changes"
+msgstr ""
+
+#: .\gui\detail_win.py:65
+msgid "0-255"
+msgstr ""
+
+#: .\gui\detail_win.py:66
+msgid "+/- 32767"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "A (6th)"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "A# (6th)"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "B (6th)"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "C#"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "D"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "D#"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "E"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "F"
+msgstr ""
+
+#: .\gui\detail_win.py:69
+msgid "F#"
+msgstr ""
+
+#: .\gui\detail_win.py:69 .\gui\detail_win.py:552
+msgid "C"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "A"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "A#"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "B"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "C (8th)"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "G"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "G#"
+msgstr ""
+
+#: .\gui\detail_win.py:70
+msgid "Rest"
+msgstr ""
+
+#: .\gui\detail_win.py:71
+msgid "eighth"
+msgstr ""
+
+#: .\gui\detail_win.py:71
+msgid "half"
+msgstr ""
+
+#: .\gui\detail_win.py:71
+msgid "quarter"
+msgstr ""
+
+#: .\gui\detail_win.py:71
+msgid "sixteenth"
+msgstr ""
+
+#: .\gui\detail_win.py:71
+msgid "whole"
+msgstr ""
+
+#: .\gui\detail_win.py:73
+msgid "On reflective surface"
+msgstr ""
+
+#: .\gui\detail_win.py:74
+msgid "On non-reflective surface"
+msgstr ""
+
+#: .\gui\detail_win.py:410
+msgid "Constant"
+msgstr ""
+
+#: .\gui\detail_win.py:412
+msgid "Variable"
+msgstr ""
+
+#: .\gui\detail_win.py:540 .\gui\detail_win.py:793 .\gui\detail_win.py:942
+#: .\gui\detail_win.py:1025 .\gui\detail_win.py:1134 .\gui\detail_win.py:1230
+#: .\gui\detail_win.py:1429 .\gui\detail_win.py:1521 .\gui\detail_win.py:1610
+#: .\gui\detail_win.py:1704 .\gui\detail_win.py:1801 .\gui\detail_win.py:1931
+#: .\gui\detail_win.py:2071 .\gui\detail_win.py:2156 .\gui\detail_win.py:2236
+#: .\gui\detail_win.py:2490 .\gui\detail_win.py:2773 .\gui\detail_win.py:2991
+#: .\gui\detail_win.py:3201 .\gui\detail_win.py:3533 .\gui\detail_win.py:3643
+#: .\gui\detail_win.py:3814 .\gui\detail_win.py:4007
+msgid "%s - properties:"
+msgstr ""
+
+#: .\gui\detail_win.py:545
+msgid "Musical note"
+msgstr ""
+
+#: .\gui\detail_win.py:545
+msgid "Tune string"
+msgstr ""
+
+#: .\gui\detail_win.py:593
+msgid "mMncCdDefFgGaAborR"
+msgstr ""
+
+#: .\gui\detail_win.py:663
+msgid "Too many tune notes/durations (max 16 pairs)."
+msgstr ""
+
+#: .\gui\detail_win.py:676
+msgid "Tune string is not valid. Check help for the format."
+msgstr ""
+
+#: .\gui\detail_win.py:801
+msgid "LED Setting:"
+msgstr ""
+
+#: .\gui\detail_win.py:806
+msgid "IR Transmitter obstacle detection:"
+msgstr ""
+
+#: .\gui\detail_win.py:810
+msgid "Line Tracker LED:"
+msgstr ""
+
+#: .\gui\detail_win.py:959
+msgid "Sleep:"
+msgstr ""
+
+#: .\gui\detail_win.py:1031 .\gui\detail_win.py:1139
+msgid "Character to send:"
+msgstr ""
+
+#: .\gui\detail_win.py:1284 .\gui\detail_win.py:1452 .\gui\detail_win.py:1545
+#: .\gui\detail_win.py:1634
+msgid "Variable to read into:"
+msgstr ""
+
+#: .\gui\detail_win.py:1422
+msgid "Left light level"
+msgstr ""
+
+#: .\gui\detail_win.py:1422
+msgid "Right light level"
+msgstr ""
+
+#: .\gui\detail_win.py:1423
+msgid "Line light level"
+msgstr ""
+
+#: .\gui\detail_win.py:1451
+msgid "Sense:"
+msgstr ""
+
+#: .\gui\detail_win.py:1515
+msgid "Left drive"
+msgstr ""
+
+#: .\gui\detail_win.py:1515
+msgid "Right drive"
+msgstr ""
+
+#: .\gui\detail_win.py:1544
+msgid "Read distance from:"
+msgstr ""
+
+#: .\gui\detail_win.py:1709
+msgid "Seconds:"
+msgstr ""
+
+#: .\gui\detail_win.py:1710
+msgid "Range is 0.00 to 327.67 seconds."
+msgstr ""
+
+#: .\gui\detail_win.py:1827
+msgid "Max time to wait:"
+msgstr ""
+
+#: .\gui\detail_win.py:1828
+msgid "Variable for pulse time:"
+msgstr ""
+
+#: .\gui\detail_win.py:1829
+msgid "Range for times is 0.00 to 327.67"
+msgstr ""
+
+#: .\gui\detail_win.py:1961
+msgid "Output Level:"
+msgstr ""
+
+#: .\gui\detail_win.py:1964
+msgid "Duration:"
+msgstr ""
+
+#: .\gui\detail_win.py:2076
+msgid "Plus 1 to variable"
+msgstr ""
+
+#: .\gui\detail_win.py:2078
+msgid "Minus 1 from variable"
+msgstr ""
+
+#: .\gui\detail_win.py:2171
+msgid "Value:"
+msgstr ""
+
+#: .\gui\detail_win.py:2172
+msgid "Variable to set:"
+msgstr ""
+
+#: .\gui\detail_win.py:2251
+msgid "Copy data from variable:"
+msgstr ""
+
+#: .\gui\detail_win.py:2252
+msgid "Copy data to variable:"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "0"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "1"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "10"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "2"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "3"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "4"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "5"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "6"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "7"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "8"
+msgstr ""
+
+#: .\gui\detail_win.py:2516
+msgid "9"
+msgstr ""
+
+#: .\gui\detail_win.py:2519
+msgid "Unlimited - Forever"
+msgstr ""
+
+#: .\gui\detail_win.py:2520
+msgid "Millimetres - in 2.5mm steps"
+msgstr ""
+
+#: .\gui\detail_win.py:2521
+msgid "Inches - in inch steps"
+msgstr ""
+
+#: .\gui\detail_win.py:2522
+msgid "Degrees - in 7.5 degree steps"
+msgstr ""
+
+#: .\gui\detail_win.py:2523
+msgid "Raw - in 1/48th of rotation"
+msgstr ""
+
+#: .\gui\detail_win.py:2553
+msgid "Direction:"
+msgstr ""
+
+#: .\gui\detail_win.py:2554
+msgid "Speed:"
+msgstr ""
+
+#: .\gui\detail_win.py:2557 .\gui\detail_win.py:2558
+msgid "Distance:"
+msgstr ""
+
+#: .\gui\detail_win.py:2703
+msgid "ERROR -- motor pair didn't give a command for every command!"
+msgstr ""
+
+#: .\gui\detail_win.py:2830
+msgid "Variable:"
+msgstr ""
+
+#: .\gui\detail_win.py:2833 .\gui\detail_win.py:2837 .\gui\detail_win.py:2842
+msgid "Operation:"
+msgstr ""
+
+#: .\gui\detail_win.py:2834 .\gui\detail_win.py:2838 .\gui\detail_win.py:2843
+msgid "Argument:"
+msgstr ""
+
+#: .\gui\detail_win.py:3004
+msgid "HELLO WORLD"
+msgstr ""
+
+#: .\gui\detail_win.py:3026
+msgid "String:"
+msgstr ""
+
+#: .\gui\detail_win.py:3027 .\gui\detail_win.py:3036
+msgid "Row / Column:"
+msgstr ""
+
+#: .\gui\detail_win.py:3030
+msgid "Character:"
+msgstr ""
+
+#: .\gui\detail_win.py:3033
+msgid "Number:"
+msgstr ""
+
+#: .\gui\detail_win.py:3039
+msgid "Command:"
+msgstr ""
+
+#: .\gui\detail_win.py:3207
+msgid "Dark"
+msgstr ""
+
+#: .\gui\detail_win.py:3207
+msgid "Light"
+msgstr ""
+
+#: .\gui\detail_win.py:3218
+msgid "Set pixel to:"
+msgstr ""
+
+#: .\gui\detail_win.py:3219
+msgid "At row / column:"
+msgstr ""
+
+#: .\gui\detail_win.py:3526
+msgid "good_choices:"
+msgstr ""
+
+#: .\gui\detail_win.py:3550
+msgid "Event happens:"
+msgstr ""
+
+#: .\gui\detail_win.py:3647
+msgid "Seconds pass"
+msgstr ""
+
+#: .\gui\detail_win.py:3647 .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+msgid "Event happens"
+msgstr ""
+
+#: .\gui\detail_win.py:3667
+msgid "Wait Until:"
+msgstr ""
+
+#: .\gui\detail_win.py:3818
+msgid "Loop forever"
+msgstr ""
+
+#: .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+msgid "Test passes"
+msgstr ""
+
+#: .\gui\detail_win.py:3840
+msgid "Loop UNTIL:"
+msgstr ""
+
+#: .\gui\detail_win.py:4035
+msgid "Take the top (True) branch if:"
+msgstr ""
+
+#: .\gui\detail_win.py:4045
+msgid "Else take the bottom (False) branch."
+msgstr ""
+
+#: .\gui\downloader.py:90
+msgid "ERROR - No Audio package (pygame or pyaudio) installed!"
+msgstr ""
+
+#: .\gui\downloader.py:99 .\gui\downloader.py:100
+msgid "unknown"
+msgstr ""
+
+#: .\gui\downloader.py:109
+msgid "no extra audio backends"
+msgstr ""
+
+#: .\gui\downloader.py:111
+msgid "(Audio installed: %s"
+msgstr ""
+
+#: .\gui\downloader.py:126
+msgid ""
+"\n"
+"ERROR - selected audio 'portaudio' is not installed!"
+msgstr ""
+
+#: .\gui\downloader.py:134
+msgid ""
+"\n"
+"ERROR - selected audio 'pygame' is not installed!"
+msgstr ""
+
+#: .\gui\downloader.py:141
+msgid ""
+"\n"
+"ERROR - selected audio '%s' is unknown!"
+msgstr ""
+
+#: .\gui\downloader.py:144
+msgid ""
+"-  Audio to be used: %s)\n"
+msgstr ""
+
+#: .\gui\downloader.py:231
+msgid ""
+"Program size (bytes): %d\n"
+msgstr ""
+
+#: .\gui\downloader.py:233 .\gui\downloader.py:234
+msgid ""
+"Variables (%s) used: %d, max: %d\n"
+msgstr ""
+
+#: .\gui\downloader.py:236
+msgid "Program Size"
+msgstr ""
+
+#: .\gui\downloader.py:241 .\gui\downloader.py:331 .\gui\downloader.py:474
+#: .\gui\downloader.py:624 .\gui\downloader.py:761 .\gui\downloader.py:958
+msgid "Set Title!"
+msgstr ""
+
+#: .\gui\downloader.py:258 .\gui\downloader.py:777 .\gui\downloader.py:974
+msgid "USB Device:"
+msgstr ""
+
+#: .\gui\downloader.py:259 .\gui\downloader.py:336 .\gui\downloader.py:479
+#: .\gui\downloader.py:632 .\gui\downloader.py:778 .\gui\downloader.py:975
+msgid "Download progress:"
+msgstr ""
+
+#: .\gui\downloader.py:261 .\gui\downloader.py:339 .\gui\downloader.py:482
+#: .\gui\downloader.py:638 .\gui\downloader.py:781 .\gui\downloader.py:978
+msgid "Start Download"
+msgstr ""
+
+#: .\gui\downloader.py:262 .\gui\downloader.py:340 .\gui\downloader.py:483
+#: .\gui\downloader.py:639 .\gui\downloader.py:782 .\gui\downloader.py:979
+msgid "Cancel Download"
+msgstr ""
+
+#: .\gui\downloader.py:293 .\gui\downloader.py:371 .\gui\downloader.py:676
+msgid "Download size is %d bytes."
+msgstr ""
+
+#: .\gui\downloader.py:311 .\gui\downloader.py:392 .\gui\downloader.py:543
+#: .\gui\downloader.py:856 .\gui\downloader.py:1047
+msgid "Starting download of %d bytes."
+msgstr ""
+
+#: .\gui\downloader.py:322 .\gui\downloader.py:869 .\gui\downloader.py:1059
+msgid "Downloading was successful!"
+msgstr ""
+
+#: .\gui\downloader.py:466 .\gui\downloader.py:615
+msgid "Finished downloading"
+msgstr ""
+
+#: .\gui\downloader.py:485 .\gui\downloader.py:784
+msgid "Firmware File:"
+msgstr ""
+
+#: .\gui\downloader.py:486 .\gui\downloader.py:785
+msgid "Find a Firmware File"
+msgstr ""
+
+#: .\gui\downloader.py:520 .\gui\downloader.py:827 .\gui\downloader.py:1025
+msgid "Error - couldn't read file: %s"
+msgstr ""
+
+#: .\gui\downloader.py:534
+msgid "Creating audio file."
+msgstr ""
+
+#: .\gui\downloader.py:631
+msgid "Flash Box:"
+msgstr ""
+
+#: .\gui\downloader.py:640
+msgid ""
+"Place the Line\n"
+"tracker in the\n"
+"middle of the \n"
+"Flash Box."
+msgstr ""
+
+#: .\gui\downloader.py:728
+msgid "Finished Downloading!"
+msgstr ""
+
+#: .\gui\downloader.py:753
+msgid "Downloading %d bytes."
+msgstr ""
+
+#: .\gui\downloader.py:842
+msgid "Error - file doesn't seem to be firmware."
+msgstr ""
+
+#: .\gui\downloader.py:900
+msgid "Doesn't look like an intel hex file"
+msgstr ""
+
+#: .\gui\downloader.py:913
+msgid "Line too short"
+msgstr ""
+
+#: .\gui\downloader.py:918
+msgid "Invalid digits"
+msgstr ""
+
+#: .\gui\downloader.py:933
+msgid "Error in reading intel hex file:"
+msgstr ""
+
+#: .\gui\downloader.py:981
+msgid "Intel Hex File:"
+msgstr ""
+
+#: .\gui\downloader.py:982
+msgid "Find an Intel Hex File"
+msgstr ""
+
+#: .\gui\downloader.py:984
+msgid "Hex files (*.hex)|*.hex|All files (*.*)|*.*"
+msgstr ""
+
+#: .\gui\downloader.py:1033
+msgid "Error on reading intel hex file: "
+msgstr ""
+
+#: .\gui\downloader.py:1066
+msgid "Debug: in convert() with binString of length"
+msgstr ""
+
+#: .\gui\downloader.py:1083
+msgid "..debug: coding value"
+msgstr ""
+
+#: .\gui\help_win.py:39
+msgid "Help"
+msgstr ""
+
+#: .\gui\hl_parser.py:107
+msgid ""
+"\n"
+"Locations:"
+msgstr ""
+
+#: .\gui\hl_parser.py:108
+msgid "  0-b : connectable module (use hex digit or name from DEVICE statement)"
+msgstr ""
+
+#: .\gui\hl_parser.py:111
+msgid "  %s   : special module %s (use hex digit or '%s')"
+msgstr ""
+
+#: .\gui\hl_parser.py:113
+msgid ""
+"\n"
+"Device types (prefixed with device code):"
+msgstr ""
+
+#: .\gui\hl_parser.py:119
+msgid "%d:%-10s "
+msgstr ""
+
+#: .\gui\hl_parser.py:122
+msgid ""
+"\n"
+"  "
+msgstr ""
+
+#: .\gui\hl_parser.py:126
+msgid ""
+"\n"
+"Register names (offset/bytes):"
+msgstr ""
+
+#: .\gui\hl_parser.py:136
+msgid "  %s"
+msgstr ""
+
+#: .\gui\hl_parser.py:144
+msgid "%-16s"
+msgstr ""
+
+#: .\gui\hl_parser.py:161
+msgid "Unknown device type: "
+msgstr ""
+
+#: .\gui\hl_parser.py:164
+msgid "Location (%d) outside of 0 to 11"
+msgstr ""
+
+#: .\gui\hl_parser.py:170
+msgid "Location (%d) is already used with a unit of type: "
+msgstr ""
+
+#: .\gui\hl_parser.py:178
+msgid "DEVICE name can not be one of the built-in names "
+msgstr ""
+
+#: .\gui\hl_parser.py:181
+msgid "DEVICE name already used: "
+msgstr ""
+
+#: .\gui\hl_parser.py:186
+msgid "A tracker device can only be located at 0, not location %d"
+msgstr ""
+
+#: .\gui\hl_parser.py:197
+msgid "Motors require two locations yet the second location is already used with a "
+msgstr ""
+
+#: .\gui\hl_parser.py:219
+msgid ""
+"\n"
+"Device mappings:"
+msgstr ""
+
+#: .\gui\hl_parser.py:223
+msgid "  %s - type:%s"
+msgstr ""
+
+#: .\gui\hl_parser.py:226
+msgid ", name:%s"
+msgstr ""
+
+#: .\gui\hl_parser.py:247
+msgid "Expected an argument or constant!"
+msgstr ""
+
+#: .\gui\hl_parser.py:257 .\gui\hl_parser.py:268
+msgid "Expected an argument or string!"
+msgstr ""
+
+#: .\gui\hl_parser.py:261
+msgid "Word should have been a valid name!"
+msgstr ""
+
+#: .\gui\hl_parser.py:277
+msgid "{Word: %s,%s}"
+msgstr ""
+
+#: .\gui\hl_parser.py:299
+msgid "Error - use single quotes for an ascii constant"
+msgstr ""
+
+#: .\gui\hl_parser.py:324
+msgid "Invalid mod/reg syntax: "
+msgstr ""
+
+#: .\gui\hl_parser.py:333
+msgid "Didn't understand the module name/number: "
+msgstr ""
+
+#: .\gui\hl_parser.py:343
+msgid "Didn't understand the register name/number: "
+msgstr ""
+
+#: .\gui\hl_parser.py:347
+msgid "Error - can't parse %s as a modreg"
+msgstr ""
+
+#: .\gui\pallete_win.py:87
+msgid "Error - group name (%s) not found"
+msgstr ""
+
+#: .\gui\paths.py:37
+msgid "Unsupported platform -"
+msgstr ""
+
+#: .\gui\program_data.py:46
+msgid "Bric %d - p:%d, n:%d, p2:%d, n2:%d name:%s, if_var: %s, data:%s"
+msgstr ""
+
+#: .\gui\program_data.py:67
+msgid "Streams:"
+msgstr ""
+
+#: .\gui\program_data.py:68
+msgid "Move_id:"
+msgstr ""
+
+#: .\gui\program_data.py:69
+msgid "Bric count:"
+msgstr ""
+
+#: .\gui\program_data.py:120
+msgid "WARNING - old bric id:"
+msgstr ""
+
+#: .\gui\token_assembler.py:68
+msgid "ERROR - file %s doesn't exist or isn't readable"
+msgstr ""
+
+#: .\gui\token_assembler.py:70
+msgid "  Insert history: "
+msgstr ""
+
+#: .\gui\token_assembler.py:192
+msgid "Move size:%d, words:%s"
+msgstr ""
+
+#: .\gui\token_assembler.py:194
+msgid "Move needs 2 arguments"
+msgstr ""
+
+#: .\gui\var_win.py:42
+msgid "Initial Value"
+msgstr ""
+
+#: .\gui\var_win.py:42
+msgid "Name"
+msgstr ""
+
+#: .\gui\var_win.py:42
+msgid "Range"
+msgstr ""
+
+#: .\gui\var_win.py:88
+msgid "Variables"
+msgstr ""
+
+#: .\gui\var_win.py:114
+msgid "<NEW>"
+msgstr ""
+
+#: .\gui\var_win.py:139
+msgid "Edit variable"
+msgstr ""
+
+#: .\gui\var_win.py:145
+msgid "Add variable"
+msgstr ""
+
+#: .\gui\var_win.py:161
+msgid "Variable name '%s' is used in the program. "
+msgstr ""
+
+#: .\gui\var_win.py:162
+msgid "Change the program before removing this variable."
+msgstr ""
+
+#: .\gui\var_win.py:180
+msgid "Variable name '%s' is already used."
+msgstr ""
+
+#: .\gui\var_win.py:183
+msgid "Variable names must start with a character and are at most 16 characters long"
+msgstr ""
+
+#: .\gui\var_win.py:187
+msgid "Variable range must be one of: %s, %s"
+msgstr ""
+
+#: .\gui\var_win.py:192
+msgid "Variable length (%s) or initial value (%s) is not in the valid range."
+msgstr ""
+
+#: .\gui\var_win.py:197
+msgid "Not enough room for %s more variable(s) of type %s."
+msgstr ""
+
+#: .\gui\var_win.py:201
+msgid "Error editing variable."
+msgstr ""
+
+#: .\gui\var_win.py:210
+msgid "Error - Can not change the range of a variable that is "
+msgstr ""
+
+#: .\gui\var_win.py:211
+msgid "being used in the program."
+msgstr ""
+
+#: .\gui\var_win.py:212
+msgid "Can't change the range."
+msgstr ""
+
+#: .\gui\var_win.py:221
+msgid ""
+"Can not delete the variable as it is used in the program.\n"
+msgstr ""
+
+#: .\gui\var_win.py:222
+msgid "Delete it from the program before deleting it here."
+msgstr ""
+
+#: .\gui\var_win.py:223
+msgid "Can't delete variable."
+msgstr ""
+
+#: .\gui\var_win.py:290
+msgid "Variable name:"
+msgstr ""
+
+#: .\gui\var_win.py:291
+msgid "Variable range:"
+msgstr ""
+
+#: .\gui\var_win.py:293
+msgid "Initial value (optional):"
+msgstr ""
+
+#: .\gui\win_data.py:99
+msgid "Data:"
+msgstr ""
+
+#: .\gui\win_data.py:100
+msgid "Pdata Version:"
+msgstr ""
+
+#: .\gui\win_data.py:101
+msgid "Advanced:"
+msgstr ""
+
+#: .\gui\win_data.py:102
+msgid "Edison:"
+msgstr ""
+
+#: .\gui\win_data.py:103
+msgid "Configuration:"
+msgstr ""
+
+#: .\gui\win_data.py:104
+msgid "Conf_ids:"
+msgstr ""
+
+#: .\gui\win_data.py:105
+msgid "Conf_use:"
+msgstr ""
+
+#: .\gui\win_data.py:106
+msgid "Conf_orient:"
+msgstr ""
+
+#: .\gui\win_data.py:107
+msgid "Conf_move:"
+msgstr ""
+
+#: .\gui\win_data.py:109
+msgid "Variables:"
+msgstr ""
+
+#: .\gui\win_data.py:110
+msgid "Var_ids:"
+msgstr ""
+
+#: .\gui\win_data.py:111
+msgid "Var_use:"
+msgstr ""
+
+#: .\gui\win_data.py:113
+msgid "Windows:"
+msgstr ""
+
+#: .\gui\win_data.py:178 .\gui\win_data.py:244
+msgid "Version of data in file '%s' doesn't match this version of Bricworks."
+msgstr ""
+
+#: .\gui\win_data.py:179 .\gui\win_data.py:245
+msgid "Version Mismatch - can't load program"
+msgstr ""
+
+#: .\gui\win_data.py:183 .\gui\win_data.py:249
+msgid "Version of data in file '%s' "
+msgstr ""
+
+#: .\gui\win_data.py:184 .\gui\win_data.py:250
+msgid "doesn't match this version of Bricworks. "
+msgstr ""
+
+#: .\gui\win_data.py:185 .\gui\win_data.py:251
+msgid "You may try anyway, or CANCEL to abort the file open."
+msgstr ""
+
+#: .\gui\win_data.py:186 .\gui\win_data.py:252
+msgid "Version Mismatch Warning"
+msgstr ""
+
+#: .\gui\win_data.py:296
+msgid "Error - unknown name:"
+msgstr ""
+
+#: .\gui\win_data.py:304
+msgid "Error - window %s has not been registered"
+msgstr ""
+
+#: .\gui\win_data.py:931
+msgid ""
+"Restoring properties to previous values because:\n"
+"\n"
+msgstr ""
+
+#: .\gui\win_data.py:932
+msgid "Error in constant"
+msgstr ""
+
+#: .\gui\win_data.py:939
+msgid "Time value '%s' isn't valid."
+msgstr ""
+
+#: .\gui\win_data.py:943
+msgid "Time can't be negative"
+msgstr ""
+
+#: .\gui\win_data.py:945
+msgid "Time value is greater then 327.67 seconds"
+msgstr ""
+
+#: .\gui\win_data.py:968
+msgid "Invalid transmit character: %s. Must be a character or 0xhh where h is a hex digit."
+msgstr ""
+
+#: .\gui\win_data.py:984 .\gui\win_data.py:1008
+msgid "LCD character '%s' is out of range "
+msgstr ""
+
+#: .\gui\win_data.py:985 .\gui\win_data.py:1009
+msgid "(upper-case, digits and some punctuation are valid)"
+msgstr ""
+
+#: .\gui\win_data.py:988
+msgid "There must be exactly one character"
+msgstr ""
+
+#: .\gui\win_data.py:1002
+msgid "LCD string would overflow the LCD screen"
+msgstr ""
+
+#: .\gui\win_data.py:1021
+msgid "Empty number"
+msgstr ""
+
+#: .\gui\win_data.py:1029
+msgid "Number %d is outside of the range: 0 -> 255"
+msgstr ""
+
+#: .\gui\win_data.py:1044
+msgid "Number %d is outside of the range: -32767 -> +32767"
+msgstr ""
+
+#: .\gui\win_data.py:1050
+msgid "Invalid number: "
+msgstr ""
+
+#: .\gui\win_data.py:1054
+msgid "Number %s is less than minimum %s"
+msgstr ""
+
+#: .\gui\win_data.py:1059
+msgid "Number %s is greater than maximum %s"
+msgstr ""
+
+#: .\gui\win_data.py:1363
+msgid ""
+"You are placing a motor at the (%d, %d) corner.\n"
+msgstr ""
+
+#: .\gui\win_data.py:1364
+msgid ""
+"Do you want the corner piece around the corner (at location %d)?\n"
+msgstr ""
+
+#: .\gui\win_data.py:1366
+msgid "Corner motor orientation."
+msgstr ""
+
+#: .\gui\win_data.py:1374
+msgid ""
+" icon?\n"
+msgstr ""
+
+#: .\gui\win_data.py:1374
+msgid "Do you want to delete the "
+msgstr ""
+
+#: .\gui\win_data.py:1377
+msgid "Delete check"
+msgstr ""
+

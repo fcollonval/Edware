@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 # * **************************************************************** **
@@ -33,7 +34,7 @@ class Config_list(wx.ListCtrl): #, listmix.TextEditMixin):
                  style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES | wx.LC_SINGLE_SEL):
         wx.ListCtrl.__init__(self, parent, style=style)
 
-        self.column_headers = ["Loc.", "Module", "Module Label"]
+        self.column_headers = [_(u"Loc."), _(u"Module"), _(u"Module Label")]
         self.columns = len(self.column_headers)
         self.headers()
         self.calculate_mins()
@@ -76,7 +77,7 @@ class Config_win(wx.Panel):
         #self.SetBackgroundColour("red")
         self.list = Config_list(self)
         self.update_list()
-        box = wx.StaticBox(self, -1, 'Module Configuration')
+        box = wx.StaticBox(self, -1, _('Module Configuration'))
         sboxsizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sboxsizer.Add(self.list, 1, wx.EXPAND)
 
@@ -107,7 +108,7 @@ class Config_win(wx.Panel):
         dtype,name = win_data.config_get(loc_num)
         data = (loc, dtype, name)
 
-        dialog = Config_dialog(self, "Edit module name", data)
+        dialog = Config_dialog(self, _(u"Edit module name"), data)
 
         #dialog.CenterOnScreen()
         result = dialog.ShowModal()
@@ -135,15 +136,15 @@ class Config_win(wx.Panel):
                new_name = name2
 
                if (win_data.config_name_already_used(loc_num, new_name)):
-                   error_message = "The module name '%s' is already used" % (new_name,)
+                   error_message = _(u"The module name '%s' is already used") % (new_name,)
 
            else:
-               error_message = "Module names must start with a character and are at most 16 characters long"
+               error_message = _(u"Module names must start with a character and are at most 16 characters long")
 
 
 
            if (error_message):
-               wx.MessageBox(error_message, caption="Error editing module name.", style=wx.OK | wx.ICON_ERROR)
+               wx.MessageBox(error_message, caption=_(u"Error editing module name."), style=wx.OK | wx.ICON_ERROR)
            else:
 
                win_data.config_change_name(loc_num, new_name)
@@ -162,9 +163,9 @@ class Config_dialog(wx.Dialog):
         self.data = data
 
         labels = []
-        labels.append(wx.StaticText(self, -1, "Location:"))
-        labels.append(wx.StaticText(self, -1, "Module:"))
-        labels.append(wx.StaticText(self, -1, "Module Label:"))
+        labels.append(wx.StaticText(self, -1, _(u"Location:")))
+        labels.append(wx.StaticText(self, -1, _(u"Module:")))
+        labels.append(wx.StaticText(self, -1, _(u"Module Label:")))
 
         self.fields = []
         self.fields.append(wx.StaticText(self, -1, data[0], size=(150, -1)))

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 #!/usr/bin/env python
 
 
@@ -64,9 +65,9 @@ def assem_file(f_name, called_from = [], pass_token_stream = None, pass_err = No
 
     # open file
     if (not os.path.isfile(f_name) or not os.access(f_name, os.R_OK)):
-        print "ERROR - file %s doesn't exist or isn't readable"
+        print _(u"ERROR - file %s doesn't exist or isn't readable")
         if (called_from):
-            print "  Insert history: ",
+            print _(u"  Insert history: "),
             output = ""
             for f, l in called_from:
                 if (output):
@@ -188,9 +189,9 @@ def assem_line(line):
 
     
 def assem_move(size, words, special, line):
-    logging.debug("Move size:%d, words:%s" % (size, hl_parser.format_word_list(words)))
+    logging.debug(_(u"Move size:%d, words:%s") % (size, hl_parser.format_word_list(words)))
     if (len(words) != 2):
-        err.report_error("Move needs 2 arguments")
+        err.report_error(_(u"Move needs 2 arguments"))
         return
 
     token = tokens.Token("move", err, line)

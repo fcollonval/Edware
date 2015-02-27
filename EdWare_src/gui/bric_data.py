@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 # * **************************************************************** **
 #
 # File: bric_data.py
@@ -110,7 +111,7 @@ class Bric(Detail_parser):
         except StandardError:
             raise
             self.valid = False
-            print "Error loading", self.name
+            print _(u"Error loading"), self.name
 
     def is_valid(self):
         return self.valid

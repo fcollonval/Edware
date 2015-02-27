@@ -34,7 +34,7 @@ elif sys.platform.startswith("win"):
 elif sys.platform.startswith("darwin"):
     PLATFORM="mac"
 else:
-    print "Unsupported platform -", sys.platform
+    print _(u"Unsupported platform -"), sys.platform
     sys.exit(1)
 
 if FROZEN:

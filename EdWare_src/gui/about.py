@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 # * **************************************************************** **
 #
 # File: about.py
@@ -29,8 +30,8 @@ import os
 class AboutBox(wx.Dialog):
 
     def __init__(self, parent):
-        wx.Dialog.__init__(self, parent, -1, "About Edison EdWare", size=(600,500))
-        self.html_text = '''
+        wx.Dialog.__init__(self, parent, -1, _(u"About Edison EdWare"), size=(600,500))
+        self.html_text = _('''
         <html>
         <body>
         <center>
@@ -77,14 +78,14 @@ class AboutBox(wx.Dialog):
         
         </body>
         </html>
-        '''
+        ''')
 
-        self.test_text = ""
-        #self.test_text = "Environment - EdwareAudio:%s" % (os.getenv("edwareaudio", "NOT-SET"))
+        self.test_text = _("")
+        #self.test_text = _(u"Environment - EdwareAudio:%s") % (os.getenv("edwareaudio", "NOT-SET"))
         
         html = wx.html.HtmlWindow(self)
         html.SetPage(self.html_text + self.test_text)
-        button = wx.Button(self, wx.ID_OK, "Okay")
+        button = wx.Button(self, wx.ID_OK, _(u"Okay"))
 
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(html, 1, wx.EXPAND|wx.ALL, 5)
@@ -99,8 +100,8 @@ import webbrowser
 class SimpleHelpBox(wx.Dialog):
 
     def __init__(self, parent):
-        wx.Dialog.__init__(self, parent, -1, "Edison EdWare Help", size=(600,300))
-        self.help_text = '''
+        wx.Dialog.__init__(self, parent, -1, _(u"Edison EdWare Help"), size=(600,300))
+        self.help_text = _('''
         <html>
         <body>
         <center>
@@ -108,7 +109,7 @@ class SimpleHelpBox(wx.Dialog):
 
         </body>
         </html>
-        '''
+        ''')
 
         # <h4>
         # Help is available at the Microbric web site at:<br>
@@ -124,8 +125,8 @@ class SimpleHelpBox(wx.Dialog):
 
         html = wx.html.HtmlWindow(self)
         html.SetPage(self.help_text)
-        cancel = wx.Button(self, wx.ID_CANCEL, "Cancel")
-        #open_button = wx.Button(self, wx.ID_OK, "Open in browser")
+        cancel = wx.Button(self, wx.ID_CANCEL, _(u"Cancel"))
+        #open_button = wx.Button(self, wx.ID_OK, _(u"Open in browser"))
         
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         hsizer.Add(cancel, 0, wx.ALIGN_RIGHT|wx.ALL, 5)

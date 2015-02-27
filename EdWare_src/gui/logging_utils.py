@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-#
 # Meant to be used as a library! #!/usr/bin/python
 
 # * **************************************************************** **
