@@ -31,120 +31,123 @@ import win_data
 
 from wx.lib.masked import NumCtrl
 
-MOTOR_DISTANCE_ENABLED = False
-
-# normally the module combo boxes are 150. But events are long strings
-EVENT_COMBO_PIXELS = 200
-
-CONSTANT = _(u"<-Constant")
-NO_VAR = _(u"-No Variable-")
-MOTHERBOARD = '*Motherboard*'
-
-LCD_CLEAR_SCREEN = _(u"Clear screen")
-LCD_SCROLL_LINE = _(u"Scroll line")
-
-MAX_TUNE_STORE = 17
-
-MATH_PLUS = _(u"plus")
-MATH_SUB = _(u"minus")
-MATH_MULT = _(u"multiply")
-MATH_NOT = _(u"not (bitwise)")
-MATH_DIV = _(u"divide")
-MATH_MOD = _(u"modulus")
-MATH_LSHIFT = _(u"left shift")
-MATH_RSHIFT = _(u"right shift")
-MATH_AND = _(u"and (bitwise)")
-MATH_OR = _(u"or (bitwise)")
-MATH_XOR = _(u"xor (bitwise)")
-
-MODULE_PROMPT = _(u"Control:")
-
-CONST_SIZE = (130,-1)
-SAVE_LABEL = _(u"Save changes")
-CANCEL_LABEL = _(u"Undo changes")
-U_NAME = _(u"0-255")
-S_NAME = _(u"+/- 32767")
-
-#tone_notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-tone_notes = [_(u"A (6th)"), _(u"A# (6th)"), _(u"B (6th)"), _(u"C"), _(u"C#"), _(u"D"), _(u"D#"), _(u"E"), _(u"F"), _(u"F#"),
-              _(u"G"), _(u"G#"), _(u"A"), _(u"A#"), _(u"B"), _(u"C (8th)"), _(u"Rest")]
-tone_durations = [_(u"sixteenth"), _(u"eighth"), _(u"quarter"), _(u"half"), _(u"whole")]
-
-TRACKER_0_STATUS = _(u"On reflective surface")
-TRACKER_1_STATUS = _(u"On non-reflective surface")
-
-#                           title,      (mod,bit),       if_variant
-EVENT_DICT = {'Keypad': (
-                  ('Triangle button pressed', ('_devices', 0), 'button'),
-                  #('Square button pressed', ('_devices', 1), 'button'),
-                  ('Round button pressed', ('_devices', 2), 'button'),),
-              'Countdown timer': (
-                  ('Timer finished', ('_timers', 0), 'timer'),),
-              #'Left Drive' : (
-              #    ('Left Strain detected', (None, 0), 'motor'),),
-              'Drive' : (
-                  ('Strain detected', (None, 0), 'motor'),),
-              'Music' : (
-                  ('Tune finished', (None, 0), 'timer'),),
-              'Detect clap' : (
-                  ('Clap detected', (None, 2), 'clap'),),
-              'Data from another Edison': (
-                  ('IR Character', (None, 0), 'irrx'),),
-              'Detect obstacle' : (
-                  ('Obstacle at front', (None,4), 'obstacle'),
-                  ('Obstacle at left', (None,5), 'obstacle'),
-                  ('Obstacle at right', (None,3), 'obstacle'),
-                  ('Any Obstacle detected', (None,6), 'obstacle'),),
-              'Data from TV remote': (
-                  ('Match #0 remote code', (None, 1), 'remote'),
-                  ('Match #1 remote code', (None, 1), 'remote'),
-                  ('Match #2 remote code', (None, 1), 'remote'),
-                  ('Match #3 remote code', (None, 1), 'remote'),
-                  ('Match #4 remote code', (None, 1), 'remote'),
-                  ('Match #5 remote code', (None, 1), 'remote'),
-                  ('Match #6 remote code', (None, 1), 'remote'),
-                  ('Match #7 remote code', (None, 1), 'remote'),
-                  ('Match #8 remote code', (None, 1), 'remote'),
-                  ('Any match remote code', (None, 1), 'remote'),),
-              'Line Tracker' : (
-                  (TRACKER_0_STATUS, (None, 1), 'tracker'),
-                  (TRACKER_1_STATUS, (None, 1), 'tracker'),
-                  ('Any change', (None, 1), 'tracker'),),
-              }
-
-EVENT_ALIASES = [(MOTHERBOARD, "Keypad"), (MOTHERBOARD, "Countdown timer"),
-                 ("Right_Motor", "Drive"), ("SOUNDER1", "Music"), ("SOUNDER1", "Detect clap"),
-                 ("IR_RECEIVER1", "Data from another Edison"), ("IR_RECEIVER1", "Detect obstacle"),
-                 ("IR_RECEIVER1", "Data from TV remote"), ("LINE_TRACKER1", "Line Tracker") ]
-
-INVALID_NEW_EVENTS = ['Match #0 remote code', 'Match #1 remote code',
-                      'Match #2 remote code', 'Match #3 remote code',
-                      'Match #4 remote code', 'Match #5 remote code',
-                      'Match #6 remote code', 'Match #7 remote code',
-                      'Match #8 remote code']
-
-MOTOR_FWD = "Forward"
-MOTOR_STP = "Stop"
-MOTOR_BCK = "Backward"
-
-MOTOR_P_RT = "Forward right"
-MOTOR_P_LT = "Forward left"
-MOTOR_P_BL = "Back left"
-MOTOR_P_BR = "Back right"
-MOTOR_P_SR = "Spin right"
-MOTOR_P_SL = "Spin left"
-MOTOR_P_RT_90 = "Turn right 90"
-MOTOR_P_LT_90 = "Turn left 90"
-
-
-MOTOR_CODE = {"F":0x80, "B":0x40, "S":0xc0, "FD":0xa0, "BD":0x60}
-DIRECTION_CODE = {MOTOR_FWD:0x80, MOTOR_BCK:0x40, MOTOR_STP:0xC0}
-DIRECTION_WITH_DIST_CODE = {MOTOR_FWD:0xa0, MOTOR_BCK:0x60, MOTOR_STP:0xC0}
-
 class Detail_win(wx.ScrolledWindow):
+
     def __init__(self, parent):
         wx.ScrolledWindow.__init__(self, parent, style=wx.RAISED_BORDER)
+        
+        ############################### CONSTANTS #######################################
+        self.MOTOR_DISTANCE_ENABLED = False
 
+        # normally the module combo boxes are 150. But events are long strings
+        self.EVENT_COMBO_PIXELS = 200
+
+        self.CONSTANT = _(u"<-Constant")
+        self.NO_VAR = _(u"-No Variable-")
+        self.MOTHERBOARD = '*Motherboard*'
+
+        self.LCD_CLEAR_SCREEN = _(u"Clear screen")
+        self.LCD_SCROLL_LINE = _(u"Scroll line")
+
+        self.MAX_TUNE_STORE = 17
+
+        self.MATH_PLUS = _(u"plus")
+        self.MATH_SUB = _(u"minus")
+        self.MATH_MULT = _(u"multiply")
+        self.MATH_NOT = _(u"not (bitwise)")
+        self.MATH_DIV = _(u"divide")
+        self.MATH_MOD = _(u"modulus")
+        self.MATH_LSHIFT = _(u"left shift")
+        self.MATH_RSHIFT = _(u"right shift")
+        self.MATH_AND = _(u"and (bitwise)")
+        self.MATH_OR = _(u"or (bitwise)")
+        self.MATH_XOR = _(u"xor (bitwise)")
+
+        self.MODULE_PROMPT = _(u"Control:")
+
+        self.CONST_SIZE = (130,-1)
+        self.SAVE_LABEL = _(u"Save changes")
+        self.CANCEL_LABEL = _(u"Undo changes")
+        self.U_NAME = _(u"0-255")
+        self.S_NAME = _(u"+/- 32767")
+
+        #tone_notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+        self.tone_notes = [_(u"A (6th)"), _(u"A# (6th)"), _(u"B (6th)"), _(u"C"), _(u"C#"), _(u"D"), _(u"D#"), _(u"E"), _(u"F"), _(u"F#"),
+                      _(u"G"), _(u"G#"), _(u"A"), _(u"A#"), _(u"B"), _(u"C (8th)"), _(u"Rest")]
+        self.tone_durations = [_(u"sixteenth"), _(u"eighth"), _(u"quarter"), _(u"half"), _(u"whole")]
+
+        self.TRACKER_0_STATUS = _(u"On reflective surface")
+        self.TRACKER_1_STATUS = _(u"On non-reflective surface")
+
+        #                           title,      (mod,bit),       if_variant
+        self.EVENT_DICT = {_(u'Keypad'): (
+                          (_(u'Triangle button pressed'), ('_devices', 0), 'button'),
+                          #('Square button pressed', ('_devices', 1), 'button'),
+                          (_(u'Round button pressed'), ('_devices', 2), 'button'),),
+                      _(u'Countdown timer'): (
+                          (_(u'Timer finished'), ('_timers', 0), 'timer'),),
+                      #_(u'Left Drive') : (
+                      #    (_(u'Left Strain detected'), (None, 0), 'motor'),),
+                      _(u'Drive') : (
+                          (_(u'Strain detected'), (None, 0), 'motor'),),
+                      _(u'Music') : (
+                          (_(u'Tune finished'), (None, 0), 'timer'),),
+                      _(u'Detect clap') : (
+                          (_(u'Clap detected'), (None, 2), 'clap'),),
+                      _(u'Data from another Edison'): (
+                          (_(u'IR Character'), (None, 0), 'irrx'),),
+                      _(u'Detect obstacle') : (
+                          (_(u'Obstacle at front'), (None,4), 'obstacle'),
+                          (_(u'Obstacle at left'), (None,5), 'obstacle'),
+                          (_(u'Obstacle at right'), (None,3), 'obstacle'),
+                          (_(u'Any Obstacle detected'), (None,6), 'obstacle'),),
+                      _(u'Data from TV remote'): (
+                          (_(u'Match #0 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #1 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #2 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #3 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #4 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #5 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #6 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #7 remote code'), (None, 1), 'remote'),
+                          (_(u'Match #8 remote code'), (None, 1), 'remote'),
+                          (_(u'Any match remote code'), (None, 1), 'remote'),),
+                      _(u'Line Tracker') : (
+                          (self.TRACKER_0_STATUS, (None, 1), 'tracker'),
+                          (self.TRACKER_1_STATUS, (None, 1), 'tracker'),
+                          (_(u'Any change'), (None, 1), 'tracker'),),
+                      }
+
+        self.EVENT_ALIASES = [(self.MOTHERBOARD, "Keypad"), (self.MOTHERBOARD, "Countdown timer"),
+                         ("Right_Motor", "Drive"), ("SOUNDER1", "Music"), ("SOUNDER1", "Detect clap"),
+                         ("IR_RECEIVER1", "Data from another Edison"), ("IR_RECEIVER1", "Detect obstacle"),
+                         ("IR_RECEIVER1", "Data from TV remote"), ("LINE_TRACKER1", "Line Tracker") ]
+
+        self.INVALID_NEW_EVENTS = ['Match #0 remote code', 'Match #1 remote code',
+                              'Match #2 remote code', 'Match #3 remote code',
+                              'Match #4 remote code', 'Match #5 remote code',
+                              'Match #6 remote code', 'Match #7 remote code',
+                              'Match #8 remote code']
+
+        self.MOTOR_FWD = _(u"Forward")
+        self.MOTOR_STP = _(u"Stop")
+        self.MOTOR_BCK = _(u"Backward")
+
+        self.MOTOR_P_RT = _(u"Forward right")
+        self.MOTOR_P_LT = _(u"Forward left")
+        self.MOTOR_P_BL = _(u"Back left")
+        self.MOTOR_P_BR = _(u"Back right")
+        self.MOTOR_P_SR = _(u"Spin right")
+        self.MOTOR_P_SL = _(u"Spin left")
+        self.MOTOR_P_RT_90 = _(u"Turn right 90")
+        self.MOTOR_P_LT_90 = _(u"Turn left 90")
+
+
+        self.MOTOR_CODE = {"F":0x80, "B":0x40, "S":0xc0, "FD":0xa0, "BD":0x60}
+        self.DIRECTION_CODE = {self.MOTOR_FWD:0x80, self.MOTOR_BCK:0x40, self.MOTOR_STP:0xC0}
+        self.DIRECTION_WITH_DIST_CODE = {self.MOTOR_FWD:0xa0, self.MOTOR_BCK:0x60, self.MOTOR_STP:0xC0}
+        #################################################################################
+        
         self.SetScrollRate(20, 20)
 
         self.vbox = wx.BoxSizer(wx.VERTICAL)
@@ -245,11 +248,11 @@ class Detail_win(wx.ScrolledWindow):
         if (obj):
             for var, cons in self.vars:
                 if (var == obj):
-                    cons.Enable(obj.GetValue() == CONSTANT)
+                    cons.Enable(obj.GetValue() == self.CONSTANT)
 
         else:
             for var, cons in self.vars:
-                cons.Enable(var.GetValue() == CONSTANT)
+                cons.Enable(var.GetValue() == self.CONSTANT)
 
     def on_rb(self, event):
         self.switch_group(event.GetEventObject())
@@ -274,9 +277,9 @@ class Detail_win(wx.ScrolledWindow):
         # which button is it
         button = event.GetEventObject()
         label = button.GetLabel()
-        if (label == SAVE_LABEL):
+        if (label == self.SAVE_LABEL):
             self.save_changes()
-        elif (label == CANCEL_LABEL):
+        elif (label == self.CANCEL_LABEL):
             self.cancel_changes()
         else:
             pass
@@ -320,7 +323,7 @@ class Detail_win(wx.ScrolledWindow):
 
         if (name in self.detail_dict):
             self.bric_id = bric_id
-            #self.buttons = (wx.Button(self, -1, CANCEL_LABEL), wx.Button(self, -1, SAVE_LABEL))
+            #self.buttons = (wx.Button(self, -1, self.CANCEL_LABEL), wx.Button(self, -1, self.SAVE_LABEL))
 
             self.title = wx.StaticText(self, -1, u"")
             self.old_data = win_data.program().get_bric_data(bric_id)
@@ -363,10 +366,10 @@ class Detail_win(wx.ScrolledWindow):
             choices.sort()
 
         if (add_const):
-            choices.insert(0, CONSTANT)
+            choices.insert(0, self.CONSTANT)
 
         if (add_no_var):
-            choices.insert(0, NO_VAR)
+            choices.insert(0, self.NO_VAR)
 
         cb = wx.ComboBox(self, -1, choices[0], choices=choices,
                          style=wx.CB_READONLY, size=size)
@@ -547,8 +550,8 @@ class Detail_win(wx.ScrolledWindow):
         mod_choice = self.make_combo(modules)
 
 
-        note_and_dur = (self.make_combo(tone_notes, sort=False),
-                        self.make_combo(tone_durations, sort=False))
+        note_and_dur = (self.make_combo(self.tone_notes, sort=False),
+                        self.make_combo(self.tone_durations, sort=False))
         note_and_dur[0].SetValue(_(u"C"))
 
         tune = (self.make_text_ctrl(u""),)
@@ -563,7 +566,7 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         grid.Add(rbs[0], (grid_line,0), flag=wx.ALIGN_CENTRE_VERTICAL)
@@ -633,14 +636,14 @@ class Detail_win(wx.ScrolledWindow):
             if (input[0] == 0):
                 # a musical note
                 note_code = 0
-                for i in range(len(tone_notes)):
-                    if (input[2] == tone_notes[i]):
+                for i in range(len(self.tone_notes)):
+                    if (input[2] == self.tone_notes[i]):
                         note_code = i
                         break
 
                 dur_code = 1
-                for i in range(len(tone_durations)):
-                    if (tone_durations[i] == input[3]):
+                for i in range(len(self.tone_durations)):
+                    if (self.tone_durations[i] == input[3]):
                         dur_code = i+1
                         break
 
@@ -659,7 +662,7 @@ class Detail_win(wx.ScrolledWindow):
                 # convert the tunes into a string
                 code = "datb @_tune_store * "
                 pairs = len(input[4])/2
-                if (pairs > MAX_TUNE_STORE-1):
+                if (pairs > self.MAX_TUNE_STORE-1):
                     win_data.constant_error(_(u"Too many tune notes/durations (max 16 pairs)."))
                     return []
 
@@ -705,7 +708,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel(_(u"%s - properties:") % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
@@ -723,7 +726,7 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         if (self.prop_extra_text):
@@ -797,22 +800,22 @@ class Detail_win(wx.ScrolledWindow):
         
         if (self.name == 'LED'):
             mod_type = 'LED'
-            levels = ['On', 'Off']
+            levels = [_(u'On'), _(u'Off')]
             prompt = _(u"LED Setting:")
 
         elif (self.name == "Obstacle Detection"):
             mod_type = 'IR Transmitter'
-            levels = ['On', 'Off']
+            levels = [_(u'On'), _(u'Off')]
             prompt = _(u"IR Transmitter obstacle detection:")
         else:
             mod_type = 'Line Tracker'
-            levels = ['On', 'Off']
+            levels = [_(u'On'), _(u'Off')]
             prompt = _(u"Line Tracker LED:")
 
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
         
-        choices = win_data.vars_names(U_NAME)
+        choices = win_data.vars_names(self.U_NAME)
         ctrl = (self.make_combo(levels),
                  self.make_combo(choices, add_const=True))
 
@@ -826,7 +829,7 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         self.make_headings(grid, (grid_line,1))
@@ -852,7 +855,7 @@ class Detail_win(wx.ScrolledWindow):
         """Data: module, output_level, var"""
 
         if (command == 'from_ids'):
-            output= [win_data.config_name_from_id(input[0]), input[1], CONSTANT]
+            output= [win_data.config_name_from_id(input[0]), input[1], self.CONSTANT]
             if (input[2]):
                 output[2] = win_data.vars_get_name(input[2])
 
@@ -895,7 +898,7 @@ class Detail_win(wx.ScrolledWindow):
                 bit = 0
                 mask = 1
 
-            if (input[2] == CONSTANT):
+            if (input[2] == self.CONSTANT):
                 if (input[1] == 'Off'):
                     code_lines.append("bitclr $%d %s" % (bit, win_data.make_mod_reg(input[0], output)))
                 else:
@@ -1033,7 +1036,7 @@ class Detail_win(wx.ScrolledWindow):
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
 
-        choices = win_data.vars_names(U_NAME)
+        choices = win_data.vars_names(self.U_NAME)
         ctrl = (self.make_text_ctrl("A"),
                  self.make_combo(choices, add_const=True))
 
@@ -1048,7 +1051,7 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         self.make_headings(grid, (grid_line,1))
@@ -1072,7 +1075,7 @@ class Detail_win(wx.ScrolledWindow):
         """Data: module, char-cons, char-var"""
 
         if (command == 'from_ids'):
-            output= [win_data.config_name_from_id(input[0]), input[1], CONSTANT]
+            output= [win_data.config_name_from_id(input[0]), input[1], self.CONSTANT]
             if (input[2]):
                 output[2] = win_data.vars_get_name(input[2])
 
@@ -1101,7 +1104,7 @@ class Detail_win(wx.ScrolledWindow):
 
         elif (command == 'gen_code'):
             code_lines = []
-            if (input[2] == CONSTANT):
+            if (input[2] == self.CONSTANT):
                 character = win_data.conv_to_tx_char(input[1])
 
                 if (character == None):
@@ -1140,7 +1143,7 @@ class Detail_win(wx.ScrolledWindow):
         else:
             pass
 
-        choices = win_data.vars_names(U_NAME)
+        choices = win_data.vars_names(self.U_NAME)
         ctrl = (self.make_text_ctrl("A"),
                  self.make_combo(choices, add_const=True))
 
@@ -1173,7 +1176,7 @@ class Detail_win(wx.ScrolledWindow):
         """Data: char-const, char-var"""
 
         if (command == 'from_ids'):
-            output= [input[0], CONSTANT]
+            output= [input[0], self.self.CONSTANT]
             if (input[1]):
                 output[1] = win_data.vars_get_name(input[1])
 
@@ -1199,7 +1202,7 @@ class Detail_win(wx.ScrolledWindow):
 
         elif (command == 'gen_code'):
             code_lines = []
-            if (input[1] == CONSTANT):
+            if (input[1] == self.self.CONSTANT):
                 character = win_data.conv_to_tx_char(input[0])
                 if (character == None):
                     return []
@@ -1234,29 +1237,29 @@ class Detail_win(wx.ScrolledWindow):
         
         if (self.name == 'Digital In'):
             mod_type = 'Digital In'
-            v_type = U_NAME
+            v_type = self.U_NAME
         elif (self.name == 'Bumper'):
             mod_type = 'Bump'
-            v_type = U_NAME
+            v_type = self.U_NAME
         elif (self.name == 'Infrared Data In' or self.name == 'Remote'):
             mod_type = 'IR Receiver'
-            v_type = U_NAME
+            v_type = self.U_NAME
         elif (self.name == 'Analogue In'):
             mod_type = 'Analog In'
-            v_type = S_NAME
+            v_type = self.S_NAME
         elif (self.name == 'Light Level'):
             mod_type = 'Line Tracker'
-            v_type = S_NAME
+            v_type = self.S_NAME
         elif (self.name == 'Read Clap Detect'):
             mod_type = 'Sounder'
-            v_type = U_NAME
+            v_type = self.U_NAME
         elif (self.name == 'Read Obstacle Detect'):
             mod_type = 'IR Receiver'
-            v_type = U_NAME
+            v_type = self.U_NAME
         else:
             # Line status
             mod_type = 'Line Tracker'
-            v_type = U_NAME
+            v_type = self.U_NAME
             clearAfterReading = False
 
         modules = win_data.config_device_names(mod_type)
@@ -1278,7 +1281,7 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         self.add_with_prompt(grid, (grid_line,0), _(u"Variable to read into:"), (ctrl,))
@@ -1613,13 +1616,13 @@ class Detail_win(wx.ScrolledWindow):
 
         if (self.name == 'Serial Data In'):
             extra = 'Last character received'
-            v_type = U_NAME
+            v_type = self.U_NAME
         elif (self.name == 'Read Timer'):
             extra = 'Timer value'
-            v_type = S_NAME
+            v_type = self.S_NAME
         else:
             extra = 'Button pressed'
-            v_type = U_NAME
+            v_type = self.U_NAME
 
         choices = win_data.vars_names(v_type)
         ctrl = self.make_combo(choices, add_const=False)
@@ -1711,7 +1714,7 @@ class Detail_win(wx.ScrolledWindow):
         else:
             pass
 
-        choices = win_data.vars_names(S_NAME)
+        choices = win_data.vars_names(self.S_NAME)
         ctrl = (self.make_text_ctrl("0"),
                  self.make_combo(choices, add_const=True))
 
@@ -1743,7 +1746,7 @@ class Detail_win(wx.ScrolledWindow):
         """Data: output_time, var"""
 
         if (command == 'from_ids'):
-            output= [input[0], CONSTANT]
+            output= [input[0], self.CONSTANT]
             if (input[1]):
                 output[1] = win_data.vars_get_name(input[1])
 
@@ -1769,7 +1772,7 @@ class Detail_win(wx.ScrolledWindow):
 
         elif (command == 'gen_code'):
             code_lines = []
-            if (input[1] == CONSTANT):
+            if (input[1] == self.CONSTANT):
                 time = win_data.conv_to_time(input[0])
                 if (time == None):
                     return []
@@ -1805,12 +1808,12 @@ class Detail_win(wx.ScrolledWindow):
         modules = win_data.config_device_names('Digital In')
         mod_choice = self.make_combo(modules)
 
-        choices = win_data.vars_names(S_NAME)
+        choices = win_data.vars_names(self.S_NAME)
 
         wait = (self.make_text_ctrl("0"),
                  self.make_combo(choices, add_const=True))
 
-        choices = win_data.vars_names(S_NAME)
+        choices = win_data.vars_names(self.S_NAME)
         ctrl = (wx.StaticText(self, -1, ""),
             self.make_combo(choices, add_const=False))
 
@@ -1822,7 +1825,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (mod_choice, ctrl[1])
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), MODULE_PROMPT, (mod_choice,))
+        self.add_with_prompt(grid, (0,0), self.MODULE_PROMPT, (mod_choice,))
         self.make_headings(grid, (1,1))
         self.add_with_prompt(grid, (2,0), _(u"Max time to wait:"), wait)
         self.add_with_prompt(grid, (3,0), _(u"Variable for pulse time:"), ctrl,
@@ -1847,7 +1850,7 @@ class Detail_win(wx.ScrolledWindow):
 
         if (command == 'from_ids'):
             output= [win_data.config_name_from_id(input[0]), input[1],
-                     CONSTANT, win_data.vars_get_name(input[3])]
+                     self.CONSTANT, win_data.vars_get_name(input[3])]
             if (input[2]):
                 output[2] = win_data.vars_get_name(input[2])
 
@@ -1880,7 +1883,7 @@ class Detail_win(wx.ScrolledWindow):
 
         elif (command == 'gen_code'):
             code_lines = []
-            if (input[2] == CONSTANT):
+            if (input[2] == self.CONSTANT):
                 time = win_data.conv_to_time(input[1])
                 if (time == None):
                     return []
@@ -1937,8 +1940,8 @@ class Detail_win(wx.ScrolledWindow):
         modules = win_data.config_device_names("Digital Out")
         mod_choice = self.make_combo(modules)
 
-        level_choices = win_data.vars_names(U_NAME)
-        pulse_choices = win_data.vars_names(S_NAME)
+        level_choices = win_data.vars_names(self.U_NAME)
+        pulse_choices = win_data.vars_names(self.S_NAME)
 
         levels = ['Low', 'High']
         ctrl = (self.make_combo(levels),
@@ -1954,7 +1957,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (ctrl[0], mod_choice)
         self.rbs = rbs
 
-        self.add_with_prompt(grid, (0,1), MODULE_PROMPT, (mod_choice,))
+        self.add_with_prompt(grid, (0,1), self.MODULE_PROMPT, (mod_choice,))
         self.make_headings(grid, (1,2))
 
         grid.Add(rbs[0], (2,0), flag=wx.ALIGN_CENTRE_VERTICAL)
@@ -1985,8 +1988,8 @@ class Detail_win(wx.ScrolledWindow):
 
         vars = [(0, 3), (1, 5)]
         if (command == 'from_ids'):
-            output= [input[0], win_data.config_name_from_id(input[1]), input[2], CONSTANT,
-                     input[4], CONSTANT]
+            output= [input[0], win_data.config_name_from_id(input[1]), input[2], self.CONSTANT,
+                     input[4], self.CONSTANT]
 
             for rb, index in vars:
                 if (output[0] == rb):
@@ -2030,7 +2033,7 @@ class Detail_win(wx.ScrolledWindow):
             if (input[0] == 0):
                 # level control
                 value = 1
-                if (input[3] == CONSTANT):
+                if (input[3] == self.CONSTANT):
                     if (input[2] == 'Low'):
                         value = 0
 
@@ -2039,7 +2042,7 @@ class Detail_win(wx.ScrolledWindow):
                     code_lines.append("movb @%s %s" % (input[3], (win_data.make_mod_reg(input[1], 'output'))))
             else:
                 # pulse
-                if (input[5] == CONSTANT):
+                if (input[5] == self.CONSTANT):
                     time = win_data.conv_to_time(input[4])
                     if (time == None):
                         return []
@@ -2370,81 +2373,81 @@ class Detail_win(wx.ScrolledWindow):
 
 
         # dirs now has -1 or 1 for each motor
-        if (command == MOTOR_STP):
-            codes = [MOTOR_CODE["S"], MOTOR_CODE["S"]]
-        elif (command == MOTOR_FWD):
+        if (command == self.MOTOR_STP):
+            codes = [self.MOTOR_CODE["S"], self.MOTOR_CODE["S"]]
+        elif (command == self.MOTOR_FWD):
             for i in (0, 1):
                 if (dirs[i] == 1):
-                    codes[i] = MOTOR_CODE["F"]
+                    codes[i] = self.MOTOR_CODE["F"]
                 else:
-                    codes[i] = MOTOR_CODE["B"]
+                    codes[i] = self.MOTOR_CODE["B"]
 
-        elif (command == MOTOR_BCK):
+        elif (command == self.MOTOR_BCK):
             for i in (0, 1):
                 if (dirs[i] == 1):
-                    codes[i] = MOTOR_CODE["B"]
+                    codes[i] = self.MOTOR_CODE["B"]
                 else:
-                    codes[i] = MOTOR_CODE["F"]
+                    codes[i] = self.MOTOR_CODE["F"]
 
-        elif (command == MOTOR_P_RT):
-            codes[right_most] = MOTOR_CODE["S"]
+        elif (command == self.MOTOR_P_RT):
+            codes[right_most] = self.MOTOR_CODE["S"]
             if (dirs[left_most] == 1):
-                codes[left_most] = MOTOR_CODE["F"]
+                codes[left_most] = self.MOTOR_CODE["F"]
             else:
-                codes[left_most] = MOTOR_CODE["B"]
+                codes[left_most] = self.MOTOR_CODE["B"]
 
-        elif (command == MOTOR_P_SR):
+        elif (command == self.MOTOR_P_SR):
             if (dirs[left_most] == 1):
-                codes[left_most] = MOTOR_CODE["F"]
-                codes[right_most] = MOTOR_CODE["B"]
+                codes[left_most] = self.MOTOR_CODE["F"]
+                codes[right_most] = self.MOTOR_CODE["B"]
             else:
-                codes[left_most] = MOTOR_CODE["B"]
-                codes[right_most] = MOTOR_CODE["F"]
+                codes[left_most] = self.MOTOR_CODE["B"]
+                codes[right_most] = self.MOTOR_CODE["F"]
 
-        elif (command == MOTOR_P_LT):
-            codes[left_most] = MOTOR_CODE["S"]
+        elif (command == self.MOTOR_P_LT):
+            codes[left_most] = self.MOTOR_CODE["S"]
             if (dirs[right_most] == 1):
-                codes[right_most] = MOTOR_CODE["F"]
+                codes[right_most] = self.MOTOR_CODE["F"]
             else:
-                codes[right_most] = MOTOR_CODE["B"]
+                codes[right_most] = self.MOTOR_CODE["B"]
 
-        elif (command == MOTOR_P_SL):
+        elif (command == self.MOTOR_P_SL):
             if (dirs[right_most] == 1):
-                codes[right_most] = MOTOR_CODE["F"]
-                codes[left_most] = MOTOR_CODE["B"]
+                codes[right_most] = self.MOTOR_CODE["F"]
+                codes[left_most] = self.MOTOR_CODE["B"]
             else:
-                codes[right_most] = MOTOR_CODE["B"]
-                codes[left_most] = MOTOR_CODE["F"]
+                codes[right_most] = self.MOTOR_CODE["B"]
+                codes[left_most] = self.MOTOR_CODE["F"]
 
-        elif (command == MOTOR_P_BR):
-            codes[right_most] = MOTOR_CODE["S"]
+        elif (command == self.MOTOR_P_BR):
+            codes[right_most] = self.MOTOR_CODE["S"]
             if (dirs[left_most] == 1):
-                codes[left_most] = MOTOR_CODE["B"]
+                codes[left_most] = self.MOTOR_CODE["B"]
             else:
-                codes[left_most] = MOTOR_CODE["F"]
+                codes[left_most] = self.MOTOR_CODE["F"]
 
-        elif (command == MOTOR_P_BL):
-            codes[left_most] = MOTOR_CODE["S"]
+        elif (command == self.MOTOR_P_BL):
+            codes[left_most] = self.MOTOR_CODE["S"]
             if (dirs[right_most] == 1):
-                codes[right_most] = MOTOR_CODE["B"]
+                codes[right_most] = self.MOTOR_CODE["B"]
             else:
-                codes[right_most] = MOTOR_CODE["F"]
+                codes[right_most] = self.MOTOR_CODE["F"]
 
-        elif (command == MOTOR_P_RT_90):
+        elif (command == self.MOTOR_P_RT_90):
             if (dirs[left_most] == 1):
-                codes[left_most] = MOTOR_CODE["FD"]
-                codes[right_most] = MOTOR_CODE["BD"]
+                codes[left_most] = self.MOTOR_CODE["FD"]
+                codes[right_most] = self.MOTOR_CODE["BD"]
             else:
-                codes[left_most] = MOTOR_CODE["BD"]
-                codes[right_most] = MOTOR_CODE["FD"]
+                codes[left_most] = self.MOTOR_CODE["BD"]
+                codes[right_most] = self.MOTOR_CODE["FD"]
 
-        elif (command == MOTOR_P_LT_90):
+        elif (command == self.MOTOR_P_LT_90):
             if (dirs[right_most] == 1):
-                codes[right_most] = MOTOR_CODE["FD"]
-                codes[left_most] = MOTOR_CODE["BD"]
+                codes[right_most] = self.MOTOR_CODE["FD"]
+                codes[left_most] = self.MOTOR_CODE["BD"]
             else:
-                codes[right_most] = MOTOR_CODE["BD"]
-                codes[left_most] = MOTOR_CODE["FD"]
+                codes[right_most] = self.MOTOR_CODE["BD"]
+                codes[left_most] = self.MOTOR_CODE["FD"]
 
 
         #print "Motorpairdir", motors[left_most], motors[right_most], dirs, command, codes
@@ -2458,7 +2461,7 @@ class Detail_win(wx.ScrolledWindow):
         dist_units = self.cb_special_vars[1]
         dist_value = self.cb_special_vars[2]
 
-        if (dirs[0].GetValue() in (MOTOR_STP, MOTOR_P_RT_90, MOTOR_P_LT_90)) and (dirs[1].GetValue() == CONSTANT):
+        if (dirs[0].GetValue() in (self.MOTOR_STP, self.MOTOR_P_RT_90, self.MOTOR_P_LT_90)) and (dirs[1].GetValue() == self.CONSTANT):
             dist_units[0].Enable(False)
             dist_value[0].Enable(False)
             dist_value[1].Enable(False)
@@ -2467,11 +2470,11 @@ class Detail_win(wx.ScrolledWindow):
             e1,e2 = True, False
             if (dist_units[0].GetValue().startswith("Unlimited")):
                 e1,e2 = False, False
-                dist_value[1].SetValue(CONSTANT)
+                dist_value[1].SetValue(self.CONSTANT)
             elif (dist_units[0].GetValue().startswith("Raw")):
                 e1,e2 = True, True
             else:
-                dist_value[1].SetValue(CONSTANT)
+                dist_value[1].SetValue(self.CONSTANT)
 
             dist_value[0].Enable(e1)
             dist_value[1].Enable(e2)
@@ -2494,24 +2497,24 @@ class Detail_win(wx.ScrolledWindow):
 
         if (self.name == 'Motor Pair'):
             modules = win_data.config_motor_pairs()
-            directions = [MOTOR_FWD, MOTOR_BCK,
-                          MOTOR_P_RT, #MOTOR_P_RT_90,
-                          MOTOR_P_LT, #MOTOR_P_LT_90,
-                          MOTOR_P_SR, MOTOR_P_SL,
-                          MOTOR_P_BR, MOTOR_P_BL,
-                          MOTOR_STP]
+            directions = [self.MOTOR_FWD, self.MOTOR_BCK,
+                          self.MOTOR_P_RT, #self.MOTOR_P_RT_90,
+                          self.MOTOR_P_LT, #self.MOTOR_P_LT_90,
+                          self.MOTOR_P_SR, self.MOTOR_P_SL,
+                          self.MOTOR_P_BR, self.MOTOR_P_BL,
+                          self.MOTOR_STP]
         else:
             modules = []
             modules.extend(win_data.config_device_names('Motor A'))
             modules.extend(win_data.config_device_names('Motor B'))
-            directions = [MOTOR_FWD, MOTOR_BCK, MOTOR_STP]
+            directions = [self.MOTOR_FWD, self.MOTOR_BCK, self.MOTOR_STP]
 
         #print modules
         mod_choice = self.make_combo(modules)
 
-        d_choices = win_data.vars_names(U_NAME)
-        s_choices = win_data.vars_names(U_NAME)
-        dist_choices = win_data.vars_names(S_NAME)
+        d_choices = win_data.vars_names(self.U_NAME)
+        s_choices = win_data.vars_names(self.U_NAME)
+        dist_choices = win_data.vars_names(self.S_NAME)
 
         speeds = [_(u"0"), _(u"1"), _(u"2"), _(u"3"), _(u"4"), _(u"5"), _(u"6"), _(u"7"), _(u"8"), _(u"9"), _(u"10")]
 
@@ -2546,14 +2549,14 @@ class Detail_win(wx.ScrolledWindow):
         if (len(modules) < 2):
             mod_choice.Hide()
         else:
-            self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
+            self.add_with_prompt(grid, (grid_line,0), self.MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
         self.make_headings(grid, (grid_line,1))
         self.add_with_prompt(grid, (grid_line+1,0), _(u"Direction:"), dirs)
         self.add_with_prompt(grid, (grid_line+2,0), _(u"Speed:"), speed)
         
-        if (MOTOR_DISTANCE_ENABLED):
+        if (self.MOTOR_DISTANCE_ENABLED):
             self.add_with_prompt(grid, (grid_line+3,0), _(u"Distance:"), dist_units, ctrl_span=(1,2))
             self.add_with_prompt(grid, (grid_line+4,0), _(u"Distance:"), dist_value)
         else:
@@ -2577,15 +2580,15 @@ class Detail_win(wx.ScrolledWindow):
 
 
     def single_motor_distance(self, input, single, code_lines):
-        if ((input[5].startswith("Unlimited")) or ((input[2] == CONSTANT) and
-                                          (input[1] in (MOTOR_STP,)))):
+        if ((input[5].startswith("Unlimited")) or ((input[2] == self.CONSTANT) and
+                                          (input[1] in (self.MOTOR_STP,)))):
             # use the unlimited version of the direction
             distance_cmd = False
         else:
             # set up the distance register
             distance_cmd = True
 
-            if (input[7] == CONSTANT):
+            if (input[7] == self.CONSTANT):
                 dist = win_data.conv_to_number(input[6], 'w', 0, 32000)
                 rotations = 0
                 if (dist == None):
@@ -2616,11 +2619,11 @@ class Detail_win(wx.ScrolledWindow):
                 code_lines.append("movw $%s %s" % (input[7],win_data.make_mod_reg(input[0], 'distance')))
 
         if (single):
-            if (input[2] == CONSTANT):
+            if (input[2] == self.CONSTANT):
                 if (distance_cmd):
-                    dir = DIRECTION_WITH_DIST_CODE[input[1]]
+                    dir = self.DIRECTION_WITH_DIST_CODE[input[1]]
                 else:
-                    dir = DIRECTION_CODE[input[1]]
+                    dir = self.DIRECTION_CODE[input[1]]
                 code_lines.append("movb $%s %%_cpu:acc" % (dir,))
             else:
                 code_lines.append("movb @%s %%_cpu:acc" % (input[2],))
@@ -2631,8 +2634,8 @@ class Detail_win(wx.ScrolledWindow):
         """Data: mod, dir_cons, var, speed_cons, var, dist_unit, dist_cons, var, [, other motor mod]"""
 
         if (command == 'from_ids'):
-            output= [win_data.config_name_from_id(input[0]), input[1], CONSTANT, input[3], CONSTANT,
-                     input[5], input[6], CONSTANT]
+            output= [win_data.config_name_from_id(input[0]), input[1], self.CONSTANT, input[3], self.CONSTANT,
+                     input[5], input[6], self.CONSTANT]
 
             if (name == 'Motor Pair'):
                 output[0] += '+'+win_data.config_name_from_id(input[8])
@@ -2722,7 +2725,7 @@ class Detail_win(wx.ScrolledWindow):
                         # Set up control
                         code_lines.append("movb $%d %%_cpu:acc" % (s_dirs[i],))
 
-                        if (input[4] == CONSTANT):
+                        if (input[4] == self.CONSTANT):
                             number = win_data.conv_to_number(input[3], 'b', 0, 10)
                             if (number == None):
                                 return []
@@ -2741,7 +2744,7 @@ class Detail_win(wx.ScrolledWindow):
                 # for the shift. Document for the user instead.
                 #code_lines.append("shlb $6")
 
-                if (input[4] == CONSTANT):
+                if (input[4] == self.CONSTANT):
                     number = win_data.conv_to_number(input[3], 'b', 0, 10)
                     if (number == None):
                         return []
@@ -2774,19 +2777,19 @@ class Detail_win(wx.ScrolledWindow):
 
         grid = wx.GridBagSizer(5, 5)
 
-        basic_ops = [MATH_PLUS, MATH_SUB, MATH_MULT, MATH_NOT]
-        shift_ops = [MATH_DIV, MATH_MOD, MATH_LSHIFT, MATH_RSHIFT]
-        logical_ops = [MATH_AND, MATH_OR, MATH_XOR]
+        basic_ops = [self.MATH_PLUS, self.MATH_SUB, self.MATH_MULT, self.MATH_NOT]
+        shift_ops = [self.MATH_DIV, self.MATH_MOD, self.MATH_LSHIFT, self.MATH_RSHIFT]
+        logical_ops = [self.MATH_AND, self.MATH_OR, self.MATH_XOR]
 
         if (self.name == 'Maths Basic'):
-            main_choices = win_data.vars_names(U_NAME)
-            basic_choices = win_data.vars_names(U_NAME)
-            shift_choices = win_data.vars_names(U_NAME)
-            buttons = ["Basic", "Divide", "Logical"]
+            main_choices = win_data.vars_names(self.U_NAME)
+            basic_choices = win_data.vars_names(self.U_NAME)
+            shift_choices = win_data.vars_names(self.U_NAME)
+            buttons = [_(u"Basic"), _(u"Divide"), _(u"Logical")]
         else:
-            main_choices = win_data.vars_names(S_NAME)
-            basic_choices = win_data.vars_names(S_NAME)
-            shift_choices = win_data.vars_names(S_NAME)
+            main_choices = win_data.vars_names(self.S_NAME)
+            basic_choices = win_data.vars_names(self.S_NAME)
+            shift_choices = win_data.vars_names(self.S_NAME)
             buttons = ["Basic", "Divide"]
 
         rbs = self.make_radio_buttons(buttons)
@@ -2802,7 +2805,7 @@ class Detail_win(wx.ScrolledWindow):
                    self.make_combo(shift_choices, add_const=True))
 
         if (self.name == 'Maths Basic'):
-            small_choices = win_data.vars_names(U_NAME)
+            small_choices = win_data.vars_names(self.U_NAME)
             logical_op=(self.make_combo(logical_ops, sort=False),)
             logical_arg=(self.make_text_ctrl("0"),
                          self.make_combo(small_choices, add_const=True))
@@ -2866,11 +2869,11 @@ class Detail_win(wx.ScrolledWindow):
 
         if (command == 'from_ids'):
             output= [input[0], win_data.vars_get_name(input[1]),
-                     input[2], input[3], CONSTANT, input[5], input[6], CONSTANT]
+                     input[2], input[3], self.CONSTANT, input[5], input[6], self.CONSTANT]
             vars = [(0,4), (1,7)]
 
             if (name == 'Maths Basic'):
-                output.extend([input[8], input[9], CONSTANT])
+                output.extend([input[8], input[9], self.CONSTANT])
                 vars.append((2,10))
 
             #print "vars", vars
@@ -2921,9 +2924,9 @@ class Detail_win(wx.ScrolledWindow):
 ##            """Data: rb, main_var, basic_op, b_cons, b_var, shift_op, s_cons, s_var
 ##            and with Unsigned Math add: logical_op, l_cons, l_var"""
 
-            op_dict = {MATH_PLUS:"add", MATH_SUB:"sub", MATH_MULT:"mul", MATH_NOT:"not",
-                       MATH_DIV:"div", MATH_MOD:"mod", MATH_LSHIFT:"shl", MATH_RSHIFT:"shr",
-                       MATH_AND:"and", MATH_OR:"or", MATH_XOR:"xor",
+            op_dict = {self.MATH_PLUS:"add", self.MATH_SUB:"sub", self.MATH_MULT:"mul", self.MATH_NOT:"not",
+                       self.MATH_DIV:"div", self.MATH_MOD:"mod", self.MATH_LSHIFT:"shl", self.MATH_RSHIFT:"shr",
+                       self.MATH_AND:"and", self.MATH_OR:"or", self.MATH_XOR:"xor",
                        }
 
             code_lines = []
@@ -2932,8 +2935,8 @@ class Detail_win(wx.ScrolledWindow):
 
             if (input[0] == 0):
                 # Basic ops - plus, minus, mult, not
-                if (input[4] == CONSTANT):
-                    if (input[2] == MATH_NOT):
+                if (input[4] == self.CONSTANT):
+                    if (input[2] == self.MATH_NOT):
                         # ignore the constant for not
                         code_lines.append("not%s" % (size,))
                     else:
@@ -2942,7 +2945,7 @@ class Detail_win(wx.ScrolledWindow):
                             return []
                         code_lines.append("%s%s $%s" % (op_dict[input[2]], size, number))
                 else:
-                    if (input[2] == MATH_NOT):
+                    if (input[2] == self.MATH_NOT):
                         # ignore the constant for not
                         code_lines.append("not%s" % (size,))
                     else:
@@ -2950,7 +2953,7 @@ class Detail_win(wx.ScrolledWindow):
 
             elif (input[0] == 1):
                 # shift ops - div, mod, left shift, right shift
-                if (input[7] == CONSTANT):
+                if (input[7] == self.CONSTANT):
                     number = win_data.conv_to_number(input[6], size)
                     if (number == None):
                         return []
@@ -2960,7 +2963,7 @@ class Detail_win(wx.ScrolledWindow):
 
             else:
                 # logical ops - and, or, xor
-                if (input[10] == CONSTANT):
+                if (input[10] == self.CONSTANT):
                     number = win_data.conv_to_number(input[9], 'b')
                     if (number == None):
                         return []
@@ -2993,8 +2996,8 @@ class Detail_win(wx.ScrolledWindow):
         grid = wx.GridBagSizer(5, 5)
 
         rbs = self.make_radio_buttons(["ASCII","String", "Number", "Cursor", "Control"])
-        controls = [LCD_CLEAR_SCREEN, LCD_SCROLL_LINE]
-        ascii_vars = win_data.vars_names(U_NAME)
+        controls = [self.LCD_CLEAR_SCREEN, self.LCD_SCROLL_LINE]
+        ascii_vars = win_data.vars_names(self.U_NAME)
         other_vars = win_data.vars_names()
 
         ascii = (self.make_text_ctrl("A"),
@@ -3060,7 +3063,7 @@ class Detail_win(wx.ScrolledWindow):
         num-var, row-cons, col-cons, cmd-cons, row-string, col-string"""
 
         if (command == 'from_ids'):
-            output = [input[0], input[1], CONSTANT, input[3], NO_VAR, input[5],
+            output = [input[0], input[1], self.CONSTANT, input[3], self.NO_VAR, input[5],
                       input[6], input[7], input[8], input[9]]
 
             if (input[0] == 0):
@@ -3097,7 +3100,7 @@ class Detail_win(wx.ScrolledWindow):
                 win_data.vars_add_use(output[2])
             elif (output[0] == 2):
                 # number-var
-                if (output[4] == NO_VAR):
+                if (output[4] == self.NO_VAR):
                     output[4] = None
                 else:
                     output[4] = win_data.vars_get_id(output[4])
@@ -3119,7 +3122,7 @@ class Detail_win(wx.ScrolledWindow):
             code_lines = []
             if (input[0] == 0):
                 # output an ascii value/variable
-                if (input[2] == CONSTANT):
+                if (input[2] == self.CONSTANT):
                     character = win_data.conv_to_lcd_char(input[1])
                     if (character == None):
                         return []
@@ -3147,7 +3150,7 @@ class Detail_win(wx.ScrolledWindow):
 
             elif (input[0] == 2):
                 # a number
-                if (input[4] == NO_VAR):
+                if (input[4] == self.NO_VAR):
                     # nothing to add because no real var here
                     code_lines.append("# No variable to display")
                 else:
@@ -3173,7 +3176,7 @@ class Detail_win(wx.ScrolledWindow):
 
             else:
                 # control
-                if (input[7] == LCD_CLEAR_SCREEN):
+                if (input[7] == self.LCD_CLEAR_SCREEN):
                     bit = 4
                 else:
                     bit = 3
@@ -3277,22 +3280,22 @@ class Detail_win(wx.ScrolledWindow):
 # ---------------------------- Event/Wait/If/Loop Brics ----------------------------------------
 
     def get_event_modules(self):
-        #modules = [MOTHERBOARD]
+        #modules = [self.MOTHERBOARD]
         #for mod in ['Motor A', 'Motor B', 'Sounder', 'IR Receiver', 'Line Tracker']:
         #    modules.extend(win_data.config_device_names(mod))
 
         #return modules
-        return EVENT_DICT.keys()
+        return self.EVENT_DICT.keys()
 
     def get_event_choices(self, name):
-        # if (name == MOTHERBOARD):
-        #     dtype = MOTHERBOARD
+        # if (name == self.MOTHERBOARD):
+        #     dtype = self.MOTHERBOARD
         # else:
         #     id = win_data.config_id_from_name(name)
         #     dtype = win_data.config_dtype_from_id(id)
 
-        # return EVENT_DICT[dtype]
-        return EVENT_DICT[name]
+        # return self.EVENT_DICT[dtype]
+        return self.EVENT_DICT[name]
 
     def do_event_change(self, value):
         if (not self.event_choice):
@@ -3357,7 +3360,7 @@ class Detail_win(wx.ScrolledWindow):
 
         #print "create_event_code - mod_alias:", mod_alias, " event:", event
         
-        module = self.module_remove_alias(mod_alias, EVENT_ALIASES)
+        module = self.module_remove_alias(mod_alias, self.EVENT_ALIASES)
         events = self.get_event_choices(mod_alias)
 
         for title, details, if_variant in events:
@@ -3380,11 +3383,11 @@ class Detail_win(wx.ScrolledWindow):
             mask = 0x01
             value = 0x00
             clear_status = False
-        elif (event == TRACKER_1_STATUS):
+        elif (event == self.TRACKER_1_STATUS):
             mask = 0x01
             value = 0x01
             clear_status = False
-        elif (event == TRACKER_0_STATUS):
+        elif (event == self.TRACKER_0_STATUS):
             mask = 0x01
             value = 0x00
             clear_status = False
@@ -3442,10 +3445,10 @@ class Detail_win(wx.ScrolledWindow):
         elif (event == 'Released'):
             mask = 0x81
             value = 0x80
-        elif (event == TRACKER_1_STATUS):
+        elif (event == self.TRACKER_1_STATUS):
             mask = 0x03
             value = mask
-        elif (event == TRACKER_0_STATUS):
+        elif (event == self.TRACKER_0_STATUS):
             mask = 0x03
             value = 0x02
         else:
@@ -3520,7 +3523,7 @@ class Detail_win(wx.ScrolledWindow):
         self.conv_func = self.event_convert
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
-        self.bad_events = INVALID_NEW_EVENTS
+        self.bad_events = self.INVALID_NEW_EVENTS
 
         self.good_choices = self.get_unused_events(bric_id)
         print _(u"good_choices:"), self.good_choices
@@ -3535,8 +3538,8 @@ class Detail_win(wx.ScrolledWindow):
         grid = wx.GridBagSizer(5, 5)
 
         modules = self.good_choices.keys()
-        mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS,-1))
-        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(EVENT_COMBO_PIXELS,-1))
+        mod_choice = self.make_combo(modules, size=(self.EVENT_COMBO_PIXELS,-1))
+        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(self.EVENT_COMBO_PIXELS,-1))
 
         self.Bind(wx.EVT_COMBOBOX, self.on_event_mod_change, mod_choice)
 
@@ -3577,12 +3580,12 @@ class Detail_win(wx.ScrolledWindow):
 
 
     def event_convert(self, input, command, name, bric_id):
-        """Data: module, event  (note: module can be MOTHERBOARD)"""
+        """Data: module, event  (note: module can be self.MOTHERBOARD)"""
         #print "event_convert:", command, ", input:", input
         if (command == 'from_ids'):
             # get module alias from event
             mod_alias = self.find_alias_from_event(input[1])
-            module = self.module_remove_alias(mod_alias, EVENT_ALIASES)
+            module = self.module_remove_alias(mod_alias, self.EVENT_ALIASES)
             
             output = [module, input[1]]
             return output
@@ -3600,11 +3603,11 @@ class Detail_win(wx.ScrolledWindow):
             #print output
 
             # convert to ids
-            output[0] = self.module_remove_alias(output[0], EVENT_ALIASES)
+            output[0] = self.module_remove_alias(output[0], self.EVENT_ALIASES)
 
             #print output
             
-            if (output[0] == MOTHERBOARD):
+            if (output[0] == self.MOTHERBOARD):
                 output[0] = None
             else:
                 output[0] = win_data.config_id_from_name(output[0])
@@ -3647,12 +3650,12 @@ class Detail_win(wx.ScrolledWindow):
         rbs = self.make_radio_buttons([_(u"Seconds pass"), _(u"Event happens")])
 
         modules = self.get_event_modules()
-        mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
-        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(EVENT_COMBO_PIXELS,-1))
+        mod_choice = self.make_combo(modules, size=(self.EVENT_COMBO_PIXELS, -1))
+        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(self.EVENT_COMBO_PIXELS,-1))
 
         self.Bind(wx.EVT_COMBOBOX, self.on_event_mod_change, mod_choice)
 
-        choices = win_data.vars_names(S_NAME)
+        choices = win_data.vars_names(self.S_NAME)
         time = (self.make_text_ctrl("0"),
                 self.make_combo(choices, add_const=True))
 
@@ -3699,13 +3702,13 @@ class Detail_win(wx.ScrolledWindow):
         return grid
 
     def wait_convert(self, input, command, name, bric_id):
-        """Data: rb, time-cons, time-var, module, event  (note: module can be MOTHERBOARD)"""
+        """Data: rb, time-cons, time-var, module, event  (note: module can be self.MOTHERBOARD)"""
 
         #print "wait_convert cmd:", command, ", input:", input
         if (command == 'from_ids'):
             mod_alias = self.find_alias_from_event(input[4])
-            module = self.module_remove_alias(mod_alias, EVENT_ALIASES)
-            output = [input[0], input[1], CONSTANT, module, input[4]]
+            module = self.module_remove_alias(mod_alias, self.EVENT_ALIASES)
+            output = [input[0], input[1], self.CONSTANT, module, input[4]]
 
             if (input[0] == 0):
                 if (input[2]):
@@ -3732,13 +3735,13 @@ class Detail_win(wx.ScrolledWindow):
             # ??????
 
             # convert to ids
-            output[3] = self.module_remove_alias(output[3], EVENT_ALIASES)
+            output[3] = self.module_remove_alias(output[3], self.EVENT_ALIASES)
 
             if (output[0] == 0):
                 output[2] = win_data.vars_get_id(output[2])
                 win_data.vars_add_use(output[2])
             else:
-                if (output[3] == MOTHERBOARD):
+                if (output[3] == self.MOTHERBOARD):
                     output[3] = None
                 else:
                     output[3] = win_data.config_id_from_name(output[3])
@@ -3766,7 +3769,7 @@ class Detail_win(wx.ScrolledWindow):
                 else:
                     time_buff = "_main_time_buffer"
 
-                if (input[2] == CONSTANT):
+                if (input[2] == self.CONSTANT):
                     #code_lines.append("movw $%s %%_timers:pause" % (input[1],))
                     time = win_data.conv_to_time(input[1])
                     if (time == None):
@@ -3818,8 +3821,8 @@ class Detail_win(wx.ScrolledWindow):
         rbs = self.make_radio_buttons([_(u"Test passes"), _(u"Event happens"), _(u"Loop forever")])
 
         modules = self.get_event_modules()
-        mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
-        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(EVENT_COMBO_PIXELS,-1))
+        mod_choice = self.make_combo(modules, size=(self.EVENT_COMBO_PIXELS, -1))
+        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(self.EVENT_COMBO_PIXELS,-1))
 
         self.Bind(wx.EVT_COMBOBOX, self.on_event_mod_change, mod_choice)
 
@@ -3879,8 +3882,8 @@ class Detail_win(wx.ScrolledWindow):
 
         if (command == 'from_ids'):
             mod_alias = self.find_alias_from_event(input[5])
-            module = self.module_remove_alias(mod_alias, EVENT_ALIASES)
-            output = [input[0], NO_VAR, input[2], input[3], module, input[5]]
+            module = self.module_remove_alias(mod_alias, self.EVENT_ALIASES)
+            output = [input[0], self.NO_VAR, input[2], input[3], module, input[5]]
 
             if (input[0] == 0):
                 if (input[1]):
@@ -3910,15 +3913,15 @@ class Detail_win(wx.ScrolledWindow):
             # ??????
 
             # convert to ids
-            output[4] = self.module_remove_alias(output[4], EVENT_ALIASES)
+            output[4] = self.module_remove_alias(output[4], self.EVENT_ALIASES)
             if (output[0] == 0):
-                if (output[1] == NO_VAR):
+                if (output[1] == self.NO_VAR):
                     output[1] = None
                 else:
                     output[1] = win_data.vars_get_id(output[1])
                     win_data.vars_add_use(output[1])
             elif (output[0] == 1):
-                if (output[4] == MOTHERBOARD):
+                if (output[4] == self.MOTHERBOARD):
                     output[4] = None
                 else:
                     output[4] = win_data.config_id_from_name(output[4])
@@ -3952,7 +3955,7 @@ class Detail_win(wx.ScrolledWindow):
 
             if (input[0] == 0):
                 # if the test isn't real (no var) then go directly to false
-                if (input[1] == NO_VAR):
+                if (input[1] == self.NO_VAR):
                     code_lines.append("bra %s" % (labels[1],))
                 else:
                     # do a test for the beginning of the loop/if
@@ -4011,8 +4014,8 @@ class Detail_win(wx.ScrolledWindow):
         rbs = self.make_radio_buttons([_(u"Test passes"), _(u"Event happens")])
 
         modules = self.get_event_modules()
-        mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS,-1))
-        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(EVENT_COMBO_PIXELS,-1))
+        mod_choice = self.make_combo(modules, size=(self.EVENT_COMBO_PIXELS,-1))
+        self.event_choice = wx.ComboBox(self, -1, "", style=wx.CB_READONLY, size=(self.EVENT_COMBO_PIXELS,-1))
 
         self.Bind(wx.EVT_COMBOBOX, self.on_event_mod_change, mod_choice)
 
@@ -4090,8 +4093,8 @@ class Detail_win(wx.ScrolledWindow):
 
         if (command == 'from_ids'):
             mod_alias = self.find_alias_from_event(input[5])
-            module = self.module_remove_alias(mod_alias, EVENT_ALIASES)
-            output = [input[0], NO_VAR, input[2], input[3], module, input[5]]
+            module = self.module_remove_alias(mod_alias, self.EVENT_ALIASES)
+            output = [input[0], self.NO_VAR, input[2], input[3], module, input[5]]
 
             if (input[0] == 0):
                 if (input[1]):
@@ -4119,15 +4122,15 @@ class Detail_win(wx.ScrolledWindow):
             # ??????
 
             # convert to ids
-            output[4] = self.module_remove_alias(output[4], EVENT_ALIASES)
+            output[4] = self.module_remove_alias(output[4], self.EVENT_ALIASES)
             if (output[0] == 0):
-                if (output[1] == NO_VAR):
+                if (output[1] == self.NO_VAR):
                     output[1] = None
                 else:
                     output[1] = win_data.vars_get_id(output[1])
                     win_data.vars_add_use(output[1])
             else:
-                if (output[4] == MOTHERBOARD):
+                if (output[4] == self.MOTHERBOARD):
                     output[4] = None
                 else:
                     output[4] = win_data.config_id_from_name(output[4])
@@ -4156,7 +4159,7 @@ class Detail_win(wx.ScrolledWindow):
 
             if (input[0] == 0):
                 # if the test isn't real (no var) then go directly to false
-                if (input[1] == NO_VAR):
+                if (input[1] == self.NO_VAR):
                     code_lines.append("bra %s" % (labels[1],))
                     win_data.program().set_bric_if_variant(bric_id, "var")
 
