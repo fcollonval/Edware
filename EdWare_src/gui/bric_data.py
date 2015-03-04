@@ -22,6 +22,7 @@
 #
 # * **************************************************************** */
 
+import codecs
 import os
 import os.path
 import ConfigParser
@@ -40,8 +41,6 @@ BRIC_DISABLED = 2
 
 BRICS = os.path.join(paths.get_run_dir(), "gui/brics")
 BRIC_CONTROL = BRICS + "/control.ini"
-BRICS_BIG = BRICS + "/big"
-BRICS_SMALL = BRICS + "/small"
 
 
 class Detail_parser(object):
@@ -166,14 +165,15 @@ data = Data()
 # ---------------------------------------------------------
 # Bric data
 
-# two sizes - big and not-big (small)
-def load_brics(big = True):
+def load_brics(language=u"en"):
     global data
-
+    BRIC_CONTROL = os.path.join(paths.get_run_dir(), "locale", language, "brics" , "control.ini")
     base = BRICS
         
     cp = ConfigParser.RawConfigParser()
-    cp.read(BRIC_CONTROL)
+    # cp.read(BRIC_CONTROL)
+    with codecs.open(BRIC_CONTROL, "r", encoding="utf8") as config_bric:
+        cp.readfp(config_bric)
 
     data.groups = []
 
@@ -422,8 +422,6 @@ if (__name__ == '__main__'):
 ##    global BRICS, DEVICE_CONTROL, BRICS_BIG, BRICS_SMALL
 ##    BRICS = "brics"
 ##    BRIC_CONTROL = BRICS + "/control.ini"
-##    BRICS_BIG = BRICS + "/big"
-##    BRICS_SMALL = BRICS + "/small"
 
     enable_and_control_parser('AVD(Motor A;Motor B)U("this is fun")')
     #load_brics()

@@ -22,6 +22,7 @@
 #
 # * **************************************************************** */
 
+import codecs
 import os
 import os.path
 import ConfigParser
@@ -45,25 +46,21 @@ data = Data()
 
 DEVICES = os.path.join(paths.get_run_dir(), "gui/devices")
 DEVICE_CONTROL = DEVICES + "/control.ini"
-DEVICES_BIG = DEVICES + "/big"
-DEVICES_SMALL = DEVICES + "/small"
 
 # ---------------------------------------------------------
 # Device data
 
-# two sizes - big and not-big (small)
-def load_devices(big = True):
+def load_devices(language=u"en"):
     global data
-    if (big):
-        base = DEVICES_BIG
-    else:
-        base = DEVICES_SMALL
+    
+    DEVICE_CONTROL = os.path.join(paths.get_run_dir(), u"locale", language, u"devices", "control.ini")
     base = DEVICES
         
     cp = ConfigParser.RawConfigParser()
-    cp.read(DEVICE_CONTROL)
+    # cp.read(DEVICE_CONTROL)
+    with codecs.open(DEVICE_CONTROL, "r", encoding="utf8") as config_device:
+        cp.readfp(config_device)
 
-    #data.mb_bmap = wx.Bitmap(os.path.join(base, cp.get('motherboard', 'bmap')), wx.BITMAP_TYPE_ANY)
     data.mb_bmap = ""
     data.groups = []
     data.devices = []
@@ -71,13 +68,11 @@ def load_devices(big = True):
     data.fullsize_dict.clear()
 
     # do the overlays
-    #data.mb_overlay = wx.Bitmap(os.path.join(base, cp.get('motherboard', 'overlay')), wx.BITMAP_TYPE_ANY)
     data.mb_overlay = ""
     data.overlays = []
     
     for i in range(12):
         name = "overlay%d" % (i,)
-        #overlay = wx.Bitmap(os.path.join(base, cp.get('motherboard', name)), wx.BITMAP_TYPE_ANY)
         overlay = ""
         data.overlays.append(overlay)
         
@@ -88,9 +83,6 @@ def load_devices(big = True):
             expname = cp.get(g_name, 'expbmap')
             colname = cp.get(g_name, 'colbmap')
             
-            # g_tuple = (cp.get(g_name, 'name'),
-            #            wx.Bitmap(os.path.join(base, expname), wx.BITMAP_TYPE_ANY),
-            #            wx.Bitmap(os.path.join(base, colname), wx.BITMAP_TYPE_ANY),)
             g_tuple = (cp.get(g_name, 'name'), "", "",)
             data.groups.append(g_tuple)
             
@@ -115,8 +107,6 @@ def load_devices(big = True):
             if (not sbmp_name):
                 sbmp_name = "sel_"+bmp_name
                 
-            # bmp = wx.Bitmap(os.path.join(base, bmp_name), wx.BITMAP_TYPE_ANY)
-            # sbmp = wx.Bitmap(os.path.join(base, sbmp_name), wx.BITMAP_TYPE_ANY)
             bmp = ""
             sbmp = ""
 
@@ -129,8 +119,6 @@ def load_devices(big = True):
             if (not fssname):
                 fssname = "fss_"+bmp_name
                 
-            # f_tuple = (wx.Image(os.path.join(base, fsnname), wx.BITMAP_TYPE_ANY),
-            #            wx.Image(os.path.join(base, fssname), wx.BITMAP_TYPE_ANY),)
             f_tuple = ("", "")
 
             if (cp.has_option(d_name, 'fsncorner')):
@@ -138,12 +126,6 @@ def load_devices(big = True):
                 crsname = cp.get(d_name, 'fsscorner')
                 cr2nname = cp.get(d_name, 'fsncorner2')
                 cr2sname = cp.get(d_name, 'fsscorner2')
-                # f_tuple = (wx.Image(os.path.join(base, fsnname), wx.BITMAP_TYPE_ANY),
-                #            wx.Image(os.path.join(base, fssname), wx.BITMAP_TYPE_ANY),
-                #            wx.Image(os.path.join(base, crnname), wx.BITMAP_TYPE_ANY),
-                #            wx.Image(os.path.join(base, crsname), wx.BITMAP_TYPE_ANY),
-                #            wx.Image(os.path.join(base, cr2nname), wx.BITMAP_TYPE_ANY),
-                #            wx.Image(os.path.join(base, cr2sname), wx.BITMAP_TYPE_ANY),)
                 f_tuple = ("", "", "", "", "", "")
 
             data.fullsize_dict[cp.get(d_name, 'name')] = f_tuple
@@ -189,12 +171,7 @@ def get_device_help(name):
 # ---------------------------------------------------------
 # Test
 if (__name__ == '__main__'):
-##    global DEVICES, DEVICE_CONTROL, DEVICES_BIG, DEVICES_SMALL
-##    DEVICES = "devices"
-##    DEVICE_CONTROL = DEVICES + "/control.ini"
-##    DEVICES_BIG = DEVICES + "/big"
-##    DEVICES_SMALL = DEVICES + "/small"
-    
+   
     load_devices()
     print data.groups
     print data.devices
