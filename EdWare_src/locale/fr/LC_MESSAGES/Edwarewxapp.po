@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EdWare\n"
-"POT-Creation-Date: 2015-02-25 20:12+Paris, Madrid\n"
-"PO-Revision-Date: 2015-02-25 20:49+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2015-03-02 08:19+Paris, Madrid\n"
+"PO-Revision-Date: 2015-03-02 08:22+0100\n"
+"Last-Translator: Frédéric Collonval <frederic.collonval@laposte.net>\n"
 "Language-Team: F. Collonval\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -210,11 +210,11 @@ msgstr "Erreur lors de la sauvegarde."
 
 #: .\edware.py:742
 msgid "Please enter the USB device for programming the robot"
-msgstr ""
+msgstr "Entrer s'il vous plait l'appareil USB de programmation du robot"
 
 #: .\edware.py:743
 msgid "USB Device"
-msgstr ""
+msgstr "Appareil USB"
 
 #: .\edware.py:755
 msgid "Download via Screen"
@@ -240,15 +240,15 @@ msgstr "&Affichage de la barre d'outil"
 msgid "&Strict version check"
 msgstr "&Vérification stricte de la version"
 
-#: .\edware.py:997
+#: .\edware.py:998
 msgid "EdWare Edison progamming environment"
 msgstr "Edware - environnement de programmation d'Edison"
 
-#: .\edware.py:999
+#: .\edware.py:1000
 msgid "An optional edware file to load"
 msgstr "Une fichier edware optionnel à charger"
 
-#: .\edware.py:1002
+#: .\edware.py:1003
 msgid "Select a specific audio output if it's installed"
 msgstr "Sélection d'une sortie audio spécifique si elle est installée."
 
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Annuler"
 
-#: .\gui\bric_data.py:114
+#: .\gui\bric_data.py:113
 msgid "Error loading"
 msgstr "Erreur lors du chargement"
 
@@ -456,703 +456,904 @@ msgid ""
 "Can not delete the device as it is used in the program.\n"
 "Delete it from the program before deleting it here."
 msgstr ""
+"L'appareil ne peut pas être supprimé car il est utilisé dans le programme.\n"
+"Supprime le du programme avant de le supprime ici."
 
 #: .\gui\config_work.py:500
-#, fuzzy
 msgid "Can't delete device."
-msgstr "La variable ne peut être supprimée."
+msgstr "L'appareil ne peut être supprimé."
 
-#: .\gui\detail_win.py:39
+#: .\gui\detail_win.py:45
 msgid "<-Constant"
 msgstr "<-Constante"
 
-#: .\gui\detail_win.py:40
+#: .\gui\detail_win.py:46
 msgid "-No Variable-"
 msgstr "-Pas de variables-"
 
-#: .\gui\detail_win.py:43
+#: .\gui\detail_win.py:49
 msgid "Clear screen"
 msgstr "Effacer l'écran"
 
-#: .\gui\detail_win.py:44
+#: .\gui\detail_win.py:50
 msgid "Scroll line"
-msgstr ""
+msgstr "Barre de défilement"
 
-#: .\gui\detail_win.py:48
+#: .\gui\detail_win.py:54
 msgid "plus"
 msgstr "plus"
 
-#: .\gui\detail_win.py:49
+#: .\gui\detail_win.py:55
 msgid "minus"
 msgstr "minus"
 
-#: .\gui\detail_win.py:50
+#: .\gui\detail_win.py:56
 msgid "multiply"
 msgstr "multiplier"
 
-#: .\gui\detail_win.py:51
+#: .\gui\detail_win.py:57
 msgid "not (bitwise)"
-msgstr "non (bitwise)"
+msgstr "non (bit à bit)"
 
-#: .\gui\detail_win.py:52
+#: .\gui\detail_win.py:58
 msgid "divide"
 msgstr "diviser"
 
-#: .\gui\detail_win.py:53
+#: .\gui\detail_win.py:59
+#, fuzzy
 msgid "modulus"
 msgstr "module"
 
-#: .\gui\detail_win.py:54
+#: .\gui\detail_win.py:60
 msgid "left shift"
 msgstr ""
 
-#: .\gui\detail_win.py:55
+#: .\gui\detail_win.py:61
 msgid "right shift"
 msgstr ""
 
-#: .\gui\detail_win.py:56
+#: .\gui\detail_win.py:62
 msgid "and (bitwise)"
-msgstr "et (bitwise)"
+msgstr "et (bit à bit)"
 
-#: .\gui\detail_win.py:57
+#: .\gui\detail_win.py:63
 msgid "or (bitwise)"
-msgstr "ou (bitwise)"
+msgstr "ou (bit à bit)"
 
-#: .\gui\detail_win.py:58
+#: .\gui\detail_win.py:64
 msgid "xor (bitwise)"
-msgstr ""
+msgstr "ou exclusif (bit à bit)"
 
-#: .\gui\detail_win.py:60
+#: .\gui\detail_win.py:66
 msgid "Control:"
 msgstr "Contrôle:"
 
-#: .\gui\detail_win.py:63
+#: .\gui\detail_win.py:69
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
 
-#: .\gui\detail_win.py:64
+#: .\gui\detail_win.py:70
 msgid "Undo changes"
 msgstr "Annuler les modifications"
 
-#: .\gui\detail_win.py:65
+#: .\gui\detail_win.py:71
 msgid "0-255"
 msgstr "0-255"
 
-#: .\gui\detail_win.py:66
+#: .\gui\detail_win.py:72
 msgid "+/- 32767"
 msgstr "+/- 32767"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "A (6th)"
 msgstr "A (6e)"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "A# (6th)"
 msgstr "A# (6e)"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "B (6th)"
 msgstr "B (6e)"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "C#"
 msgstr "C#"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "D"
 msgstr "D"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "D#"
 msgstr "D#"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "E"
 msgstr "E"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "F"
 msgstr "F"
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "F#"
 msgstr "F#"
 
-#: .\gui\detail_win.py:69 .\gui\detail_win.py:552
+#: .\gui\detail_win.py:75 .\gui\detail_win.py:555
 msgid "C"
 msgstr "C"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "A"
 msgstr "A"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "A#"
 msgstr "A#"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "B"
 msgstr "B"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "C (8th)"
 msgstr "C (8e)"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "G"
 msgstr "G"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "G#"
 msgstr "G#"
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "Rest"
 msgstr "Pause"
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "eighth"
 msgstr "huitième"
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "half"
 msgstr "demi"
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "quarter"
 msgstr "quart"
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "sixteenth"
 msgstr "seizième"
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "whole"
 msgstr "entière"
 
-#: .\gui\detail_win.py:73
+#: .\gui\detail_win.py:79
 msgid "On reflective surface"
 msgstr "Sur une surface réflective"
 
-#: .\gui\detail_win.py:74
+#: .\gui\detail_win.py:80
 msgid "On non-reflective surface"
 msgstr "Sur une surface non-réflective"
 
-#: .\gui\detail_win.py:410
+#: .\gui\detail_win.py:83
+msgid "Keypad"
+msgstr "Touches"
+
+#: .\gui\detail_win.py:84
+msgid "Triangle button pressed"
+msgstr "Appui sur le bouton triangle"
+
+#: .\gui\detail_win.py:86
+msgid "Round button pressed"
+msgstr "Appui sur le bouton rond"
+
+#: .\gui\detail_win.py:87
+msgid "Countdown timer"
+msgstr "Minuterie"
+
+#: .\gui\detail_win.py:88
+msgid "Timer finished"
+msgstr "Temps écoulé"
+
+#: .\gui\detail_win.py:91
+msgid "Drive"
+msgstr "Déplacement"
+
+#: .\gui\detail_win.py:92
+msgid "Strain detected"
+msgstr ""
+
+#: .\gui\detail_win.py:93
+msgid "Music"
+msgstr "Musique"
+
+#: .\gui\detail_win.py:94
+msgid "Tune finished"
+msgstr "Fin de la mélodie"
+
+#: .\gui\detail_win.py:95
+msgid "Detect clap"
+msgstr "Détection de sons"
+
+#: .\gui\detail_win.py:96
+msgid "Clap detected"
+msgstr "Son détecté"
+
+#: .\gui\detail_win.py:97
+msgid "Data from another Edison"
+msgstr "Donnée reçue d'un autre Edison"
+
+#: .\gui\detail_win.py:98
+msgid "IR Character"
+msgstr "IR caractère"
+
+#: .\gui\detail_win.py:99
+msgid "Detect obstacle"
+msgstr "Détection des obstacles"
+
+#: .\gui\detail_win.py:100
+msgid "Obstacle at front"
+msgstr "Obstacle devant"
+
+#: .\gui\detail_win.py:101
+msgid "Obstacle at left"
+msgstr "Obstacle à gauche"
+
+#: .\gui\detail_win.py:102
+msgid "Obstacle at right"
+msgstr "Obstacle à droite"
+
+#: .\gui\detail_win.py:103
+msgid "Any Obstacle detected"
+msgstr "Un obstacle détecté"
+
+#: .\gui\detail_win.py:104
+msgid "Data from TV remote"
+msgstr "Donnée reçue d'une télécommande"
+
+#: .\gui\detail_win.py:105
+#, fuzzy
+msgid "Match #0 remote code"
+msgstr "Code #0 reçu"
+
+#: .\gui\detail_win.py:106
+#, fuzzy
+msgid "Match #1 remote code"
+msgstr "Code #1 reçu"
+
+#: .\gui\detail_win.py:107
+#, fuzzy
+msgid "Match #2 remote code"
+msgstr "Code #2 reçu"
+
+#: .\gui\detail_win.py:108
+#, fuzzy
+msgid "Match #3 remote code"
+msgstr "Code #3 reçu"
+
+#: .\gui\detail_win.py:109
+#, fuzzy
+msgid "Match #4 remote code"
+msgstr "Code #4 reçu"
+
+#: .\gui\detail_win.py:110
+#, fuzzy
+msgid "Match #5 remote code"
+msgstr "Code #5 reçu"
+
+#: .\gui\detail_win.py:111
+#, fuzzy
+msgid "Match #6 remote code"
+msgstr "Code #6 reçu"
+
+#: .\gui\detail_win.py:112
+#, fuzzy
+msgid "Match #7 remote code"
+msgstr "Code #7 reçu"
+
+#: .\gui\detail_win.py:113
+#, fuzzy
+msgid "Match #8 remote code"
+msgstr "Code #8 reçu"
+
+#: .\gui\detail_win.py:114
+#, fuzzy
+msgid "Any match remote code"
+msgstr "Code reçu"
+
+#: .\gui\detail_win.py:115
+msgid "Line Tracker"
+msgstr "Suivi de lignes"
+
+#: .\gui\detail_win.py:118
+msgid "Any change"
+msgstr "N'importe quel changement"
+
+#: .\gui\detail_win.py:132
+msgid "Forward"
+msgstr "Avancer"
+
+#: .\gui\detail_win.py:133
+msgid "Stop"
+msgstr "Arrêter"
+
+#: .\gui\detail_win.py:134
+msgid "Backward"
+msgstr "Reculer"
+
+#: .\gui\detail_win.py:136
+msgid "Forward right"
+msgstr "Avancer vers la droite"
+
+#: .\gui\detail_win.py:137
+msgid "Forward left"
+msgstr "Avancer vers la gauche"
+
+#: .\gui\detail_win.py:138
+msgid "Back left"
+msgstr "Reculer à gauche"
+
+#: .\gui\detail_win.py:139
+msgid "Back right"
+msgstr "Reculer à droite"
+
+#: .\gui\detail_win.py:140
+msgid "Spin right"
+msgstr "Tourner dans le sens des aiguilles d'une montre"
+
+#: .\gui\detail_win.py:141
+msgid "Spin left"
+msgstr "Tourner dans le sens contraire des aiguilles d'une montre"
+
+#: .\gui\detail_win.py:142
+msgid "Turn right 90"
+msgstr "Tourner à droite de 90 degrés"
+
+#: .\gui\detail_win.py:143
+msgid "Turn left 90"
+msgstr "Tourner à gauche de 90 degrés"
+
+#: .\gui\detail_win.py:413
 msgid "Constant"
 msgstr "Constante"
 
-#: .\gui\detail_win.py:412
+#: .\gui\detail_win.py:415
 msgid "Variable"
 msgstr "Variable"
 
-#: .\gui\detail_win.py:540 .\gui\detail_win.py:793 .\gui\detail_win.py:942
-#: .\gui\detail_win.py:1025 .\gui\detail_win.py:1134 .\gui\detail_win.py:1230
-#: .\gui\detail_win.py:1429 .\gui\detail_win.py:1521 .\gui\detail_win.py:1610
-#: .\gui\detail_win.py:1704 .\gui\detail_win.py:1801 .\gui\detail_win.py:1931
-#: .\gui\detail_win.py:2071 .\gui\detail_win.py:2156 .\gui\detail_win.py:2236
-#: .\gui\detail_win.py:2490 .\gui\detail_win.py:2773 .\gui\detail_win.py:2991
-#: .\gui\detail_win.py:3201 .\gui\detail_win.py:3533 .\gui\detail_win.py:3643
-#: .\gui\detail_win.py:3814 .\gui\detail_win.py:4007
+#: .\gui\detail_win.py:543 .\gui\detail_win.py:711 .\gui\detail_win.py:796
+#: .\gui\detail_win.py:945 .\gui\detail_win.py:1028 .\gui\detail_win.py:1137
+#: .\gui\detail_win.py:1233 .\gui\detail_win.py:1432 .\gui\detail_win.py:1524
+#: .\gui\detail_win.py:1613 .\gui\detail_win.py:1707 .\gui\detail_win.py:1804
+#: .\gui\detail_win.py:1934 .\gui\detail_win.py:2074 .\gui\detail_win.py:2159
+#: .\gui\detail_win.py:2239 .\gui\detail_win.py:2493 .\gui\detail_win.py:2776
+#: .\gui\detail_win.py:2994 .\gui\detail_win.py:3204 .\gui\detail_win.py:3536
+#: .\gui\detail_win.py:3646 .\gui\detail_win.py:3817 .\gui\detail_win.py:4010
 msgid "%s - properties:"
 msgstr "%s - propriétés:"
 
-#: .\gui\detail_win.py:545
+#: .\gui\detail_win.py:548
 msgid "Musical note"
 msgstr "Note musicale"
 
-#: .\gui\detail_win.py:545
+#: .\gui\detail_win.py:548
 msgid "Tune string"
 msgstr "Mélodie"
 
-#: .\gui\detail_win.py:593
+#: .\gui\detail_win.py:596
 msgid "mMncCdDefFgGaAborR"
 msgstr "mMncCdDefFgGaAborR"
 
-#: .\gui\detail_win.py:663
+#: .\gui\detail_win.py:666
 msgid "Too many tune notes/durations (max 16 pairs)."
 msgstr "Trop de notes de musiques/durées (max. 16 paires)"
 
-#: .\gui\detail_win.py:676
+#: .\gui\detail_win.py:679
 msgid "Tune string is not valid. Check help for the format."
 msgstr "La mélodie n'est pas valide. Vérifie l'aide pour le format."
 
-#: .\gui\detail_win.py:801
+#: .\gui\detail_win.py:803 .\gui\detail_win.py:808 .\gui\detail_win.py:812
+msgid "Off"
+msgstr "Eteint"
+
+#: .\gui\detail_win.py:803 .\gui\detail_win.py:808 .\gui\detail_win.py:812
+msgid "On"
+msgstr "Allumé"
+
+#: .\gui\detail_win.py:804
 msgid "LED Setting:"
 msgstr "Paramètres LED:"
 
-#: .\gui\detail_win.py:806
+#: .\gui\detail_win.py:809
 msgid "IR Transmitter obstacle detection:"
 msgstr "Transmetteur IR détection d'obstacle:"
 
-#: .\gui\detail_win.py:810
+#: .\gui\detail_win.py:813
 msgid "Line Tracker LED:"
 msgstr "Détecteur de ligne LED:"
 
-#: .\gui\detail_win.py:959
+#: .\gui\detail_win.py:962
 msgid "Sleep:"
 msgstr "Pause:"
 
-#: .\gui\detail_win.py:1031 .\gui\detail_win.py:1139
+#: .\gui\detail_win.py:1034 .\gui\detail_win.py:1142
 msgid "Character to send:"
 msgstr "Caractère à envoyer:"
 
-#: .\gui\detail_win.py:1284 .\gui\detail_win.py:1452 .\gui\detail_win.py:1545
-#: .\gui\detail_win.py:1634
+#: .\gui\detail_win.py:1287 .\gui\detail_win.py:1455 .\gui\detail_win.py:1548
+#: .\gui\detail_win.py:1637
 msgid "Variable to read into:"
 msgstr "Variable à lire:"
 
-#: .\gui\detail_win.py:1422
+#: .\gui\detail_win.py:1425
 msgid "Left light level"
-msgstr ""
+msgstr "Niveau de lumière gauche"
 
-#: .\gui\detail_win.py:1422
+#: .\gui\detail_win.py:1425
 msgid "Right light level"
-msgstr ""
+msgstr "Niveau de lumière droit"
 
-#: .\gui\detail_win.py:1423
+#: .\gui\detail_win.py:1426
 msgid "Line light level"
-msgstr ""
+msgstr "Niveau de lumière de la ligne"
 
-#: .\gui\detail_win.py:1451
+#: .\gui\detail_win.py:1454
 msgid "Sense:"
-msgstr ""
+msgstr "Sens:"
 
-#: .\gui\detail_win.py:1515
+#: .\gui\detail_win.py:1518
 msgid "Left drive"
-msgstr ""
+msgstr "Moteur gauche"
 
-#: .\gui\detail_win.py:1515
+#: .\gui\detail_win.py:1518
 msgid "Right drive"
-msgstr ""
+msgstr "Moteur droit"
 
-#: .\gui\detail_win.py:1544
+#: .\gui\detail_win.py:1547
 msgid "Read distance from:"
-msgstr ""
+msgstr "Lit la distance depuis :"
 
-#: .\gui\detail_win.py:1709
+#: .\gui\detail_win.py:1712
 msgid "Seconds:"
-msgstr ""
+msgstr "Secondes :"
 
-#: .\gui\detail_win.py:1710
+#: .\gui\detail_win.py:1713
 msgid "Range is 0.00 to 327.67 seconds."
 msgstr "L'intervalle va de 0.00 à 327.67 secondes."
 
-#: .\gui\detail_win.py:1827
+#: .\gui\detail_win.py:1830
 msgid "Max time to wait:"
 msgstr "Temps d'attente maximum:"
 
-#: .\gui\detail_win.py:1828
-#, fuzzy
+#: .\gui\detail_win.py:1831
 msgid "Variable for pulse time:"
-msgstr "Erreur à l'édition de la variable."
+msgstr "Variable pour le temps du pulse :"
 
-#: .\gui\detail_win.py:1829
+#: .\gui\detail_win.py:1832
 msgid "Range for times is 0.00 to 327.67"
 msgstr "L'intervalle de temps va de 0.00 à 327.67"
 
-#: .\gui\detail_win.py:1961
-msgid "Output Level:"
-msgstr ""
-
 #: .\gui\detail_win.py:1964
-msgid "Duration:"
-msgstr "Durée:"
+msgid "Output Level:"
+msgstr "Niveau de sortie :"
 
-#: .\gui\detail_win.py:2076
+#: .\gui\detail_win.py:1967
+msgid "Duration:"
+msgstr "Durée :"
+
+#: .\gui\detail_win.py:2079
 msgid "Plus 1 to variable"
 msgstr "Ajouter 1 à la variable"
 
-#: .\gui\detail_win.py:2078
+#: .\gui\detail_win.py:2081
 msgid "Minus 1 from variable"
 msgstr "Retirer 1 à la variable"
 
-#: .\gui\detail_win.py:2171
+#: .\gui\detail_win.py:2174
 msgid "Value:"
 msgstr "Valeur:"
 
-#: .\gui\detail_win.py:2172
+#: .\gui\detail_win.py:2175
 msgid "Variable to set:"
 msgstr "Variable à définir:"
 
-#: .\gui\detail_win.py:2251
+#: .\gui\detail_win.py:2254
 msgid "Copy data from variable:"
 msgstr "Copier la donnée à partir de la variable:"
 
-#: .\gui\detail_win.py:2252
+#: .\gui\detail_win.py:2255
 msgid "Copy data to variable:"
 msgstr "Copier la donnée depuis la variable:"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "0"
 msgstr "0"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "1"
 msgstr "1"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "10"
 msgstr "10"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "2"
 msgstr "2"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "3"
 msgstr "3"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "4"
 msgstr "4"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "5"
 msgstr "5"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "6"
 msgstr "6"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "7"
 msgstr "7"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "8"
 msgstr "8"
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "9"
 msgstr "9"
 
-#: .\gui\detail_win.py:2519
+#: .\gui\detail_win.py:2522
 msgid "Unlimited - Forever"
 msgstr "Sans limites - à jamais"
 
-#: .\gui\detail_win.py:2520
+#: .\gui\detail_win.py:2523
 msgid "Millimetres - in 2.5mm steps"
 msgstr "Millimètres - par pas de 2,5mm"
 
-#: .\gui\detail_win.py:2521
+#: .\gui\detail_win.py:2524
 msgid "Inches - in inch steps"
 msgstr "Pouces - par pas de 1 pouce"
 
-#: .\gui\detail_win.py:2522
+#: .\gui\detail_win.py:2525
 msgid "Degrees - in 7.5 degree steps"
 msgstr "Degrés - par pas de 7,5 degrés"
 
-#: .\gui\detail_win.py:2523
+#: .\gui\detail_win.py:2526
+#, fuzzy
 msgid "Raw - in 1/48th of rotation"
-msgstr ""
+msgstr "Brut - en 1/48e de rotation"
 
-#: .\gui\detail_win.py:2553
+#: .\gui\detail_win.py:2556
 msgid "Direction:"
 msgstr "Direction:"
 
-#: .\gui\detail_win.py:2554
+#: .\gui\detail_win.py:2557
 msgid "Speed:"
 msgstr "Vitesse:"
 
-#: .\gui\detail_win.py:2557 .\gui\detail_win.py:2558
+#: .\gui\detail_win.py:2560 .\gui\detail_win.py:2561
 msgid "Distance:"
 msgstr "Distance:"
 
-#: .\gui\detail_win.py:2703
+#: .\gui\detail_win.py:2706
+#, fuzzy
 msgid "ERROR -- motor pair didn't give a command for every command!"
 msgstr ""
+"ERREUR -- la paire de moteurs n'a pas donné de commandes pour chaque "
+"commande!"
 
-#: .\gui\detail_win.py:2830
+#: .\gui\detail_win.py:2788
+msgid "Basic"
+msgstr "Basique"
+
+#: .\gui\detail_win.py:2788
+msgid "Divide"
+msgstr "Diviser"
+
+#: .\gui\detail_win.py:2788
+msgid "Logical"
+msgstr "Logique"
+
+#: .\gui\detail_win.py:2833
 msgid "Variable:"
 msgstr "Variable:"
 
-#: .\gui\detail_win.py:2833 .\gui\detail_win.py:2837 .\gui\detail_win.py:2842
+#: .\gui\detail_win.py:2836 .\gui\detail_win.py:2840 .\gui\detail_win.py:2845
 msgid "Operation:"
-msgstr ""
+msgstr "Opération :"
 
-#: .\gui\detail_win.py:2834 .\gui\detail_win.py:2838 .\gui\detail_win.py:2843
+#: .\gui\detail_win.py:2837 .\gui\detail_win.py:2841 .\gui\detail_win.py:2846
 msgid "Argument:"
-msgstr ""
+msgstr "Argument :"
 
-#: .\gui\detail_win.py:3004
+#: .\gui\detail_win.py:3007
 msgid "HELLO WORLD"
-msgstr ""
+msgstr "BONJOUR LE MONDE"
 
-#: .\gui\detail_win.py:3026
+#: .\gui\detail_win.py:3029
 msgid "String:"
-msgstr ""
+msgstr "Chaine de caractères :"
 
-#: .\gui\detail_win.py:3027 .\gui\detail_win.py:3036
+#: .\gui\detail_win.py:3030 .\gui\detail_win.py:3039
 msgid "Row / Column:"
-msgstr ""
+msgstr "Ligne / Colonne :"
 
-#: .\gui\detail_win.py:3030
+#: .\gui\detail_win.py:3033
 msgid "Character:"
 msgstr "Caractère:"
 
-#: .\gui\detail_win.py:3033
+#: .\gui\detail_win.py:3036
 msgid "Number:"
-msgstr ""
+msgstr "Nombre :"
 
-#: .\gui\detail_win.py:3039
+#: .\gui\detail_win.py:3042
 msgid "Command:"
-msgstr ""
+msgstr "Commande :"
 
-#: .\gui\detail_win.py:3207
+#: .\gui\detail_win.py:3210
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
-#: .\gui\detail_win.py:3207
+#: .\gui\detail_win.py:3210
 msgid "Light"
-msgstr ""
+msgstr "Clair"
 
-#: .\gui\detail_win.py:3218
+#: .\gui\detail_win.py:3221
 msgid "Set pixel to:"
-msgstr ""
+msgstr "Définit le pixel à :"
 
-#: .\gui\detail_win.py:3219
+#: .\gui\detail_win.py:3222
 msgid "At row / column:"
-msgstr ""
+msgstr "A la ligne / colonne :"
 
-#: .\gui\detail_win.py:3526
+#: .\gui\detail_win.py:3529
 msgid "good_choices:"
-msgstr ""
+msgstr "bon_choix :"
 
-#: .\gui\detail_win.py:3550
+#: .\gui\detail_win.py:3553
 msgid "Event happens:"
-msgstr ""
+msgstr "L'évènement se produit :"
 
-#: .\gui\detail_win.py:3647
+#: .\gui\detail_win.py:3650
+#, fuzzy
 msgid "Seconds pass"
-msgstr ""
+msgstr "Secondes écoulées"
 
-#: .\gui\detail_win.py:3647 .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+#: .\gui\detail_win.py:3650 .\gui\detail_win.py:3821 .\gui\detail_win.py:4014
 msgid "Event happens"
-msgstr ""
+msgstr "L'évènement se produit"
 
-#: .\gui\detail_win.py:3667
+#: .\gui\detail_win.py:3670
 msgid "Wait Until:"
-msgstr ""
+msgstr "Attendre jusqu'à :"
 
-#: .\gui\detail_win.py:3818
+#: .\gui\detail_win.py:3821
 msgid "Loop forever"
-msgstr ""
+msgstr "Boucle indéfiniment"
 
-#: .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+#: .\gui\detail_win.py:3821 .\gui\detail_win.py:4014
 msgid "Test passes"
-msgstr ""
+msgstr "Test réussi"
 
-#: .\gui\detail_win.py:3840
+#: .\gui\detail_win.py:3843
 msgid "Loop UNTIL:"
-msgstr ""
+msgstr "Boucle JUSQU'A :"
 
-#: .\gui\detail_win.py:4035
+#: .\gui\detail_win.py:4038
 msgid "Take the top (True) branch if:"
-msgstr ""
+msgstr "Prend la branche supérieure (Vrai) si :"
 
-#: .\gui\detail_win.py:4045
+#: .\gui\detail_win.py:4048
 msgid "Else take the bottom (False) branch."
-msgstr ""
+msgstr "Sinon prend la branche inférieure (Faux)."
 
 #: .\gui\downloader.py:90
 msgid "ERROR - No Audio package (pygame or pyaudio) installed!"
-msgstr ""
+msgstr "ERREUR - Pas de package audio (pygame ou pyaudio) installé!"
 
 #: .\gui\downloader.py:99 .\gui\downloader.py:100
 msgid "unknown"
-msgstr ""
+msgstr "inconnu"
 
 #: .\gui\downloader.py:109
 #, fuzzy
 msgid "no extra audio backends"
-msgstr "Télécharger le nouveau FIRMWARE par audio"
+msgstr "Pas de backends audio supplémentaire"
 
 #: .\gui\downloader.py:111
-#, fuzzy
 msgid "(Audio installed: %s"
-msgstr "Sélection d'une sortie audio spécifique si elle est installée."
+msgstr "(Audio installé : %s"
 
 #: .\gui\downloader.py:126
 msgid ""
 "\n"
 "ERROR - selected audio 'portaudio' is not installed!"
 msgstr ""
+"\n"
+"ERREUR - l'audio sélectionné 'portaudio' n'est pas installé!"
 
 #: .\gui\downloader.py:134
 msgid ""
 "\n"
 "ERROR - selected audio 'pygame' is not installed!"
 msgstr ""
+"\n"
+"ERREUR - l'audio 'pygame' sélectionné n'est pas installé!"
 
 #: .\gui\downloader.py:141
 msgid ""
 "\n"
 "ERROR - selected audio '%s' is unknown!"
 msgstr ""
+"\n"
+"ERREUR - l'audio sélectionné '%s' est inconnu!"
 
 #: .\gui\downloader.py:144
-#, fuzzy
 msgid "-  Audio to be used: %s)\n"
-msgstr "Le nom de la variable '%s' est déjà utilisé."
+msgstr " - L'audio utilisé sera : %s)\n"
 
 #: .\gui\downloader.py:231
 msgid "Program size (bytes): %d\n"
-msgstr ""
+msgstr "Taille du programme (en octet) : %d\n"
 
 #: .\gui\downloader.py:233 .\gui\downloader.py:234
 msgid "Variables (%s) used: %d, max: %d\n"
-msgstr ""
+msgstr "Variables (%s) utilisée : %d, max: %d\n"
 
 #: .\gui\downloader.py:236
-#, fuzzy
 msgid "Program Size"
-msgstr "&Vérifier la taille du programme"
+msgstr "Taille du programme"
 
 #: .\gui\downloader.py:241 .\gui\downloader.py:331 .\gui\downloader.py:474
 #: .\gui\downloader.py:624 .\gui\downloader.py:761 .\gui\downloader.py:958
 msgid "Set Title!"
-msgstr ""
+msgstr "Définir un titre!"
 
 #: .\gui\downloader.py:258 .\gui\downloader.py:777 .\gui\downloader.py:974
-#, fuzzy
 msgid "USB Device:"
-msgstr "Télécharger via USB"
+msgstr "Appareil USB :"
 
 #: .\gui\downloader.py:259 .\gui\downloader.py:336 .\gui\downloader.py:479
 #: .\gui\downloader.py:632 .\gui\downloader.py:778 .\gui\downloader.py:975
-#, fuzzy
 msgid "Download progress:"
-msgstr "Télécharger par audio"
+msgstr "Progression du téléchargement : "
 
 #: .\gui\downloader.py:261 .\gui\downloader.py:339 .\gui\downloader.py:482
 #: .\gui\downloader.py:638 .\gui\downloader.py:781 .\gui\downloader.py:978
-#, fuzzy
 msgid "Start Download"
-msgstr "Commencer un nouveau programme"
+msgstr "Commencer le téléchargement"
 
 #: .\gui\downloader.py:262 .\gui\downloader.py:340 .\gui\downloader.py:483
 #: .\gui\downloader.py:639 .\gui\downloader.py:782 .\gui\downloader.py:979
-#, fuzzy
 msgid "Cancel Download"
-msgstr "Télécharger via USB"
+msgstr "Annuler le téléchargement"
 
 #: .\gui\downloader.py:293 .\gui\downloader.py:371 .\gui\downloader.py:676
 msgid "Download size is %d bytes."
-msgstr ""
+msgstr "Taille du téléchargement est de %d octets."
 
 #: .\gui\downloader.py:311 .\gui\downloader.py:392 .\gui\downloader.py:543
 #: .\gui\downloader.py:856 .\gui\downloader.py:1047
 msgid "Starting download of %d bytes."
-msgstr ""
+msgstr "Début du téléchargement de %d octets."
 
 #: .\gui\downloader.py:322 .\gui\downloader.py:869 .\gui\downloader.py:1059
 msgid "Downloading was successful!"
-msgstr ""
+msgstr "Téléchargement accompli!"
 
 #: .\gui\downloader.py:466 .\gui\downloader.py:615
 msgid "Finished downloading"
-msgstr ""
+msgstr "Fin du téléchargement"
 
 #: .\gui\downloader.py:485 .\gui\downloader.py:784
-#, fuzzy
 msgid "Firmware File:"
-msgstr "&Fichier"
+msgstr "Fichier firmware : "
 
 #: .\gui\downloader.py:486 .\gui\downloader.py:785
-#, fuzzy
 msgid "Find a Firmware File"
-msgstr "&Fichier"
+msgstr "Trouver un fichier Firmware"
 
 #: .\gui\downloader.py:520 .\gui\downloader.py:827 .\gui\downloader.py:1025
 msgid "Error - couldn't read file: %s"
-msgstr ""
+msgstr "Error - le fichier '%s' ne peut être lu"
 
 #: .\gui\downloader.py:534
-#, fuzzy
 msgid "Creating audio file."
-msgstr "&Fichier"
+msgstr "Création du fichier audio."
 
 #: .\gui\downloader.py:631
+#, fuzzy
 msgid "Flash Box:"
-msgstr ""
+msgstr "Flash Box :"
 
 #: .\gui\downloader.py:640
+#, fuzzy
 msgid ""
 "Place the Line\n"
 "tracker in the\n"
 "middle of the \n"
 "Flash Box."
 msgstr ""
+"Place le détecteur\n"
+"de lignes au\n"
+"milieu de la\n"
+"Flash Box."
 
 #: .\gui\downloader.py:728
 msgid "Finished Downloading!"
-msgstr ""
+msgstr "Téléchargement terminé!"
 
 #: .\gui\downloader.py:753
-#, fuzzy
 msgid "Downloading %d bytes."
-msgstr "Rapport sur les bytes et variables utilisées dans le progamme"
+msgstr "Téléchargement de %d octets."
 
 #: .\gui\downloader.py:842
 msgid "Error - file doesn't seem to be firmware."
-msgstr ""
+msgstr "Erreur - le fichier ne semble pas être un firmware."
 
 #: .\gui\downloader.py:900
 msgid "Doesn't look like an intel hex file"
-msgstr ""
+msgstr "Ne ressemble pas à un fichier intel hex"
 
 #: .\gui\downloader.py:913
 msgid "Line too short"
-msgstr ""
+msgstr "Ligne trop courte"
 
 #: .\gui\downloader.py:918
 msgid "Invalid digits"
-msgstr ""
+msgstr "Chiffres invalides"
 
 #: .\gui\downloader.py:933
-#, fuzzy
 msgid "Error in reading intel hex file:"
-msgstr "Télécharger le fichier Intel hex via USB"
+msgstr "Erreur à la lecture du fichier intel hex :"
 
 #: .\gui\downloader.py:981
-#, fuzzy
 msgid "Intel Hex File:"
-msgstr "Télécharger le fichier Intel hex via USB"
+msgstr "Fichier Intel Hex :"
 
 #: .\gui\downloader.py:982
-#, fuzzy
 msgid "Find an Intel Hex File"
-msgstr "Télécharger le fichier Intel hex via USB"
+msgstr "Trouver un fichier Intel Hex"
 
 #: .\gui\downloader.py:984
 msgid "Hex files (*.hex)|*.hex|All files (*.*)|*.*"
-msgstr ""
+msgstr "Hex files (*.hex)|*.hex|Tous les fichiers (*.*)|*.*"
 
 #: .\gui\downloader.py:1033
-#, fuzzy
 msgid "Error on reading intel hex file: "
-msgstr "Télécharger le fichier Intel hex via USB"
+msgstr "Erreur à la lecture d'un fichier Intel Hex : "
 
 #: .\gui\downloader.py:1066
 msgid "Debug: in convert() with binString of length"
-msgstr ""
+msgstr "Debug : dans 'convert()' avec un binString de taille"
 
 #: .\gui\downloader.py:1083
-#, fuzzy
 msgid "..debug: coding value"
-msgstr "Valeur initiale (optionnel):"
+msgstr "..debug : valeur d'encodage"
 
 #: .\gui\help_win.py:39
-#, fuzzy
 msgid "Help"
-msgstr "&Aide"
+msgstr "Aide"
 
 #: .\gui\hl_parser.py:107
 msgid ""
 "\n"
 "Locations:"
 msgstr ""
+"\n"
+"Positions:"
 
 #: .\gui\hl_parser.py:108
 msgid ""
@@ -1171,164 +1372,162 @@ msgstr ""
 
 #: .\gui\hl_parser.py:119
 msgid "%d:%-10s "
-msgstr ""
+msgstr "%d:%-10s "
 
 #: .\gui\hl_parser.py:122
-#, fuzzy
 msgid ""
 "\n"
 "  "
 msgstr ""
-"La variable ne peut être supprimée car elle est utilisée par le programme.\n"
+"\n"
+"  "
 
 #: .\gui\hl_parser.py:126
 msgid ""
 "\n"
 "Register names (offset/bytes):"
 msgstr ""
+"\n"
+"Noms du registre (offset/octets):"
 
 #: .\gui\hl_parser.py:136
-#, fuzzy
 msgid "  %s"
-msgstr ""
-"Espace disponible trop petit pour %s variable(s) de type %s supplémentaires."
+msgstr "  %s"
 
 #: .\gui\hl_parser.py:144
 msgid "%-16s"
-msgstr ""
+msgstr "%-16s"
 
 #: .\gui\hl_parser.py:161
 msgid "Unknown device type: "
-msgstr ""
+msgstr "Type d'appareil inconnu : "
 
 #: .\gui\hl_parser.py:164
 msgid "Location (%d) outside of 0 to 11"
-msgstr ""
+msgstr "Position (%d) en dehors de l'intervalle 0-11"
 
 #: .\gui\hl_parser.py:170
 msgid "Location (%d) is already used with a unit of type: "
-msgstr ""
+msgstr "Position (%d) est déjà utilisé avec l'unité de type : "
 
 #: .\gui\hl_parser.py:178
 msgid "DEVICE name can not be one of the built-in names "
-msgstr ""
+msgstr "Le nom d'un appareil (DEVICE) ne peut être un nom enregistré "
 
 #: .\gui\hl_parser.py:181
-#, fuzzy
 msgid "DEVICE name already used: "
-msgstr "Le nom de la variable '%s' est dÃ©jÃ  utilisÃ©."
+msgstr "Le nom de l'appareil (DEVICE) est déjà utilisé : "
 
 #: .\gui\hl_parser.py:186
 msgid "A tracker device can only be located at 0, not location %d"
-msgstr ""
+msgstr "Un appareil de suivi ne peut être placé qu'en 0 et pas en position %d"
 
 #: .\gui\hl_parser.py:197
 msgid ""
 "Motors require two locations yet the second location is already used with a "
 msgstr ""
+"Les moteurs requièrent deux positions. Or la seconde position est déjà "
+"utilisée par un "
 
 #: .\gui\hl_parser.py:219
 msgid ""
 "\n"
 "Device mappings:"
 msgstr ""
+"\n"
+"Correspondance des appareils : "
 
 #: .\gui\hl_parser.py:223
-#, fuzzy
 msgid "  %s - type:%s"
-msgstr ""
-"Espace disponible trop petit pour %s variable(s) de type %s supplémentaires."
+msgstr "  %s - type:%s"
 
 #: .\gui\hl_parser.py:226
-#, fuzzy
 msgid ", name:%s"
-msgstr "Le nom de la variable '%s' est dÃ©jÃ  utilisÃ©."
+msgstr ", nom:%s"
 
 #: .\gui\hl_parser.py:247
 msgid "Expected an argument or constant!"
-msgstr ""
+msgstr "Requière un argument ou une constante!"
 
 #: .\gui\hl_parser.py:257 .\gui\hl_parser.py:268
 msgid "Expected an argument or string!"
-msgstr ""
+msgstr "Requière un argument ou une chaine de caractères!"
 
 #: .\gui\hl_parser.py:261
 msgid "Word should have been a valid name!"
-msgstr ""
+msgstr "Un mot doit avoir un nom valide!"
 
 #: .\gui\hl_parser.py:277
-#, fuzzy
 msgid "{Word: %s,%s}"
-msgstr "Ouverture du fichier %s impossible."
+msgstr "{Mot: %s,%s}"
 
 #: .\gui\hl_parser.py:299
 msgid "Error - use single quotes for an ascii constant"
-msgstr ""
+msgstr "Erreur - utilise les guillemets simples pour une constante ASCII"
 
 #: .\gui\hl_parser.py:324
 msgid "Invalid mod/reg syntax: "
-msgstr ""
+msgstr "Syntaxe mod/reg invalide : "
 
 #: .\gui\hl_parser.py:333
 msgid "Didn't understand the module name/number: "
-msgstr ""
+msgstr "Nom/numéro du module incompris : "
 
 #: .\gui\hl_parser.py:343
 msgid "Didn't understand the register name/number: "
-msgstr ""
+msgstr "Nom/numéro du registre incompris : "
 
 #: .\gui\hl_parser.py:347
 msgid "Error - can't parse %s as a modreg"
-msgstr ""
+msgstr "Erreur - %s ne peut être décomposé en un modreg"
 
 #: .\gui\pallete_win.py:87
 msgid "Error - group name (%s) not found"
-msgstr ""
+msgstr "Erreur - Nom de groupe (%s) non trouvé"
 
 #: .\gui\paths.py:37
 msgid "Unsupported platform -"
-msgstr ""
+msgstr "Plateformes non supportées"
 
 #: .\gui\program_data.py:46
 msgid "Bric %d - p:%d, n:%d, p2:%d, n2:%d name:%s, if_var: %s, data:%s"
-msgstr ""
+msgstr "Bric %d - p:%d, n:%d, p2:%d, n2:%d nom:%s, if_var: %s, données:%s"
 
 #: .\gui\program_data.py:67
 msgid "Streams:"
-msgstr ""
+msgstr "Flux :"
 
 #: .\gui\program_data.py:68
 msgid "Move_id:"
-msgstr ""
+msgstr "Move_id:"
 
 #: .\gui\program_data.py:69
 msgid "Bric count:"
-msgstr ""
+msgstr "Nombre de brics :"
 
 #: .\gui\program_data.py:120
 msgid "WARNING - old bric id:"
-msgstr ""
+msgstr "ATTENTION - ancien id de la bric :"
 
 #: .\gui\token_assembler.py:68
 msgid "ERROR - file %s doesn't exist or isn't readable"
-msgstr ""
+msgstr "ERREUR - le fichier %s n'existe pas ou n'est pas lisible"
 
 #: .\gui\token_assembler.py:70
 msgid "  Insert history: "
-msgstr ""
+msgstr "  Insère l'historique : "
 
 #: .\gui\token_assembler.py:192
 msgid "Move size:%d, words:%s"
-msgstr ""
+msgstr "Taille du déplacement : %d, mots : %s"
 
 #: .\gui\token_assembler.py:194
 msgid "Move needs 2 arguments"
-msgstr ""
+msgstr "Déplacer requière 2 arguments"
 
 #: .\gui\var_win.py:42
-#, fuzzy
 msgid "Initial Value"
-msgstr "Valeur initiale (optionnel):"
+msgstr "Valeur initiale"
 
 #: .\gui\var_win.py:42
 msgid "Name"
@@ -1430,191 +1629,186 @@ msgstr "Valeur initiale (optionnel):"
 
 #: .\gui\win_data.py:99
 msgid "Data:"
-msgstr ""
+msgstr "Données :"
 
 #: .\gui\win_data.py:100
-#, fuzzy
 msgid "Pdata Version:"
-msgstr "&Vérification stricte de la version"
+msgstr "Version Pdata :"
 
 #: .\gui\win_data.py:101
-#, fuzzy
 msgid "Advanced:"
-msgstr "&Mode avancé"
+msgstr "Avancé :"
 
 #: .\gui\win_data.py:102
-#, fuzzy
 msgid "Edison:"
-msgstr "Charger le nouveau firmware sur Edison"
+msgstr "Edison :"
 
 #: .\gui\win_data.py:103
-#, fuzzy
 msgid "Configuration:"
-msgstr "Afficher la &configuration"
+msgstr "Configuration :"
 
 #: .\gui\win_data.py:104
 msgid "Conf_ids:"
-msgstr ""
+msgstr "Conf_ids:"
 
 #: .\gui\win_data.py:105
 msgid "Conf_use:"
-msgstr ""
+msgstr "Conf_use:"
 
 #: .\gui\win_data.py:106
 msgid "Conf_orient:"
-msgstr ""
+msgstr "Conf_orient:"
 
 #: .\gui\win_data.py:107
 msgid "Conf_move:"
-msgstr ""
+msgstr "Conf_move:"
 
 #: .\gui\win_data.py:109
-#, fuzzy
 msgid "Variables:"
-msgstr "Variables"
+msgstr "Variables :"
 
 #: .\gui\win_data.py:110
 msgid "Var_ids:"
-msgstr ""
+msgstr "Var_ids:"
 
 #: .\gui\win_data.py:111
 msgid "Var_use:"
-msgstr ""
+msgstr "Var_use:"
 
 #: .\gui\win_data.py:113
 msgid "Windows:"
-msgstr ""
+msgstr "Fenêtres :"
 
 #: .\gui\win_data.py:178 .\gui\win_data.py:244
 msgid "Version of data in file '%s' doesn't match this version of Bricworks."
 msgstr ""
+"La version des données dans le fichier '%s' ne correspond pas à cette "
+"version de Bricworks."
 
 #: .\gui\win_data.py:179 .\gui\win_data.py:245
 msgid "Version Mismatch - can't load program"
-msgstr ""
+msgstr "Incohérence de version - le programme ne peut être chargé"
 
 #: .\gui\win_data.py:183 .\gui\win_data.py:249
-#, fuzzy
 msgid "Version of data in file '%s' "
-msgstr "Ouverture du fichier %s impossible."
+msgstr "Version des données du fichier '%s'"
 
 #: .\gui\win_data.py:184 .\gui\win_data.py:250
 msgid "doesn't match this version of Bricworks. "
-msgstr ""
+msgstr "ne correspond pas à la version de Bricworks."
 
 #: .\gui\win_data.py:185 .\gui\win_data.py:251
 msgid "You may try anyway, or CANCEL to abort the file open."
-msgstr ""
+msgstr "Vous pouvez essayer ou Annuler pour arrêter l'ouverture du fichier."
 
 #: .\gui\win_data.py:186 .\gui\win_data.py:252
-#, fuzzy
 msgid "Version Mismatch Warning"
-msgstr "&Vérification stricte de la version"
+msgstr "Avertissement d'incohérence de versions"
 
 #: .\gui\win_data.py:296
-#, fuzzy
 msgid "Error - unknown name:"
-msgstr "Nom de la variable:"
+msgstr "Erreur - nom inconnu :"
 
 #: .\gui\win_data.py:304
 msgid "Error - window %s has not been registered"
-msgstr ""
+msgstr "Erreur - la fenêtre %s n'est pas enregistrée"
 
 #: .\gui\win_data.py:931
 msgid ""
 "Restoring properties to previous values because:\n"
 "\n"
 msgstr ""
+"Restauration des propriétés à leur valeur précédente à cause de :\n"
+"\n"
 
 #: .\gui\win_data.py:932
-#, fuzzy
 msgid "Error in constant"
-msgstr "Erreur lors de la sauvegarde."
+msgstr "Erreur dans la constante"
 
 #: .\gui\win_data.py:939
 msgid "Time value '%s' isn't valid."
-msgstr ""
+msgstr "La valeur du temps '%s' n'est pas valide."
 
 #: .\gui\win_data.py:943
-#, fuzzy
 msgid "Time can't be negative"
-msgstr "La variable ne peut être supprimée."
+msgstr "Le temps ne peut pas être négatif."
 
 #: .\gui\win_data.py:945
 msgid "Time value is greater then 327.67 seconds"
-msgstr ""
+msgstr "Le temps ne peut pas être plus grand que 327,67 secondes"
 
 #: .\gui\win_data.py:968
 msgid ""
 "Invalid transmit character: %s. Must be a character or 0xhh where h is a hex "
 "digit."
 msgstr ""
+"Caractère transmis invalide : %s. Il doit être un caractère ou 0xhh où h est "
+"un chiffre hexadécimal."
 
 #: .\gui\win_data.py:984 .\gui\win_data.py:1008
 msgid "LCD character '%s' is out of range "
-msgstr ""
+msgstr "LCD caractère '%s' est en dehors de l'intervalle"
 
 #: .\gui\win_data.py:985 .\gui\win_data.py:1009
 msgid "(upper-case, digits and some punctuation are valid)"
-msgstr ""
+msgstr "(majuscule, chiffres et certaines ponctuations sont valides)"
 
 #: .\gui\win_data.py:988
-#, fuzzy
 msgid "There must be exactly one character"
-msgstr "L'intervalle d'une variable doit être %s ou %s"
+msgstr "Il ne peut y avoir qu'un unique caractère"
 
 #: .\gui\win_data.py:1002
 msgid "LCD string would overflow the LCD screen"
-msgstr ""
+msgstr "La chaine de caractère LCD est trop grand pour l'écran LCD"
 
 #: .\gui\win_data.py:1021
 msgid "Empty number"
-msgstr ""
+msgstr "Nombre vide"
 
 #: .\gui\win_data.py:1029
 msgid "Number %d is outside of the range: 0 -> 255"
-msgstr ""
+msgstr "Le nombre %d est en dehors de l'intervalle : 0 -> 255"
 
 #: .\gui\win_data.py:1044
 msgid "Number %d is outside of the range: -32767 -> +32767"
-msgstr ""
+msgstr "Le nombre %d est en dehors de l'intervalle : -32767 -> +32767"
 
 #: .\gui\win_data.py:1050
 msgid "Invalid number: "
-msgstr ""
+msgstr "Nombre invalide : "
 
 #: .\gui\win_data.py:1054
 msgid "Number %s is less than minimum %s"
-msgstr ""
+msgstr "Le nombre %s est plus petit que le minimum %s"
 
 #: .\gui\win_data.py:1059
 msgid "Number %s is greater than maximum %s"
-msgstr ""
+msgstr "Le nombre %s est plus grand que le maximum %s"
 
 #: .\gui\win_data.py:1363
 msgid "You are placing a motor at the (%d, %d) corner.\n"
-msgstr ""
+msgstr "Vous placez un moteur dans le coin (%d, %d).\n"
 
 #: .\gui\win_data.py:1364
+#, fuzzy
 msgid "Do you want the corner piece around the corner (at location %d)?\n"
-msgstr ""
+msgstr "Voulez-vous que la pièce de coin autour du coin (à la position %d)?\n"
 
 #: .\gui\win_data.py:1366
 msgid "Corner motor orientation."
-msgstr ""
+msgstr "Orientation du moteur dans le coin."
 
 #: .\gui\win_data.py:1374
 msgid " icon?\n"
-msgstr ""
+msgstr " icône?\n"
 
 #: .\gui\win_data.py:1374
 msgid "Do you want to delete the "
-msgstr ""
+msgstr "Voulez-vous supprimer le "
 
 #: .\gui\win_data.py:1377
-#, fuzzy
 msgid "Delete check"
-msgstr "La variable ne peut être supprimée."
+msgstr "Vérification de la suppression"
 
 #~ msgid "Intial Value"
 #~ msgstr "Valeur initiale"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-25 20:12+Paris, Madrid\n"
+"POT-Creation-Date: 2015-03-02 08:22+Paris, Madrid\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,15 +235,15 @@ msgstr ""
 msgid "&Strict version check"
 msgstr ""
 
-#: .\edware.py:997
+#: .\edware.py:998
 msgid "EdWare Edison progamming environment"
 msgstr ""
 
-#: .\edware.py:999
+#: .\edware.py:1000
 msgid "An optional edware file to load"
 msgstr ""
 
-#: .\edware.py:1002
+#: .\edware.py:1003
 msgid "Select a specific audio output if it's installed"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: .\gui\bric_data.py:114
+#: .\gui\bric_data.py:113
 msgid "Error loading"
 msgstr ""
 
@@ -392,495 +392,683 @@ msgstr ""
 msgid "Can't delete device."
 msgstr ""
 
-#: .\gui\detail_win.py:39
+#: .\gui\detail_win.py:45
 msgid "<-Constant"
 msgstr ""
 
-#: .\gui\detail_win.py:40
+#: .\gui\detail_win.py:46
 msgid "-No Variable-"
 msgstr ""
 
-#: .\gui\detail_win.py:43
+#: .\gui\detail_win.py:49
 msgid "Clear screen"
 msgstr ""
 
-#: .\gui\detail_win.py:44
+#: .\gui\detail_win.py:50
 msgid "Scroll line"
 msgstr ""
 
-#: .\gui\detail_win.py:48
+#: .\gui\detail_win.py:54
 msgid "plus"
 msgstr ""
 
-#: .\gui\detail_win.py:49
+#: .\gui\detail_win.py:55
 msgid "minus"
 msgstr ""
 
-#: .\gui\detail_win.py:50
+#: .\gui\detail_win.py:56
 msgid "multiply"
 msgstr ""
 
-#: .\gui\detail_win.py:51
+#: .\gui\detail_win.py:57
 msgid "not (bitwise)"
 msgstr ""
 
-#: .\gui\detail_win.py:52
+#: .\gui\detail_win.py:58
 msgid "divide"
 msgstr ""
 
-#: .\gui\detail_win.py:53
+#: .\gui\detail_win.py:59
 msgid "modulus"
 msgstr ""
 
-#: .\gui\detail_win.py:54
+#: .\gui\detail_win.py:60
 msgid "left shift"
 msgstr ""
 
-#: .\gui\detail_win.py:55
+#: .\gui\detail_win.py:61
 msgid "right shift"
 msgstr ""
 
-#: .\gui\detail_win.py:56
+#: .\gui\detail_win.py:62
 msgid "and (bitwise)"
 msgstr ""
 
-#: .\gui\detail_win.py:57
+#: .\gui\detail_win.py:63
 msgid "or (bitwise)"
 msgstr ""
 
-#: .\gui\detail_win.py:58
+#: .\gui\detail_win.py:64
 msgid "xor (bitwise)"
 msgstr ""
 
-#: .\gui\detail_win.py:60
+#: .\gui\detail_win.py:66
 msgid "Control:"
 msgstr ""
 
-#: .\gui\detail_win.py:63
+#: .\gui\detail_win.py:69
 msgid "Save changes"
 msgstr ""
 
-#: .\gui\detail_win.py:64
+#: .\gui\detail_win.py:70
 msgid "Undo changes"
 msgstr ""
 
-#: .\gui\detail_win.py:65
+#: .\gui\detail_win.py:71
 msgid "0-255"
 msgstr ""
 
-#: .\gui\detail_win.py:66
+#: .\gui\detail_win.py:72
 msgid "+/- 32767"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "A (6th)"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "A# (6th)"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "B (6th)"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "C#"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "D"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "D#"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "E"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "F"
 msgstr ""
 
-#: .\gui\detail_win.py:69
+#: .\gui\detail_win.py:75
 msgid "F#"
 msgstr ""
 
-#: .\gui\detail_win.py:69 .\gui\detail_win.py:552
+#: .\gui\detail_win.py:75 .\gui\detail_win.py:555
 msgid "C"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "A"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "A#"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "B"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "C (8th)"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "G"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "G#"
 msgstr ""
 
-#: .\gui\detail_win.py:70
+#: .\gui\detail_win.py:76
 msgid "Rest"
 msgstr ""
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "eighth"
 msgstr ""
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "half"
 msgstr ""
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "quarter"
 msgstr ""
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "sixteenth"
 msgstr ""
 
-#: .\gui\detail_win.py:71
+#: .\gui\detail_win.py:77
 msgid "whole"
 msgstr ""
 
-#: .\gui\detail_win.py:73
+#: .\gui\detail_win.py:79
 msgid "On reflective surface"
 msgstr ""
 
-#: .\gui\detail_win.py:74
+#: .\gui\detail_win.py:80
 msgid "On non-reflective surface"
 msgstr ""
 
-#: .\gui\detail_win.py:410
+#: .\gui\detail_win.py:83
+msgid "Keypad"
+msgstr ""
+
+#: .\gui\detail_win.py:84
+msgid "Triangle button pressed"
+msgstr ""
+
+#: .\gui\detail_win.py:86
+msgid "Round button pressed"
+msgstr ""
+
+#: .\gui\detail_win.py:87
+msgid "Countdown timer"
+msgstr ""
+
+#: .\gui\detail_win.py:88
+msgid "Timer finished"
+msgstr ""
+
+#: .\gui\detail_win.py:91
+msgid "Drive"
+msgstr ""
+
+#: .\gui\detail_win.py:92
+msgid "Strain detected"
+msgstr ""
+
+#: .\gui\detail_win.py:93
+msgid "Music"
+msgstr ""
+
+#: .\gui\detail_win.py:94
+msgid "Tune finished"
+msgstr ""
+
+#: .\gui\detail_win.py:95
+msgid "Detect clap"
+msgstr ""
+
+#: .\gui\detail_win.py:96
+msgid "Clap detected"
+msgstr ""
+
+#: .\gui\detail_win.py:97
+msgid "Data from another Edison"
+msgstr ""
+
+#: .\gui\detail_win.py:98
+msgid "IR Character"
+msgstr ""
+
+#: .\gui\detail_win.py:99
+msgid "Detect obstacle"
+msgstr ""
+
+#: .\gui\detail_win.py:100
+msgid "Obstacle at front"
+msgstr ""
+
+#: .\gui\detail_win.py:101
+msgid "Obstacle at left"
+msgstr ""
+
+#: .\gui\detail_win.py:102
+msgid "Obstacle at right"
+msgstr ""
+
+#: .\gui\detail_win.py:103
+msgid "Any Obstacle detected"
+msgstr ""
+
+#: .\gui\detail_win.py:104
+msgid "Data from TV remote"
+msgstr ""
+
+#: .\gui\detail_win.py:105
+msgid "Match #0 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:106
+msgid "Match #1 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:107
+msgid "Match #2 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:108
+msgid "Match #3 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:109
+msgid "Match #4 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:110
+msgid "Match #5 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:111
+msgid "Match #6 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:112
+msgid "Match #7 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:113
+msgid "Match #8 remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:114
+msgid "Any match remote code"
+msgstr ""
+
+#: .\gui\detail_win.py:115
+msgid "Line Tracker"
+msgstr ""
+
+#: .\gui\detail_win.py:118
+msgid "Any change"
+msgstr ""
+
+#: .\gui\detail_win.py:132
+msgid "Forward"
+msgstr ""
+
+#: .\gui\detail_win.py:133
+msgid "Stop"
+msgstr ""
+
+#: .\gui\detail_win.py:134
+msgid "Backward"
+msgstr ""
+
+#: .\gui\detail_win.py:136
+msgid "Forward right"
+msgstr ""
+
+#: .\gui\detail_win.py:137
+msgid "Forward left"
+msgstr ""
+
+#: .\gui\detail_win.py:138
+msgid "Back left"
+msgstr ""
+
+#: .\gui\detail_win.py:139
+msgid "Back right"
+msgstr ""
+
+#: .\gui\detail_win.py:140
+msgid "Spin right"
+msgstr ""
+
+#: .\gui\detail_win.py:141
+msgid "Spin left"
+msgstr ""
+
+#: .\gui\detail_win.py:142
+msgid "Turn right 90"
+msgstr ""
+
+#: .\gui\detail_win.py:143
+msgid "Turn left 90"
+msgstr ""
+
+#: .\gui\detail_win.py:413
 msgid "Constant"
 msgstr ""
 
-#: .\gui\detail_win.py:412
+#: .\gui\detail_win.py:415
 msgid "Variable"
 msgstr ""
 
-#: .\gui\detail_win.py:540 .\gui\detail_win.py:793 .\gui\detail_win.py:942
-#: .\gui\detail_win.py:1025 .\gui\detail_win.py:1134 .\gui\detail_win.py:1230
-#: .\gui\detail_win.py:1429 .\gui\detail_win.py:1521 .\gui\detail_win.py:1610
-#: .\gui\detail_win.py:1704 .\gui\detail_win.py:1801 .\gui\detail_win.py:1931
-#: .\gui\detail_win.py:2071 .\gui\detail_win.py:2156 .\gui\detail_win.py:2236
-#: .\gui\detail_win.py:2490 .\gui\detail_win.py:2773 .\gui\detail_win.py:2991
-#: .\gui\detail_win.py:3201 .\gui\detail_win.py:3533 .\gui\detail_win.py:3643
-#: .\gui\detail_win.py:3814 .\gui\detail_win.py:4007
+#: .\gui\detail_win.py:543 .\gui\detail_win.py:711 .\gui\detail_win.py:796
+#: .\gui\detail_win.py:945 .\gui\detail_win.py:1028 .\gui\detail_win.py:1137
+#: .\gui\detail_win.py:1233 .\gui\detail_win.py:1432 .\gui\detail_win.py:1524
+#: .\gui\detail_win.py:1613 .\gui\detail_win.py:1707 .\gui\detail_win.py:1804
+#: .\gui\detail_win.py:1934 .\gui\detail_win.py:2074 .\gui\detail_win.py:2159
+#: .\gui\detail_win.py:2239 .\gui\detail_win.py:2493 .\gui\detail_win.py:2776
+#: .\gui\detail_win.py:2994 .\gui\detail_win.py:3204 .\gui\detail_win.py:3536
+#: .\gui\detail_win.py:3646 .\gui\detail_win.py:3817 .\gui\detail_win.py:4010
 msgid "%s - properties:"
 msgstr ""
 
-#: .\gui\detail_win.py:545
+#: .\gui\detail_win.py:548
 msgid "Musical note"
 msgstr ""
 
-#: .\gui\detail_win.py:545
+#: .\gui\detail_win.py:548
 msgid "Tune string"
 msgstr ""
 
-#: .\gui\detail_win.py:593
+#: .\gui\detail_win.py:596
 msgid "mMncCdDefFgGaAborR"
 msgstr ""
 
-#: .\gui\detail_win.py:663
+#: .\gui\detail_win.py:666
 msgid "Too many tune notes/durations (max 16 pairs)."
 msgstr ""
 
-#: .\gui\detail_win.py:676
+#: .\gui\detail_win.py:679
 msgid "Tune string is not valid. Check help for the format."
 msgstr ""
 
-#: .\gui\detail_win.py:801
+#: .\gui\detail_win.py:803 .\gui\detail_win.py:808 .\gui\detail_win.py:812
+msgid "Off"
+msgstr ""
+
+#: .\gui\detail_win.py:803 .\gui\detail_win.py:808 .\gui\detail_win.py:812
+msgid "On"
+msgstr ""
+
+#: .\gui\detail_win.py:804
 msgid "LED Setting:"
 msgstr ""
 
-#: .\gui\detail_win.py:806
+#: .\gui\detail_win.py:809
 msgid "IR Transmitter obstacle detection:"
 msgstr ""
 
-#: .\gui\detail_win.py:810
+#: .\gui\detail_win.py:813
 msgid "Line Tracker LED:"
 msgstr ""
 
-#: .\gui\detail_win.py:959
+#: .\gui\detail_win.py:962
 msgid "Sleep:"
 msgstr ""
 
-#: .\gui\detail_win.py:1031 .\gui\detail_win.py:1139
+#: .\gui\detail_win.py:1034 .\gui\detail_win.py:1142
 msgid "Character to send:"
 msgstr ""
 
-#: .\gui\detail_win.py:1284 .\gui\detail_win.py:1452 .\gui\detail_win.py:1545
-#: .\gui\detail_win.py:1634
+#: .\gui\detail_win.py:1287 .\gui\detail_win.py:1455 .\gui\detail_win.py:1548
+#: .\gui\detail_win.py:1637
 msgid "Variable to read into:"
 msgstr ""
 
-#: .\gui\detail_win.py:1422
+#: .\gui\detail_win.py:1425
 msgid "Left light level"
 msgstr ""
 
-#: .\gui\detail_win.py:1422
+#: .\gui\detail_win.py:1425
 msgid "Right light level"
 msgstr ""
 
-#: .\gui\detail_win.py:1423
+#: .\gui\detail_win.py:1426
 msgid "Line light level"
 msgstr ""
 
-#: .\gui\detail_win.py:1451
+#: .\gui\detail_win.py:1454
 msgid "Sense:"
 msgstr ""
 
-#: .\gui\detail_win.py:1515
+#: .\gui\detail_win.py:1518
 msgid "Left drive"
 msgstr ""
 
-#: .\gui\detail_win.py:1515
+#: .\gui\detail_win.py:1518
 msgid "Right drive"
 msgstr ""
 
-#: .\gui\detail_win.py:1544
+#: .\gui\detail_win.py:1547
 msgid "Read distance from:"
 msgstr ""
 
-#: .\gui\detail_win.py:1709
+#: .\gui\detail_win.py:1712
 msgid "Seconds:"
 msgstr ""
 
-#: .\gui\detail_win.py:1710
+#: .\gui\detail_win.py:1713
 msgid "Range is 0.00 to 327.67 seconds."
 msgstr ""
 
-#: .\gui\detail_win.py:1827
+#: .\gui\detail_win.py:1830
 msgid "Max time to wait:"
 msgstr ""
 
-#: .\gui\detail_win.py:1828
+#: .\gui\detail_win.py:1831
 msgid "Variable for pulse time:"
 msgstr ""
 
-#: .\gui\detail_win.py:1829
+#: .\gui\detail_win.py:1832
 msgid "Range for times is 0.00 to 327.67"
 msgstr ""
 
-#: .\gui\detail_win.py:1961
+#: .\gui\detail_win.py:1964
 msgid "Output Level:"
 msgstr ""
 
-#: .\gui\detail_win.py:1964
+#: .\gui\detail_win.py:1967
 msgid "Duration:"
 msgstr ""
 
-#: .\gui\detail_win.py:2076
+#: .\gui\detail_win.py:2079
 msgid "Plus 1 to variable"
 msgstr ""
 
-#: .\gui\detail_win.py:2078
+#: .\gui\detail_win.py:2081
 msgid "Minus 1 from variable"
 msgstr ""
 
-#: .\gui\detail_win.py:2171
+#: .\gui\detail_win.py:2174
 msgid "Value:"
 msgstr ""
 
-#: .\gui\detail_win.py:2172
+#: .\gui\detail_win.py:2175
 msgid "Variable to set:"
 msgstr ""
 
-#: .\gui\detail_win.py:2251
+#: .\gui\detail_win.py:2254
 msgid "Copy data from variable:"
 msgstr ""
 
-#: .\gui\detail_win.py:2252
+#: .\gui\detail_win.py:2255
 msgid "Copy data to variable:"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "0"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "1"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "10"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "2"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "3"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "4"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "5"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "6"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "7"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "8"
 msgstr ""
 
-#: .\gui\detail_win.py:2516
+#: .\gui\detail_win.py:2519
 msgid "9"
 msgstr ""
 
-#: .\gui\detail_win.py:2519
+#: .\gui\detail_win.py:2522
 msgid "Unlimited - Forever"
 msgstr ""
 
-#: .\gui\detail_win.py:2520
+#: .\gui\detail_win.py:2523
 msgid "Millimetres - in 2.5mm steps"
 msgstr ""
 
-#: .\gui\detail_win.py:2521
+#: .\gui\detail_win.py:2524
 msgid "Inches - in inch steps"
 msgstr ""
 
-#: .\gui\detail_win.py:2522
+#: .\gui\detail_win.py:2525
 msgid "Degrees - in 7.5 degree steps"
 msgstr ""
 
-#: .\gui\detail_win.py:2523
+#: .\gui\detail_win.py:2526
 msgid "Raw - in 1/48th of rotation"
 msgstr ""
 
-#: .\gui\detail_win.py:2553
+#: .\gui\detail_win.py:2556
 msgid "Direction:"
 msgstr ""
 
-#: .\gui\detail_win.py:2554
+#: .\gui\detail_win.py:2557
 msgid "Speed:"
 msgstr ""
 
-#: .\gui\detail_win.py:2557 .\gui\detail_win.py:2558
+#: .\gui\detail_win.py:2560 .\gui\detail_win.py:2561
 msgid "Distance:"
 msgstr ""
 
-#: .\gui\detail_win.py:2703
+#: .\gui\detail_win.py:2706
 msgid "ERROR -- motor pair didn't give a command for every command!"
 msgstr ""
 
-#: .\gui\detail_win.py:2830
+#: .\gui\detail_win.py:2788
+msgid "Basic"
+msgstr ""
+
+#: .\gui\detail_win.py:2788
+msgid "Divide"
+msgstr ""
+
+#: .\gui\detail_win.py:2788
+msgid "Logical"
+msgstr ""
+
+#: .\gui\detail_win.py:2833
 msgid "Variable:"
 msgstr ""
 
-#: .\gui\detail_win.py:2833 .\gui\detail_win.py:2837 .\gui\detail_win.py:2842
+#: .\gui\detail_win.py:2836 .\gui\detail_win.py:2840 .\gui\detail_win.py:2845
 msgid "Operation:"
 msgstr ""
 
-#: .\gui\detail_win.py:2834 .\gui\detail_win.py:2838 .\gui\detail_win.py:2843
+#: .\gui\detail_win.py:2837 .\gui\detail_win.py:2841 .\gui\detail_win.py:2846
 msgid "Argument:"
 msgstr ""
 
-#: .\gui\detail_win.py:3004
+#: .\gui\detail_win.py:3007
 msgid "HELLO WORLD"
 msgstr ""
 
-#: .\gui\detail_win.py:3026
+#: .\gui\detail_win.py:3029
 msgid "String:"
 msgstr ""
 
-#: .\gui\detail_win.py:3027 .\gui\detail_win.py:3036
+#: .\gui\detail_win.py:3030 .\gui\detail_win.py:3039
 msgid "Row / Column:"
 msgstr ""
 
-#: .\gui\detail_win.py:3030
+#: .\gui\detail_win.py:3033
 msgid "Character:"
 msgstr ""
 
-#: .\gui\detail_win.py:3033
+#: .\gui\detail_win.py:3036
 msgid "Number:"
 msgstr ""
 
-#: .\gui\detail_win.py:3039
+#: .\gui\detail_win.py:3042
 msgid "Command:"
 msgstr ""
 
-#: .\gui\detail_win.py:3207
+#: .\gui\detail_win.py:3210
 msgid "Dark"
 msgstr ""
 
-#: .\gui\detail_win.py:3207
+#: .\gui\detail_win.py:3210
 msgid "Light"
 msgstr ""
 
-#: .\gui\detail_win.py:3218
+#: .\gui\detail_win.py:3221
 msgid "Set pixel to:"
 msgstr ""
 
-#: .\gui\detail_win.py:3219
+#: .\gui\detail_win.py:3222
 msgid "At row / column:"
 msgstr ""
 
-#: .\gui\detail_win.py:3526
+#: .\gui\detail_win.py:3529
 msgid "good_choices:"
 msgstr ""
 
-#: .\gui\detail_win.py:3550
+#: .\gui\detail_win.py:3553
 msgid "Event happens:"
 msgstr ""
 
-#: .\gui\detail_win.py:3647
+#: .\gui\detail_win.py:3650
 msgid "Seconds pass"
 msgstr ""
 
-#: .\gui\detail_win.py:3647 .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+#: .\gui\detail_win.py:3650 .\gui\detail_win.py:3821 .\gui\detail_win.py:4014
 msgid "Event happens"
 msgstr ""
 
-#: .\gui\detail_win.py:3667
+#: .\gui\detail_win.py:3670
 msgid "Wait Until:"
 msgstr ""
 
-#: .\gui\detail_win.py:3818
+#: .\gui\detail_win.py:3821
 msgid "Loop forever"
 msgstr ""
 
-#: .\gui\detail_win.py:3818 .\gui\detail_win.py:4011
+#: .\gui\detail_win.py:3821 .\gui\detail_win.py:4014
 msgid "Test passes"
 msgstr ""
 
-#: .\gui\detail_win.py:3840
+#: .\gui\detail_win.py:3843
 msgid "Loop UNTIL:"
 msgstr ""
 
-#: .\gui\detail_win.py:4035
+#: .\gui\detail_win.py:4038
 msgid "Take the top (True) branch if:"
 msgstr ""
 
-#: .\gui\detail_win.py:4045
+#: .\gui\detail_win.py:4048
 msgid "Else take the bottom (False) branch."
 msgstr ""
 
