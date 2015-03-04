@@ -101,7 +101,7 @@ sdata_changed = True
 
 
 class Bricworks_frame(wx.Frame):
-    def __init__(self, parent, title=_(u"Edison EdWare")):
+    def __init__(self, parent, title=_(u"Edison EdWare"), language=u"en"):
         wx.Frame.__init__(self, parent, title=title, size=(800, 500))
 
         self.save_path = gui.paths.get_store_dir()
@@ -157,8 +157,8 @@ class Bricworks_frame(wx.Frame):
 
 
         # get data
-        gui.device_data.load_devices()
-        gui.bric_data.load_brics()
+        gui.device_data.load_devices(language)
+        gui.bric_data.load_brics(language)
         gui.win_data.clear_pdata()
 
         self.splitters = []
@@ -921,17 +921,35 @@ def main(file_path=None):
 #----------------------------------------------------------------------
 
 class BricworksApp(wx.App):
+    
+    # List of supported language
+    # key is the 2 international letter of the language
+    # the tuple contains the language name (in its own language) and the wxPython constant
+    supported_lang = {
+            u"en" : (u"English", wx.LANGUAGE_ENGLISH),
+            u"fr" : (u"Français", wx.LANGUAGE_FRENCH)
+        }
+        
     def OnInit(self):
         # work around for Python stealing "_"
         sys.displayhook = _displayHook
         
         # self.appName = "EdWare"
         
+        language = u"en"
+        import locale
+        if sys.platform == 'win32':
+            import ctypes
+            windll = ctypes.windll.kernel32
+            language = locale.windows_locale[windll.GetUserDefaultUILanguage()][:2]
+        else:
+            language = locale.getdefaultlocale()[0][:2]
+        
         self.locale = None
         wx.Locale.AddCatalogLookupPathPrefix('locale')
-        self.updateLanguage(u"fr")
+        self.updateLanguage(language)
         
-        self.frame = Bricworks_frame(None)
+        self.frame = Bricworks_frame(None, language=self.language)
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         self.frame.Update()
@@ -961,14 +979,9 @@ class BricworksApp(wx.App):
         
         """
         # if an unsupported language is requested default to English
-        supported_lang = {
-                u"en" : wx.LANGUAGE_ENGLISH,
-                u"fr" : wx.LANGUAGE_FRENCH,
-                u"de" : wx.LANGUAGE_GERMAN
-            }
         
-        if lang in supported_lang:
-            selLang = supported_lang[lang]
+        if lang in BricworksApp.supported_lang:
+            selLang = BricworksApp.supported_lang[lang][0]
         else:
             selLang = wx.LANGUAGE_ENGLISH
             
